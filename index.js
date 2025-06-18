@@ -1,8 +1,22 @@
 let button = document.getElementById("myButton");
 let isBlack = false;
 
-button.addEventListener("click", function() {
-  if (isBlack === true) {
+// Transiciones suaves para todos los elementos que cambian color
+const smoothElements = [
+  document.body,
+  document.querySelector("header"),
+  document.querySelector("footer"),
+  document.querySelector(".navbar"),
+  ...document.querySelectorAll(".card")
+];
+
+smoothElements.forEach(el => {
+  el.style.transition = "background-color 0.5s ease, color 0.5s ease";
+});
+
+button.addEventListener("click", function () {
+  if (isBlack) {
+    // Modo claro
     document.body.style.background = '#ccc';
     document.body.style.color = "black";
     button.innerHTML = '<i class="bi bi-moon-fill"></i>';
@@ -23,6 +37,7 @@ button.addEventListener("click", function() {
 
     isBlack = false;
   } else {
+    // Modo oscuro
     document.body.style.background = 'black';
     document.body.style.color = '#ccc';
     button.innerHTML = '<i class="bi bi-sun-fill"></i>';
@@ -44,3 +59,4 @@ button.addEventListener("click", function() {
     isBlack = true;
   }
 });
+
