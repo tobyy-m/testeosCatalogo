@@ -18,7 +18,7 @@ function cargarImagen(imgElement, basePath, tipo) {
 function actualizarImagen() {
   const buzo = colorBuzo.value;
   const estampa = colorEstampa.value;
-  const basePath = `../imagenes/marte_${buzo}_${estampa}`;
+  const basePath = `../imagenes/luna_${buzo}_${estampa}`;
   cargarImagen(imgFront, basePath, "front");
   cargarImagen(imgBack, basePath, "back");
 }
