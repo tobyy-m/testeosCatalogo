@@ -18,7 +18,7 @@ function cargarImagen(imgElement, basePath, tipo) {
 function actualizarImagen() {
   const buzo = colorBuzo.value;
   const estampa = colorEstampa.value;
-  const basePath = `../imagenes/marte/marte_${buzo}_${estampa}`;
+  const basePath = `../imagenes/snipe/snipe_${buzo}_${estampa}`;
   cargarImagen(imgFront, basePath, "front");
   cargarImagen(imgBack, basePath, "back");
 }
@@ -26,14 +26,7 @@ function actualizarImagen() {
 // Actualiza las opciones del color de estampa según el color del buzo
 function actualizarOpcionesEstampa() {
   const buzo = colorBuzo.value;
-  let opciones = ["rojo", "violeta", "azul"];
-
-  if (buzo === "blanco") {
-    opciones.unshift("negro");
-  } else if (buzo === "negro") {
-    opciones.unshift("blanco");
-  }
-
+  let opciones = ["rojo", "azul","verde","naranja","celeste"];
   colorEstampa.innerHTML = ""; // limpiar
 
   opciones.forEach((color) => {
