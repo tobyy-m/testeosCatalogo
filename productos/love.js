@@ -15,8 +15,7 @@ function precargarImagen(src) {
 
 // Cargar imagen con fallback .jpg → .jpeg
 function cargarImagen(imgElement, basePath, tipo) {
-  const jpg = `${basePath}_${tipo}.jpg`;
-  const jpeg = `${basePath}_${tipo}.jpeg`;
+  const jpg = `${basePath}_${tipo}.webp`;
 
   const testImg = new Image();
   testImg.onload = () => {
