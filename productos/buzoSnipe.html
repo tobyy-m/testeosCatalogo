@@ -17,9 +17,14 @@
             transition: background-color 0.5s ease, color 0.5s ease;
         }
 
-        .product-img {
-            max-width: 100%;
-            height: auto;
+        
+        .fade-img {
+            opacity: 1;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .fade-img.hidden {
+            opacity: 0;
         }
     </style>
 </head>
@@ -48,11 +53,11 @@
                 <div id="carouselProducto" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img id="imgFront" src="../imagenes/snipe/snipe_negro_rojo_front.jpg" class="d-block w-100"
+                            <img id="imgFront" src="../imagenes/snipe_negro_rojo_front.webp" class="d-block w-100 fade-img"
                                 alt="Frente del buzo" style="border-radius: 3%;">
                         </div>
                         <div class="carousel-item">
-                            <img id="imgBack" src="../imagenes/snipe/snipe_negro_rojo_back.jpg" class="d-block w-100"
+                            <img id="imgBack" src="../imagenes/snipe_negro_rojo_back.webp" class="d-block w-100 fade-img"
                                 alt="Dorso del buzo" style="border-radius: 3%;">
                         </div>
                     </div>
@@ -80,10 +85,7 @@
                     <div class="mb-3">
                         <label for="colorEstampa" class="form-label">Color de la estampa</label>
                         <select class="form-select bg-light text-dark" id="colorEstampa">
-                            <option value="rojo">Rojo</option>
-                            <option value="violeta">Violeta</option>
-                            <option value="azul">Azul</option>
-                            <option value="blanco">Blanco</option>
+  
                         </select>
                     </div>
                 </form>

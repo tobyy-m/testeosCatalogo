@@ -5,7 +5,6 @@ const imgBack = document.getElementById("imgBack");
 
 let imagenesPrecargadas = {};
 
-// Precarga una imagen
 function precargarImagen(src) {
   if (imagenesPrecargadas[src]) return;
   const img = new Image();
@@ -13,23 +12,21 @@ function precargarImagen(src) {
   imagenesPrecargadas[src] = img;
 }
 
-// Cargar imagen con fallback .jpg → .jpeg
+// Cargar imagen .webp con fade
 function cargarImagen(imgElement, basePath, tipo) {
-  const jpg = `${basePath}_${tipo}.webp`;
+  const webp = `${basePath}_${tipo}.webp`;
 
-  const testImg = new Image();
-  testImg.onload = () => {
-    imgElement.src = jpg;
-    precargarImagen(jpg);
+  imgElement.classList.add("hidden"); // comienza fade out
+
+  const nuevaImg = new Image();
+  nuevaImg.onload = () => {
+    imgElement.src = webp;
+    precargarImagen(webp);
+    setTimeout(() => imgElement.classList.remove("hidden"), 50); // fade in
   };
-  testImg.onerror = () => {
-    imgElement.src = jpeg;
-    precargarImagen(jpeg);
-  };
-  testImg.src = jpg;
+  nuevaImg.src = webp;
 }
 
-// Actualiza las imágenes según la selección
 function actualizarImagen() {
   const buzo = colorBuzo.value;
   const estampa = colorEstampa.value;
@@ -38,19 +35,17 @@ function actualizarImagen() {
   cargarImagen(imgBack, basePath, "back");
 }
 
-// Actualiza las opciones del color de estampa
 function actualizarOpcionesEstampa() {
   const buzo = colorBuzo.value;
   let opciones = ["naranja", "amarillo", "azul"];
 
-  if (buzo === "negro") {
-    opciones.push("blanco");
-  } else if (buzo === "blanco") {
-    opciones.push("negro", "morado");
+  if (buzo === "blanco") {
+    opciones.unshift("negro", "morado");
+  } else if (buzo === "negro") {
+    opciones.unshift("blanco");
   }
 
   colorEstampa.innerHTML = "";
-
   opciones.forEach((color) => {
     const option = document.createElement("option");
     option.value = color;
@@ -61,7 +56,6 @@ function actualizarOpcionesEstampa() {
   actualizarImagen();
 }
 
-// Eventos
 colorBuzo.addEventListener("change", actualizarOpcionesEstampa);
 colorEstampa.addEventListener("change", actualizarImagen);
 
