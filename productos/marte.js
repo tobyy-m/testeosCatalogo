@@ -3,18 +3,34 @@ const colorEstampa = document.getElementById("colorEstampa");
 const imgFront = document.getElementById("imgFront");
 const imgBack = document.getElementById("imgBack");
 
-// Función para cargar imagen con fallback .jpg -> .jpeg
-function cargarImagen(imgElement, basePath, tipo) {
-  const jpgPath = `${basePath}_${tipo}.jpg`;
-  const jpegPath = `${basePath}_${tipo}.jpeg`;
+let imagenesPrecargadas = {};
 
-  const testImg = new Image();
-  testImg.onload = () => imgElement.src = jpgPath;
-  testImg.onerror = () => imgElement.src = jpegPath;
-  testImg.src = jpgPath;
+// Precarga una imagen en caché
+function precargarImagen(src) {
+  if (imagenesPrecargadas[src]) return;
+  const img = new Image();
+  img.src = src;
+  imagenesPrecargadas[src] = img;
 }
 
-// Actualiza las imágenes según buzo y estampa
+// Cargar imagen con fallback .jpg → .jpeg
+function cargarImagen(imgElement, basePath, tipo) {
+  const jpg = `${basePath}_${tipo}.jpg`;
+  const jpeg = `${basePath}_${tipo}.jpeg`;
+
+  const testImg = new Image();
+  testImg.onload = () => {
+    imgElement.src = jpg;
+    precargarImagen(jpg);
+  };
+  testImg.onerror = () => {
+    imgElement.src = jpeg;
+    precargarImagen(jpeg);
+  };
+  testImg.src = jpg;
+}
+
+// Actualiza las imágenes según selección
 function actualizarImagen() {
   const buzo = colorBuzo.value;
   const estampa = colorEstampa.value;
@@ -23,19 +39,16 @@ function actualizarImagen() {
   cargarImagen(imgBack, basePath, "back");
 }
 
-// Actualiza las opciones del color de estampa según el color del buzo
+// Actualiza opciones del color de estampa
 function actualizarOpcionesEstampa() {
   const buzo = colorBuzo.value;
-  let opciones = ["rojo", "violeta", "azul"];
+  let opciones = ["rojo", "azul", "violeta"];
 
-  if (buzo === "blanco") {
-    opciones.unshift("negro");
-  } else if (buzo === "negro") {
-    opciones.unshift("blanco");
-  }
+  // Si es blanco, agregar negro; si es negro, agregar blanco
+  if (buzo === "blanco") opciones.unshift("negro");
+  else if (buzo === "negro") opciones.unshift("blanco");
 
-  colorEstampa.innerHTML = ""; // limpiar
-
+  colorEstampa.innerHTML = "";
   opciones.forEach((color) => {
     const option = document.createElement("option");
     option.value = color;
@@ -43,51 +56,13 @@ function actualizarOpcionesEstampa() {
     colorEstampa.appendChild(option);
   });
 
-  actualizarImagen(); // recargar imagen al cambiar opciones
+  actualizarImagen(); // Cambiar imagen con la nueva estampa
 }
 
-// Eventos de cambio
+// Eventos
 colorBuzo.addEventListener("change", actualizarOpcionesEstampa);
 colorEstampa.addEventListener("change", actualizarImagen);
 
-// Ejecutar al cargar la página
 document.addEventListener("DOMContentLoaded", () => {
   actualizarOpcionesEstampa();
-});
-
-
-// 🌗 Modo claro/oscuro funcional
-const button = document.getElementById("myButton");
-let isDark = true;
-
-button?.addEventListener("click", () => {
-  isDark = !isDark;
-
-  document.body.classList.toggle("bg-light", !isDark);
-  document.body.classList.toggle("text-dark", !isDark);
-  document.body.classList.toggle("bg-dark", isDark);
-  document.body.classList.toggle("text-light", isDark);
-
-  const navbar = document.querySelector(".navbar");
-  navbar?.classList.toggle("bg-primary", !isDark);
-  navbar?.classList.toggle("bg-dark", isDark);
-
-  const footer = document.querySelector("footer");
-  footer?.classList.toggle("bg-dark", isDark);
-  footer?.classList.toggle("bg-primary", !isDark);
-  footer?.classList.toggle("text-light", isDark);
-  footer?.classList.toggle("text-white", !isDark);
-
-  const form = document.getElementById("formProducto");
-  form?.classList.toggle("bg-light", !isDark);
-  form?.classList.toggle("text-dark", !isDark);
-  form?.classList.toggle("bg-dark", isDark);
-  form?.classList.toggle("text-light", isDark);
-
-  // Cambiar ícono
-  button.innerHTML = isDark
-    ? '<i class="bi bi-sun-fill"></i>'
-    : '<i class="bi bi-moon-fill"></i>';
-  button.classList.toggle("btn-dark", isDark);
-  button.classList.toggle("btn-light", !isDark);
 });

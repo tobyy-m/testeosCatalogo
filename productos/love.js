@@ -5,7 +5,7 @@ const imgBack = document.getElementById("imgBack");
 
 let imagenesPrecargadas = {};
 
-// Precarga una imagen en caché
+// Precarga una imagen
 function precargarImagen(src) {
   if (imagenesPrecargadas[src]) return;
   const img = new Image();
@@ -30,25 +30,28 @@ function cargarImagen(imgElement, basePath, tipo) {
   testImg.src = jpg;
 }
 
-// Actualiza las imágenes según selección
+// Actualiza las imágenes según la selección
 function actualizarImagen() {
   const buzo = colorBuzo.value;
   const estampa = colorEstampa.value;
-  const basePath = `../imagenes/luna/luna_${buzo}_${estampa}`;
+  const basePath = `../imagenes/love/love_${buzo}_${estampa}`;
   cargarImagen(imgFront, basePath, "front");
   cargarImagen(imgBack, basePath, "back");
 }
 
-// Actualiza opciones del color de estampa
+// Actualiza las opciones del color de estampa
 function actualizarOpcionesEstampa() {
   const buzo = colorBuzo.value;
-  let opciones = ["rojo", "azul", "violeta"];
+  let opciones = ["naranja", "amarillo", "azul"];
 
-  // Si es blanco, agregar negro; si es negro, agregar blanco
-  if (buzo === "blanco") opciones.unshift("negro");
-  else if (buzo === "negro") opciones.unshift("blanco");
+  if (buzo === "negro") {
+    opciones.push("blanco");
+  } else if (buzo === "blanco") {
+    opciones.push("negro", "morado");
+  }
 
   colorEstampa.innerHTML = "";
+
   opciones.forEach((color) => {
     const option = document.createElement("option");
     option.value = color;
@@ -56,7 +59,7 @@ function actualizarOpcionesEstampa() {
     colorEstampa.appendChild(option);
   });
 
-  actualizarImagen(); // Cambiar imagen con la nueva estampa
+  actualizarImagen();
 }
 
 // Eventos
