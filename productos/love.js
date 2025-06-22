@@ -35,16 +35,17 @@ function actualizarImagen() {
   cargarImagen(imgBack, basePath, "back");
 }
 
+const opcionesPorColorBuzo = {
+  blanco: ["negro", "naranja", "azul","amarillo","morado","verde","rosa","celeste", "rojo", "pistacho"],
+  negro: ["blanco", "naranja", "azul","amarillo","verde","rosa","celeste", "rojo","arena", "pistacho"],
+  celeste: ["blanco","negro","rosa","rojo","arena","pistacho"], 
+};
+
 function actualizarOpcionesEstampa() {
   const buzo = colorBuzo.value;
-  let opciones = ["naranja", "amarillo", "azul"];
+  const opciones = opcionesPorColorBuzo[buzo] || [];
 
-  if (buzo === "blanco") {
-    opciones.unshift("negro", "morado");
-  } else if (buzo === "negro") {
-    opciones.unshift("blanco");
-  }
-
+  // Limpiar y rellenar el select
   colorEstampa.innerHTML = "";
   opciones.forEach((color) => {
     const option = document.createElement("option");
@@ -53,9 +54,8 @@ function actualizarOpcionesEstampa() {
     colorEstampa.appendChild(option);
   });
 
-  actualizarImagen();
+  actualizarImagen(); // actualiza con el primer color disponible
 }
-
 colorBuzo.addEventListener("change", actualizarOpcionesEstampa);
 colorEstampa.addEventListener("change", actualizarImagen);
 
