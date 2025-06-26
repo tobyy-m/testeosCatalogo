@@ -1,5 +1,4 @@
 const colorBuzo = document.getElementById("colorBuzo");
-const colorEstampa = document.getElementById("colorEstampa");
 const imgFront = document.getElementById("imgFront");
 const imgBack = document.getElementById("imgBack");
 
@@ -29,38 +28,15 @@ function cargarImagen(imgElement, basePath, tipo) {
 
 function actualizarImagen() {
   const buzo = colorBuzo.value;
-  const estampa = colorEstampa.value;
-  const basePath = `../imagenes/love/love_${buzo}_${estampa}`;
+  const basePath = `../imagenes/duki/duki_${buzo}`;
   cargarImagen(imgFront, basePath, "front");
   cargarImagen(imgBack, basePath, "back");
 }
 
-const opcionesPorColorBuzo = {
-  blanco: ["negro", "naranja", "azul","amarillo","morado","verde","rosa","celeste", "rojo", "pistacho"],
-  negro: ["blanco", "naranja", "azul","amarillo","verde","rosa","celeste", "rojo","arena", "pistacho"],
-  celeste: ["blanco","negro","rojo","arena","pistacho"], 
-};
-
-function actualizarOpcionesEstampa() {
-  const buzo = colorBuzo.value;
-  const opciones = opcionesPorColorBuzo[buzo] || [];
-
-  // Limpiar y rellenar el select
-  colorEstampa.innerHTML = "";
-  opciones.forEach((color) => {
-    const option = document.createElement("option");
-    option.value = color;
-    option.textContent = color.charAt(0).toUpperCase() + color.slice(1);
-    colorEstampa.appendChild(option);
-  });
-
-  actualizarImagen(); // actualiza con el primer color disponible
-}
-colorBuzo.addEventListener("change", actualizarOpcionesEstampa);
-colorEstampa.addEventListener("change", actualizarImagen);
-
+// Eventos
+colorBuzo.addEventListener("change", actualizarImagen);
 document.addEventListener("DOMContentLoaded", () => {
-  actualizarOpcionesEstampa();
+  actualizarImagen();
 });
 
 
