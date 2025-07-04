@@ -1,5 +1,4 @@
 const colorBuzo = document.getElementById("colorBuzo");
-const colorEstampa = document.getElementById("colorEstampa");
 const imgFront = document.getElementById("imgFront");
 const imgBack = document.getElementById("imgBack");
 
@@ -14,7 +13,7 @@ function precargarImagen(src) {
 
 // Cargar imagen .webp con fade
 function cargarImagen(imgElement, basePath, tipo) {
-  const webp = `${basePath}_${tipo}.webp`;
+  const webp = `${basePath}_${tipo}.jpg`;
 
   imgElement.classList.add("hidden"); // comienza fade out
 
@@ -29,36 +28,17 @@ function cargarImagen(imgElement, basePath, tipo) {
 
 function actualizarImagen() {
   const buzo = colorBuzo.value;
-  const estampa = colorEstampa.value;
-  const basePath = `../imagenes/snipe/snipe_${buzo}_${estampa}`;
+  const basePath = `../imagenes/pinkFloyd/pinkFloyd_${buzo}`;
   cargarImagen(imgFront, basePath, "front");
   cargarImagen(imgBack, basePath, "back");
 }
 
-// Actualiza opciones del color de estampa
-function actualizarOpcionesEstampa() {
-  const buzo = colorBuzo.value;
-  let opciones = ["rojo", "azul", "verde", "naranja", "celeste"];
-
-
-  colorEstampa.innerHTML = "";
-  opciones.forEach((color) => {
-    const option = document.createElement("option");
-    option.value = color;
-    option.textContent = color.charAt(0).toUpperCase() + color.slice(1);
-    colorEstampa.appendChild(option);
-  });
-
-  actualizarImagen(); // Cambiar imagen con la nueva estampa
-}
-
 // Eventos
-colorBuzo.addEventListener("change", actualizarOpcionesEstampa);
-colorEstampa.addEventListener("change", actualizarImagen);
-
+colorBuzo.addEventListener("change", actualizarImagen);
 document.addEventListener("DOMContentLoaded", () => {
-  actualizarOpcionesEstampa();
+  actualizarImagen();
 });
+
 
 // 🌗 Modo claro/oscuro funcional
 const button = document.getElementById("myButton");
