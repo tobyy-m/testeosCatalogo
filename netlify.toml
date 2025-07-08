@@ -4,15 +4,10 @@
   
 # Configuración de Edge Functions
 
-# Opción 1: Número de pedido secuencial con Netlify Blobs (RECOMENDADO)
+# Edge function para número de pedido secuencial con Netlify Blobs
 [[edge_functions]]
   function = "numero-pedido"
   path = "/api/numero-pedido"
-
-# Opción 2: Número de pedido basado en timestamp (ALTERNATIVA SIMPLE)
-[[edge_functions]]
-  function = "numero-pedido-simple"
-  path = "/api/numero-pedido-simple"
 
 # Headers para seguridad
 [[headers]]

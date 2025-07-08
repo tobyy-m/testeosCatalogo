@@ -176,5 +176,139 @@ main {
 }
 
 /* =================================== */
-/* FIN BARRA DE NOTIFICACIÓN */
+/* ESTILOS MEJORADOS PARA PRECIO DE PRODUCTOS */
+/* =================================== */
+
+.precio-producto {
+    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+    border-radius: 20px;
+    padding: 25px 20px;
+    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.precio-producto:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(40, 167, 69, 0.4);
+}
+
+.precio-producto::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.precio-producto:hover::before {
+    left: 100%;
+}
+
+.precio-numero {
+    font-size: 2.8rem;
+    font-weight: 900;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    margin: 0;
+    line-height: 1;
+    position: relative;
+    z-index: 2;
+}
+
+.precio-etiqueta {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.95rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-top: 8px;
+    position: relative;
+    z-index: 2;
+}
+
+.precio-oferta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.precio-antes {
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: line-through;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.precio-descuento {
+    background: #dc3545;
+    color: white;
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: bold;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.precio-envio {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 12px;
+    padding: 10px 15px;
+    margin-top: 15px;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.precio-envio i {
+    font-size: 1rem;
+    opacity: 0.9;
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+    .precio-producto {
+        padding: 20px 15px;
+        margin-bottom: 25px;
+    }
+    
+    .precio-numero {
+        font-size: 2.4rem;
+    }
+    
+    .precio-etiqueta {
+        font-size: 0.9rem;
+    }
+}
+
+/* Tema oscuro - ajustes para mejor contraste */
+body.dark-theme .precio-producto {
+    background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+    box-shadow: 0 8px 25px rgba(25, 135, 84, 0.4);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+body.dark-theme .precio-producto:hover {
+    box-shadow: 0 12px 35px rgba(25, 135, 84, 0.5);
+}
+
 /* =================================== */

@@ -279,8 +279,3 @@ window.mostrarResumenCheckout = mostrarResumenCheckout;
 document.addEventListener("DOMContentLoaded", () => {
   actualizarContador();
 });
-
-console.log('Funciones del carrito cargadas:');
-console.log('- modificarCantidadModal:', typeof window.modificarCantidadModal);
-console.log('- modificarCantidadCheckout:', typeof window.modificarCantidadCheckout);
-console.log('- mostrarCarritoEnModal:', typeof window.mostrarCarritoEnModal);
