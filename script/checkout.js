@@ -249,9 +249,7 @@ document.addEventListener("DOMContentLoaded", function() {
 async function enviarEmailClienteSeguro(formData) {
     try {
         const datos = Object.fromEntries(formData);
-        
-        // Solo enviar confirmación al cliente (FormSubmit envía al email del cliente directamente)
-        const response = await fetch(`https://formsubmit.co/ajax/${datos.email}`, {
+        const response = await fetch(`https://formsubmit.co/ajax/04d5aa1c6d8ee6f49d90a60e29616bcf`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
