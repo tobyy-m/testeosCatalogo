@@ -362,6 +362,8 @@
                 </div>
             </div>
         </section>
+        
+        <!-- Modal Carrito -->
         <div class="modal fade" id="modalCarrito" tabindex="-1" aria-labelledby="modalCarritoLabel" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content bg-dark text-white">
@@ -376,6 +378,34 @@
                     <div class="modal-footer d-flex flex-column">
                         <div id="carrito-total" class="mb-2 fs-5"></div>
                         <a href="checkout.html" class="btn btn-success w-100">Finalizar compra</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Confirmar Eliminación -->
+        <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="modalEliminarLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-dark text-light">
+                    <div class="modal-header border-secondary">
+                        <h5 class="modal-title" id="modalEliminarLabel">
+                            <i class="bi bi-exclamation-triangle text-warning me-2"></i>
+                            Confirmar Eliminación
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <p class="mb-3">¿Estás seguro de que quieres eliminar este producto?</p>
+                        <div id="producto-eliminar" class="d-flex align-items-center justify-content-center gap-3 p-3 bg-secondary bg-opacity-25 rounded">
+                            <!-- Aquí se cargará la información del producto -->
+                        </div>
+                    </div>
+                    <div class="modal-footer border-secondary">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger" id="confirmar-eliminar">
+                            <i class="bi bi-trash me-2"></i>
+                            Eliminar Producto
+                        </button>
                     </div>
                 </div>
             </div>

@@ -55,7 +55,7 @@
                         <i class="bi bi-bag-check me-2"></i>
                         Finalizar Compra
                     </h2>
-                    
+
                 </div>
             </div>
         </div>
@@ -84,25 +84,27 @@
                         <p class="section-description">
                             Completa el formulario para procesar tu pedido
                         </p>
-                        
-                        <form name="pedido" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success.html" class="checkout-form">
+
+                        <form name="pedido" method="POST" data-netlify="true" netlify-honeypot="bot-field"
+                            action="/success.html" class="checkout-form" netlify>
                             <!-- Campo oculto para Netlify Forms -->
                             <input type="hidden" name="form-name" value="pedido">
                             <!-- Campo honeypot para evitar spam -->
                             <div style="display: none;">
                                 <input name="bot-field">
                             </div>
-                            
+
                             <!-- Campos del pedido -->
                             <input type="hidden" name="productos" id="productos-input">
                             <input type="hidden" name="numeroPedido" id="numero-pedido-input">
                             <input type="hidden" name="resumenCompleto" id="resumen-completo-input">
                             <input type="hidden" name="emailCliente" id="email-cliente-input">
-                            
+
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
+                                        <input type="text" class="form-control" id="nombre" name="nombre"
+                                            placeholder="Nombre" required>
                                         <label for="nombre">
                                             <i class="bi bi-person me-2"></i>Nombre
                                         </label>
@@ -110,7 +112,8 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido" required>
+                                        <input type="text" class="form-control" id="apellido" name="apellido"
+                                            placeholder="Apellido" required>
                                         <label for="apellido">
                                             <i class="bi bi-person me-2"></i>Apellido
                                         </label>
@@ -121,7 +124,8 @@
                             <div class="row">
                                 <div class="col-md-6 mb-3">
                                     <div class="form-floating">
-                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                                        <input type="email" class="form-control" id="email" name="email"
+                                            placeholder="Email" required>
                                         <label for="email">
                                             <i class="bi bi-envelope me-2"></i>Email
                                         </label>
@@ -129,7 +133,8 @@
                                 </div>
                                 <div class="col-md-6 mb-3">
                                     <div class="form-floating">
-                                        <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" required>
+                                        <input type="tel" class="form-control" id="telefono" name="telefono"
+                                            placeholder="Teléfono" required>
                                         <label for="telefono">
                                             <i class="bi bi-telephone me-2"></i>Teléfono
                                         </label>
@@ -145,7 +150,8 @@
                             <div class="row">
                                 <div class="col-md-8 mb-3">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="calle" name="calle" placeholder="Calle" required>
+                                        <input type="text" class="form-control" id="calle" name="calle"
+                                            placeholder="Calle" required>
                                         <label for="calle">
                                             <i class="bi bi-signpost me-2"></i>Calle
                                         </label>
@@ -153,7 +159,8 @@
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="numero" name="numero" placeholder="Número" required>
+                                        <input type="text" class="form-control" id="numero" name="numero"
+                                            placeholder="Número" required>
                                         <label for="numero">
                                             <i class="bi bi-hash me-2"></i>Número
                                         </label>
@@ -164,7 +171,8 @@
                             <div class="row">
                                 <div class="col-md-8 mb-3">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="localidad" name="localidad" placeholder="Localidad" required>
+                                        <input type="text" class="form-control" id="localidad" name="localidad"
+                                            placeholder="Localidad" required>
                                         <label for="localidad">
                                             <i class="bi bi-building me-2"></i>Localidad
                                         </label>
@@ -172,7 +180,8 @@
                                 </div>
                                 <div class="col-md-4 mb-3">
                                     <div class="form-floating">
-                                        <input type="text" class="form-control" id="cp" name="cp" placeholder="Código Postal" required>
+                                        <input type="text" class="form-control" id="cp" name="cp"
+                                            placeholder="Código Postal" required>
                                         <label for="cp">
                                             <i class="bi bi-mailbox me-2"></i>CP
                                         </label>
@@ -207,11 +216,32 @@
                                 </span>
                             </button>
                         </form>
+                        <!-- Formulario oculto para que Netlify lo detecte -->
+                        <form name="pedido" netlify netlify-honeypot="bot-field" hidden>
+                            <input type="text" name="nombre">
+                            <input type="text" name="apellido">
+                            <input type="email" name="email">
+                            <input type="tel" name="telefono">
+                            <input type="text" name="calle">
+                            <input type="text" name="numero">
+                            <input type="text" name="localidad">
+                            <input type="text" name="cp">
+                            <select name="pago">
+                                <option value="efectivo">Efectivo</option>
+                                <option value="transferencia">Transferencia Bancaria</option>
+                            </select>
+                            <input type="text" name="productos">
+                            <input type="text" name="numeroPedido">
+                            <input type="text" name="resumenCompleto">
+                            <input type="text" name="emailCliente">
+                        </form>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <!-- Modal Carrito -->
     <div class="modal fade" id="modalCarrito" tabindex="-1" aria-labelledby="modalCarritoLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content bg-dark text-white">
@@ -226,6 +256,36 @@
                 <div class="modal-footer d-flex flex-column">
                     <div id="carrito-total" class="mb-2 fs-5"></div>
                     <a href="checkout.html" class="btn btn-success w-100">Finalizar compra</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Confirmar Eliminación -->
+    <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="modalEliminarLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-light">
+                <div class="modal-header border-secondary">
+                    <h5 class="modal-title" id="modalEliminarLabel">
+                        <i class="bi bi-exclamation-triangle text-warning me-2"></i>
+                        Confirmar Eliminación
+                    </h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <p class="mb-3">¿Estás seguro de que quieres eliminar este producto?</p>
+                    <div id="producto-eliminar"
+                        class="d-flex align-items-center justify-content-center gap-3 p-3 bg-secondary bg-opacity-25 rounded">
+                        <!-- Aquí se cargará la información del producto -->
+                    </div>
+                </div>
+                <div class="modal-footer border-secondary">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-danger" id="confirmar-eliminar">
+                        <i class="bi bi-trash me-2"></i>
+                        Eliminar Producto
+                    </button>
                 </div>
             </div>
         </div>

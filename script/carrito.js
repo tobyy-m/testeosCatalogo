@@ -99,7 +99,7 @@ function mostrarCarritoEnModal() {
           <button class="quantity-btn" onclick="modificarCantidadModal(${i}, -1)" ${p.cantidad <= 1 ? 'disabled' : ''}>-</button>
           <span class="quantity-number">${p.cantidad}</span>
           <button class="quantity-btn" onclick="modificarCantidadModal(${i}, 1)">+</button>
-          <button class="remove-btn" data-index="${i}" data-context="modal" title="Eliminar producto">×</button>
+          <button class="remove-btn btn btn-danger btn-sm" onclick="mostrarModalEliminar(${i}, 'modal')" title="Eliminar producto">×</button>
         </div>
         <div class="item-info">
           <div class="item-name">${p.nombre}</div>
@@ -140,7 +140,7 @@ function mostrarResumenCheckout() {
           <button class="quantity-btn" onclick="modificarCantidadCheckout(${i}, -1)" ${p.cantidad <= 1 ? 'disabled' : ''}>-</button>
           <span class="quantity-number">${p.cantidad}</span>
           <button class="quantity-btn" onclick="modificarCantidadCheckout(${i}, 1)">+</button>
-          <button class="remove-btn" data-index="${i}" data-context="checkout" title="Eliminar producto">×</button>
+          <button class="remove-btn btn btn-danger btn-sm" onclick="mostrarModalEliminar(${i}, 'checkout')" title="Eliminar producto">×</button>
         </div>
         <div class="item-info">
           <div class="item-name">${p.nombre}</div>
@@ -189,19 +189,6 @@ function modificarCantidadCheckout(index, cambio) {
   mostrarResumenCheckout(); // Actualizar solo el resumen
 }
 
-function eliminarProductoCheckout(index) {
-  if (confirm('¿Estás seguro de que quieres eliminar este producto del carrito?')) {
-    const carrito = obtenerCarrito();
-    carrito.splice(index, 1);
-    guardarCarrito(carrito);
-    mostrarCarritoEnModal();
-    actualizarContador();
-    if (document.getElementById("resumen-carrito")) {
-      mostrarResumenCheckout();
-    }
-  }
-}
-
 // Funciones específicas para el modal
 function modificarCantidadModal(index, cambio) {
   const carrito = obtenerCarrito();
@@ -211,19 +198,6 @@ function modificarCantidadModal(index, cambio) {
   mostrarCarritoEnModal();
   if (document.getElementById("resumen-carrito")) {
     mostrarResumenCheckout();
-  }
-}
-
-function eliminarProductoModal(index) {
-  if (confirm('¿Estás seguro de que quieres eliminar este producto del carrito?')) {
-    const carrito = obtenerCarrito();
-    carrito.splice(index, 1);
-    guardarCarrito(carrito);
-    mostrarCarritoEnModal();
-    actualizarContador();
-    if (document.getElementById("resumen-carrito")) {
-      mostrarResumenCheckout();
-    }
   }
 }
 
@@ -295,36 +269,11 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
-// Event listener global para capturar clicks en botones de eliminar sin usar onclick
-document.addEventListener('click', function (e) {
-  if (e.target.classList.contains('remove-btn')) {
-    e.preventDefault();
-    e.stopPropagation();
-
-    const index = parseInt(e.target.dataset.index);
-    const context = e.target.dataset.context;
-
-    if (isNaN(index) || !context) {
-      console.error("Botón de eliminar sin datos válidos");
-      return;
-    }
-
-    if (context === 'modal') {
-      eliminarProductoModal(index);
-    } else if (context === 'checkout') {
-      eliminarProductoCheckout(index);
-    } else {
-      console.warn("Contexto desconocido en botón de eliminar:", context);
-    }
-  }
-});
-
 // Hacer funciones globales
 window.modificarCantidadModal = modificarCantidadModal;
-window.eliminarProductoModal = eliminarProductoModal;
 window.modificarCantidadCheckout = modificarCantidadCheckout;
-window.eliminarProductoCheckout = eliminarProductoCheckout;
 window.mostrarCarritoEnModal = mostrarCarritoEnModal;
+window.mostrarResumenCheckout = mostrarResumenCheckout;
 
 // Inicializar contador al cargar la página
 document.addEventListener("DOMContentLoaded", () => {
@@ -332,7 +281,6 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 console.log('Funciones del carrito cargadas:');
-console.log('- eliminarProductoModal:', typeof window.eliminarProductoModal);
-console.log('- eliminarProductoCheckout:', typeof window.eliminarProductoCheckout);
 console.log('- modificarCantidadModal:', typeof window.modificarCantidadModal);
 console.log('- modificarCantidadCheckout:', typeof window.modificarCantidadCheckout);
+console.log('- mostrarCarritoEnModal:', typeof window.mostrarCarritoEnModal);

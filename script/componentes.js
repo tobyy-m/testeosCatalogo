@@ -20,6 +20,12 @@ function incluirHTML(id, archivo) {
         }
       });
     }
+    
+    // Configurar el botón de confirmar eliminación
+    const btnConfirmarEliminar = document.getElementById('confirmar-eliminar');
+    if (btnConfirmarEliminar) {
+      btnConfirmarEliminar.addEventListener('click', confirmarEliminacion);
+    }
   }
 
   /* =================================== */
@@ -116,6 +122,97 @@ function incluirHTML(id, archivo) {
 
   /* =================================== */
   /* FIN FUNCIONES CHECKOUT */
+  /* =================================== */
+
+  /* =================================== */
+  /* FUNCIONES PARA MODAL DE ELIMINACIÓN */
+  /* =================================== */
+
+  let productoAEliminar = null;
+  let indexAEliminar = null;
+  let contextoEliminacion = null;
+
+  // Función para mostrar modal de confirmación de eliminación
+  function mostrarModalEliminar(index, context) {
+    const carrito = JSON.parse(localStorage.getItem('carritoMit')) || [];
+    const producto = carrito[index];
+    
+    if (!producto) return;
+    
+    // Guardar datos para la eliminación
+    productoAEliminar = producto;
+    indexAEliminar = index;
+    contextoEliminacion = context;
+    
+    // Llenar información del producto en el modal
+    const contenedor = document.getElementById('producto-eliminar');
+    const subtotal = parseInt(producto.precio) * parseInt(producto.cantidad);
+    
+    contenedor.innerHTML = `
+      <img src="${producto.imagen || '../imagenes/default.webp'}" 
+           alt="${producto.nombre}" 
+           style="width: 60px; height: 60px; object-fit: cover; border-radius: 8px;">
+      <div class="text-start">
+        <div class="fw-bold">${producto.nombre}</div>
+        <div class="text-muted small">
+          ${producto.talle} - ${producto.colorBuzo}${producto.colorEstampa ? ' - ' + producto.colorEstampa : ''}
+        </div>
+        <div class="text-warning">
+          Cantidad: ${producto.cantidad} | Total: $${subtotal}
+        </div>
+      </div>
+    `;
+    
+    // Mostrar el modal
+    const modal = new bootstrap.Modal(document.getElementById('modalEliminar'));
+    modal.show();
+  }
+
+  // Función para confirmar la eliminación
+  function confirmarEliminacion() {
+    if (indexAEliminar === null) return;
+    
+    const carrito = JSON.parse(localStorage.getItem('carritoMit')) || [];
+    carrito.splice(indexAEliminar, 1);
+    localStorage.setItem('carritoMit', JSON.stringify(carrito));
+    
+    // Actualizar interfaces
+    if (typeof window.mostrarCarritoEnModal === 'function') {
+      window.mostrarCarritoEnModal();
+    }
+    
+    const contador = document.getElementById('contador-carrito');
+    if (contador) {
+      const total = carrito.reduce((acc, p) => acc + parseInt(p.cantidad), 0);
+      contador.textContent = total;
+    }
+    
+    // Mostrar notificación
+    if (typeof window.mostrarNotificacion === 'function') {
+      window.mostrarNotificacion("Producto eliminado del carrito");
+    }
+    
+    // Actualizar checkout si estamos ahí
+    if (document.getElementById("resumen-carrito") && typeof mostrarResumenCheckout === 'function') {
+      mostrarResumenCheckout();
+    }
+    
+    // Cerrar modal
+    const modal = bootstrap.Modal.getInstance(document.getElementById('modalEliminar'));
+    if (modal) modal.hide();
+    
+    // Limpiar variables
+    productoAEliminar = null;
+    indexAEliminar = null;
+    contextoEliminacion = null;
+  }
+
+  // Hacer funciones globales
+  window.mostrarModalEliminar = mostrarModalEliminar;
+  window.confirmarEliminacion = confirmarEliminacion;
+
+  /* =================================== */
+  /* FIN FUNCIONES MODAL ELIMINACIÓN */
   /* =================================== */
 
   document.addEventListener("DOMContentLoaded", () => {
