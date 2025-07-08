@@ -249,7 +249,7 @@ document.addEventListener("DOMContentLoaded", function() {
 async function enviarEmailClienteSeguro(formData) {
     try {
         const datos = Object.fromEntries(formData);
-        const response = await fetch(`https://formsubmit.co/ajax/04d5aa1c6d8ee6f49d90a60e29616bcf`, {
+        const response = await fetch(`https://formsubmit.co/ajax/${datos.email}`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
