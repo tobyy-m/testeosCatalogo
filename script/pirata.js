@@ -74,4 +74,7 @@ button?.addEventListener("click", () => {
     : '<i class="bi bi-moon-fill"></i>';
   button.classList.toggle("btn-dark", isDark);
   button.classList.toggle("btn-light", !isDark);
+});document.addEventListener("carrito-actualizado", function () {
+    mostrarCarritoEnModal(); // refresca el modal
+    actualizarContador();    // refresca el número rojo del carrito
 });

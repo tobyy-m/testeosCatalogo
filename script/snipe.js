@@ -33,15 +33,6 @@ function actualizarImagen() {
   const basePath = `../imagenes/snipe/snipe_${buzo}_${estampa}`;
   cargarImagen(imgFront, basePath, "front");
   cargarImagen(imgBack, basePath, "back");
-  extraSegunColor();
-}
-
-function extraSegunColor() {
-  const color = colorBuzo.value;
-  const extra = document.getElementById("extra");
-  if (color == "negro") {
-    extra.textContent = "*El color final puede ser ligeramente diferente al de la imagen. Consultar Disponibilidad.";
-  }
 }
 
 // Actualiza opciones del color de estampa
@@ -103,4 +94,9 @@ button?.addEventListener("click", () => {
     : '<i class="bi bi-moon-fill"></i>';
   button.classList.toggle("btn-dark", isDark);
   button.classList.toggle("btn-light", !isDark);
+});
+
+document.addEventListener("carrito-actualizado", function () {
+    mostrarCarritoEnModal(); // refresca el modal
+    actualizarContador();    // refresca el número rojo del carrito
 });

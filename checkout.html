@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description"
+        content="MIT ESTAMPADOS - Estampados y sublimaciones de alta calidad. Buzos personalizados con diseños únicos de Marte, Snipe, Luna, Love, Duki, Lali, Pink Floyd y más.">
+    <meta name="keywords" content="estampados, sublimaciones, buzos personalizados, MIT estampados, ropa personalizada">
+    <title>MIT ESTAMPADOS - Estampados y sublimaciones</title>
+
+    <!-- CSS crítico cargado de forma síncrona para evitar FOUC -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/checkO.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+
+    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">MIT ESTAMPADOS</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#diseños">Diseños</a></li>
+                </ul>
+                <button id="myButton" class="btn btn-light ms-3"><i class="bi bi-moon-fill"></i></button>
+                <button type="button" class="btn btn-outline-light position-relative" data-bs-toggle="modal"
+                    data-bs-target="#modalCarrito">
+                    🛒
+                    <span id="contador-carrito"
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        0
+                        <span class="visually-hidden">productos en carrito</span>
+                    </span>
+                </button>
+
+            </div>
+        </div>
+    </nav>
+
+    <header class="checkout-header">
+        <div class="container">
+            <div class="row align-items-center justify-content-center text-center">
+                <div class="col-lg-8">
+                    <h1 class="display-4 fw-bold mb-3">
+                        <i class="bi bi-shop me-3"></i>
+                        MIT ESTAMPADOS
+                    </h1>
+                    <h2 class="h3 text-light opacity-75">
+                        <i class="bi bi-bag-check me-2"></i>
+                        Finalizar Compra
+                    </h2>
+                    
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="checkout-main">
+        <div class="container my-5">
+            <div class="row">
+                <!-- Resumen del pedido -->
+                <div class="col-lg-6 mb-4">
+                    <div class="checkout-section">
+                        <h2 class="section-title">
+                            <i class="bi bi-cart-check me-2"></i>
+                            Resumen del Pedido
+                        </h2>
+                        <div id="resumen-carrito" class="order-summary"></div>
+                    </div>
+                </div>
+
+                <!-- Formulario de datos -->
+                <div class="col-lg-6">
+                    <div class="checkout-section">
+                        <h2 class="section-title">
+                            <i class="bi bi-person-fill me-2"></i>
+                            Tus Datos
+                        </h2>
+                        <p class="section-description">
+                            Completa el formulario para procesar tu pedido
+                        </p>
+                        
+                        <form name="pedido" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success.html" class="checkout-form">
+                            <!-- Campo oculto para Netlify Forms -->
+                            <input type="hidden" name="form-name" value="pedido">
+                            <!-- Campo honeypot para evitar spam -->
+                            <div style="display: none;">
+                                <input name="bot-field">
+                            </div>
+                            
+                            <!-- Campos del pedido -->
+                            <input type="hidden" name="productos" id="productos-input">
+                            <input type="hidden" name="numeroPedido" id="numero-pedido-input">
+                            <input type="hidden" name="resumenCompleto" id="resumen-completo-input">
+                            <input type="hidden" name="emailCliente" id="email-cliente-input">
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" required>
+                                        <label for="nombre">
+                                            <i class="bi bi-person me-2"></i>Nombre
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="apellido" name="apellido" placeholder="Apellido" required>
+                                        <label for="apellido">
+                                            <i class="bi bi-person me-2"></i>Apellido
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-floating">
+                                        <input type="email" class="form-control" id="email" name="email" placeholder="Email" required>
+                                        <label for="email">
+                                            <i class="bi bi-envelope me-2"></i>Email
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-floating">
+                                        <input type="tel" class="form-control" id="telefono" name="telefono" placeholder="Teléfono" required>
+                                        <label for="telefono">
+                                            <i class="bi bi-telephone me-2"></i>Teléfono
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h5 class="form-section-title">
+                                <i class="bi bi-geo-alt me-2"></i>
+                                Dirección de Envío
+                            </h5>
+
+                            <div class="row">
+                                <div class="col-md-8 mb-3">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="calle" name="calle" placeholder="Calle" required>
+                                        <label for="calle">
+                                            <i class="bi bi-signpost me-2"></i>Calle
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="numero" name="numero" placeholder="Número" required>
+                                        <label for="numero">
+                                            <i class="bi bi-hash me-2"></i>Número
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-8 mb-3">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="localidad" name="localidad" placeholder="Localidad" required>
+                                        <label for="localidad">
+                                            <i class="bi bi-building me-2"></i>Localidad
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <div class="form-floating">
+                                        <input type="text" class="form-control" id="cp" name="cp" placeholder="Código Postal" required>
+                                        <label for="cp">
+                                            <i class="bi bi-mailbox me-2"></i>CP
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <h5 class="form-section-title">
+                                <i class="bi bi-credit-card me-2"></i>
+                                Método de Pago
+                            </h5>
+
+                            <div class="mb-4">
+                                <div class="form-floating">
+                                    <select class="form-select" id="pago" name="pago" required>
+                                        <option value="">Selecciona un método</option>
+                                        <option value="efectivo">💵 Efectivo</option>
+                                        <option value="transferencia">🏦 Transferencia Bancaria</option>
+                                    </select>
+                                    <label for="pago">
+                                        <i class="bi bi-wallet me-2"></i>Medio de Pago
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-lg w-100 confirm-btn">
+                                <i class="bi bi-check-circle me-2"></i>
+                                Confirmar Pedido
+                                <span class="btn-spinner d-none">
+                                    <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+                                    Procesando...
+                                </span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <div class="modal fade" id="modalCarrito" tabindex="-1" aria-labelledby="modalCarritoLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content bg-dark text-white">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalCarritoLabel">Tu Carrito</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                        aria-label="Cerrar"></button>
+                </div>
+                <div class="modal-body" id="carrito-contenido">
+                    <!-- Aquí se renderizan los productos del carrito -->
+                </div>
+                <div class="modal-footer d-flex flex-column">
+                    <div id="carrito-total" class="mb-2 fs-5"></div>
+                    <a href="checkout.html" class="btn btn-success w-100">Finalizar compra</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>Contacto: <a href="https://www.instagram.com/mit.estampados/">@mit.estampados</a> | &copy; 2025 MIT
+            Estampados</p>
+    </footer>
+
+    <!-- Scripts cargados al final para mejor performance -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="script/componentes.js" defer></script>
+    <script src="script/carrito.js" defer></script>
+    <script src="script/checkout.js" defer></script>
+</body>
+
+</html>
