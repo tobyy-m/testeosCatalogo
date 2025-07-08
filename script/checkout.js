@@ -202,15 +202,9 @@ document.addEventListener("DOMContentLoaded", function() {
             // Enviar formulario
             const formData = new FormData(form);
             
-            fetch('/', {
-                method: 'POST',
-                headers: { "Content-Type": "application/x-www-form-urlencoded" },
-                body: new URLSearchParams(formData).toString()
-            })
+            // Enviar pedido usando Netlify Functions + SMTP2GO
+            enviarPedidoNetlify(formData)
             .then(() => {
-                // Enviar email de confirmación al cliente (ULTRA SEGURO)
-                enviarEmailClienteSeguro(formData);
-                
                 // Vaciar carrito
                 if (typeof window.vaciarCarrito === 'function') {
                     window.vaciarCarrito();
@@ -219,9 +213,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
                 
                 if (typeof window.mostrarNotificacion === 'function') {
-                    window.mostrarNotificacion("¡Compra realizada con éxito! - El cliente recibirá un email de confirmación");
+                    window.mostrarNotificacion("¡Compra realizada con éxito! Recibirás un email de confirmación");
                 } else {
-                    alert("¡Compra realizada con éxito! El cliente recibirá un email de confirmación.");
+                    alert("¡Compra realizada con éxito! Recibirás un email de confirmación.");
                 }
                 
                 form.reset();
@@ -243,64 +237,39 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-// Función ULTRA SEGURA para enviar email de confirmación AL CLIENTE
-// FormSubmit: 100% gratis, sin límites, sin credenciales visibles
-// SOLO envía confirmación al cliente (Netlify Forms ya guarda tu copia)
-async function enviarEmailClienteSeguro(formData) {
+// Función para enviar pedido con Netlify Functions + SMTP2GO
+async function enviarPedidoNetlify(formData) {
     try {
         const datos = Object.fromEntries(formData);
-        const response = await fetch(`https://formsubmit.co/ajax/5258143f5384bf121bb077a3094b9e58`, {
+        
+        const response = await fetch('/.netlify/functions/send-email', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Accept': 'application/json'
             },
             body: JSON.stringify({
-                // Email de confirmación directamente al cliente
-                name: `MIT ESTAMPADOS`,
-                email: 'noreply@mitestampados.com',
-                subject: `🎉 Confirmación de Pedido #${datos.numeroPedido} - MIT ESTAMPADOS`,
-                message: `Hola ${datos.nombre},
-
-¡Gracias por tu compra en MIT ESTAMPADOS!
-
-Tu pedido #${datos.numeroPedido} ha sido recibido exitosamente.
-
-� RESUMEN DEL PEDIDO:
-${datos.resumenCompleto}
-
-📍 DIRECCIÓN DE ENTREGA:
-${datos.calle} ${datos.numero}, ${datos.localidad}
-
-💳 MÉTODO DE PAGO: ${datos.pago === 'efectivo' ? 'Efectivo' : 'Transferencia Bancaria'}
-
-� PRÓXIMOS PASOS:
-• Nos contactaremos en las próximas 24 horas
-• Confirmaremos detalles de entrega y pago
-• Te notificaremos cuando esté listo
-
-¡Gracias por elegir MIT ESTAMPADOS!
-Instagram: @mit.estampados
-
----
-Este es un email automático de confirmación.`,
-                
-                // Configuración (SIN credenciales visibles)
-                _template: 'table',
-                _captcha: 'false'
+                clienteEmail: datos.email,
+                clienteNombre: datos.nombre,
+                numeroPedido: datos.numeroPedido,
+                resumenCompleto: datos.resumenCompleto,
+                direccion: `${datos.calle} ${datos.numero}, ${datos.localidad}`,
+                metodoPago: datos.pago === 'efectivo' ? 'Efectivo' : 'Transferencia Bancaria',
+                telefono: datos.telefono || 'No proporcionado'
             })
         });
 
         if (!response.ok) {
-            throw new Error(`Error HTTP: ${response.status}`);
+            const errorData = await response.json();
+            throw new Error(`Error HTTP: ${response.status} - ${errorData.message || 'Error desconocido'}`);
         }
 
-        console.log('✅ Email enviado exitosamente');
+        const result = await response.json();
+        console.log('✅ Email enviado exitosamente:', result);
         return { success: true };
 
     } catch (error) {
         console.error('❌ Error enviando email:', error);
-        // No mostrar error al usuario - el pedido ya se procesó
+        throw error;
     }
 }
 
