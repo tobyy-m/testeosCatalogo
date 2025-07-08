@@ -128,9 +128,9 @@ function incluirHTML(id, archivo) {
   /* FUNCIONES PARA MODAL DE ELIMINACIÓN */
   /* =================================== */
 
-  let productoAEliminar = null;
-  let indexAEliminar = null;
-  let contextoEliminacion = null;
+  let componentesProductoAEliminar = null;
+  let componentesIndexAEliminar = null;
+  let componentesContextoEliminacion = null;
 
   // Función para mostrar modal de confirmación de eliminación
   function mostrarModalEliminar(index, context) {
@@ -140,9 +140,9 @@ function incluirHTML(id, archivo) {
     if (!producto) return;
     
     // Guardar datos para la eliminación
-    productoAEliminar = producto;
-    indexAEliminar = index;
-    contextoEliminacion = context;
+    componentesProductoAEliminar = producto;
+    componentesIndexAEliminar = index;
+    componentesContextoEliminacion = context;
     
     // Llenar información del producto en el modal
     const contenedor = document.getElementById('producto-eliminar');
@@ -170,10 +170,10 @@ function incluirHTML(id, archivo) {
 
   // Función para confirmar la eliminación
   function confirmarEliminacion() {
-    if (indexAEliminar === null) return;
+    if (componentesIndexAEliminar === null) return;
     
     const carrito = JSON.parse(localStorage.getItem('carritoMit')) || [];
-    carrito.splice(indexAEliminar, 1);
+    carrito.splice(componentesIndexAEliminar, 1);
     localStorage.setItem('carritoMit', JSON.stringify(carrito));
     
     // Actualizar interfaces
@@ -202,14 +202,17 @@ function incluirHTML(id, archivo) {
     if (modal) modal.hide();
     
     // Limpiar variables
-    productoAEliminar = null;
-    indexAEliminar = null;
-    contextoEliminacion = null;
+    componentesProductoAEliminar = null;
+    componentesIndexAEliminar = null;
+    componentesContextoEliminacion = null;
   }
 
   // Hacer funciones globales
   window.mostrarModalEliminar = mostrarModalEliminar;
   window.confirmarEliminacion = confirmarEliminacion;
+  window.obtenerNumeroPedido = obtenerNumeroPedido;
+  window.generarResumenPedido = generarResumenPedido;
+  window.vaciarCarrito = vaciarCarrito;
 
   /* =================================== */
   /* FIN FUNCIONES MODAL ELIMINACIÓN */
