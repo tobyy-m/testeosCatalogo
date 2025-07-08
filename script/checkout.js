@@ -167,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function() {
     // Envío del formulario
     const form = document.querySelector('form[name="pedido"]');
     if (form) {
-        form.addEventListener('submit', function (e) {
+        form.addEventListener('submit', async function (e) {
             e.preventDefault();
             
             const carrito = JSON.parse(localStorage.getItem('carritoMit')) || [];
@@ -181,8 +181,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 return;
             }
             
-            // Generar número de pedido
-            const numeroPedido = window.obtenerNumeroPedido();
+            // Generar número de pedido GLOBAL (async)
+            let numeroPedido;
+            try {
+                numeroPedido = await window.obtenerNumeroPedido();
+            } catch (error) {
+                console.error('Error obteniendo número de pedido:', error);
+                // Fallback local en caso de error crítico
+                const timestamp = Date.now();
+                numeroPedido = `#E${timestamp.toString().slice(-6)}`;
+            }
             
             // Generar resumen
             const resumenCompleto = window.generarResumenPedido ? window.generarResumenPedido(carrito, numeroPedido) : `Pedido ${numeroPedido}`;
@@ -256,20 +264,67 @@ function generarPDF(numeroPedido, carrito) {
     const grisTexto = [108, 117, 125];
     const verde = [40, 167, 69];
     
-    // Header
+    // Header con logo
     doc.setFillColor(...azulPrimario);
     doc.rect(0, 0, 210, 25, 'F');
     
-    doc.setTextColor(255, 255, 255);
-    doc.setFontSize(20);
-    doc.setFont(undefined, 'bold');
-    doc.text('MIT ESTAMPADOS', 20, 17);
+    // Intentar cargar el logo PNG
+    const logo = new Image();
+    logo.crossOrigin = 'anonymous';
     
-    doc.setFontSize(12);
-    doc.setFont(undefined, 'normal');
-    doc.text('Comprobante de Pedido', 140, 17);
+    logo.onload = function() {
+        try {
+            // Agregar logo al PDF
+            doc.addImage(logo, 'PNG', 15, 8, 30, 10);
+            
+            // Texto del header
+            doc.setTextColor(255, 255, 255);
+            doc.setFontSize(16);
+            doc.setFont(undefined, 'bold');
+            doc.text('MIT ESTAMPADOS', 50, 17);
+            
+            // Continuar con el resto del PDF
+            continuarGenerandoPDF();
+        } catch (error) {
+            console.warn('No se pudo cargar el logo, usando fallback:', error);
+            generarPDFSinLogo();
+        }
+    };
     
-    // Información del pedido
+    logo.onerror = function() {
+        console.warn('Error cargando logo, usando fallback');
+        generarPDFSinLogo();
+    };
+    
+    // Intentar cargar el logo
+    logo.src = 'imagenes/logo mit.png';
+    
+    // Función auxiliar para continuar generando el PDF con logo
+    function continuarGenerandoPDF() {
+        doc.setFontSize(12);
+        doc.setFont(undefined, 'normal');
+        doc.text('Comprobante de Pedido', 140, 17);
+        
+        completarPDF();
+    }
+    
+    // Función auxiliar para generar PDF sin logo (fallback)
+    function generarPDFSinLogo() {
+        doc.setTextColor(255, 255, 255);
+        doc.setFontSize(16);
+        doc.setFont(undefined, 'bold');
+        doc.text('🎽 MIT ESTAMPADOS', 20, 17);
+        
+        doc.setFontSize(12);
+        doc.setFont(undefined, 'normal');
+        doc.text('Comprobante de Pedido', 140, 17);
+        
+        completarPDF();
+    }
+    
+    // Función para completar el PDF
+    function completarPDF() {
+        // Información del pedido
     doc.setTextColor(0, 0, 0);
     doc.setFontSize(16);
     doc.setFont(undefined, 'bold');
@@ -404,6 +459,7 @@ function generarPDF(numeroPedido, carrito) {
     
     // Descargar el PDF
     doc.save(`MIT_ESTAMPADOS_Pedido_${numeroPedido}.pdf`);
+    }
 }
 
 // Funciones globales

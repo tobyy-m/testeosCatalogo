@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,500;1,500&display=swap');
+
+#mitNav {
+    font-family: 'Noto Serif', serif;
+}
+
 body,
 .card,
 header,

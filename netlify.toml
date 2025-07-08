@@ -1,0 +1,32 @@
+# Configuración de Netlify para MIT ESTAMPADOS
+[build]
+  publish = "."
+  
+# Configuración de Edge Functions
+
+# Opción 1: Número de pedido secuencial con Netlify Blobs (RECOMENDADO)
+[[edge_functions]]
+  function = "numero-pedido"
+  path = "/api/numero-pedido"
+
+# Opción 2: Número de pedido basado en timestamp (ALTERNATIVA SIMPLE)
+[[edge_functions]]
+  function = "numero-pedido-simple"
+  path = "/api/numero-pedido-simple"
+
+# Headers para seguridad
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Headers específicos para la API
+[[headers]]
+  for = "/api/*"
+  [headers.values]
+    Access-Control-Allow-Origin = "*"
+    Access-Control-Allow-Methods = "GET, POST, PUT, DELETE, OPTIONS"
+    Access-Control-Allow-Headers = "Content-Type, Authorization"

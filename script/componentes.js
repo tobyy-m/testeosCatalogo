@@ -66,12 +66,37 @@ function incluirHTML(id, archivo) {
   /* FUNCIONES PARA CHECKOUT Y PEDIDOS */
   /* =================================== */
 
-  // Función para obtener y generar número de pedido
-  function obtenerNumeroPedido() {
-    const ultimoNumero = localStorage.getItem('ultimoNumeroPedido') || '0000';
-    const nuevoNumero = (parseInt(ultimoNumero) + 1).toString().padStart(4, '0');
-    localStorage.setItem('ultimoNumeroPedido', nuevoNumero);
-    return `#${nuevoNumero}`;
+  // Función para obtener número de pedido GLOBAL desde el servidor
+  async function obtenerNumeroPedido() {
+    try {
+      // Intentar obtener número desde el servidor (Edge Function)
+      const response = await fetch('/api/numero-pedido', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data.success) {
+          return data.numeroPedido;
+        } else {
+          console.warn('Servidor retornó número de fallback:', data.numeroPedido);
+          return data.numeroPedido;
+        }
+      } else {
+        throw new Error(`Error HTTP: ${response.status}`);
+      }
+    } catch (error) {
+      console.error('Error obteniendo número de pedido del servidor:', error);
+      
+      // Fallback: generar número local basado en timestamp
+      const timestamp = Date.now();
+      const numeroFallback = `#L${timestamp.toString().slice(-6)}`;
+      console.warn('Usando número de pedido local como fallback:', numeroFallback);
+      return numeroFallback;
+    }
   }
 
   // Función para vaciar el carrito
