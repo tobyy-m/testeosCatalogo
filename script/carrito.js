@@ -25,16 +25,12 @@ function agregarAlCarrito(producto) {
   guardarCarrito(carrito);
   mostrarCarritoEnModal();
   
-  /* =================================== */
-  /* REEMPLAZAR ALERT CON NOTIFICACIÓN - APLICAR ESTE CAMBIO A TODOS LOS PRODUCTOS */
-  /* =================================== */
-  // Usar la nueva notificación en lugar del alert
+  // Usar notificación en lugar del alert
   if (typeof window.mostrarNotificacion === 'function') {
     window.mostrarNotificacion("¡Producto agregado al carrito con éxito!");
   } else {
     alert("Producto agregado al carrito"); // Fallback si no está disponible
   }
-  /* =================================== */
 }
 
 function eliminarProducto(index) {
@@ -201,15 +197,13 @@ function modificarCantidadModal(index, cambio) {
   }
 }
 
-// Event listeners para checkout
+// Event listeners consolidados
 document.addEventListener("DOMContentLoaded", function () {
   actualizarContador();
   mostrarResumenCheckout();
-
-  // Aplicar tema oscuro si está activo
   aplicarTemaCheckout();
 
-  // Agregar animación al formulario de checkout
+  // Formulario de checkout
   const form = document.querySelector('form[name="pedido"]');
   if (form) {
     form.addEventListener('submit', function (e) {
@@ -223,7 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Validación en tiempo real de los campos
+  // Validación en tiempo real
   const inputs = document.querySelectorAll('.form-control, .form-select');
   inputs.forEach(input => {
     input.addEventListener('blur', function () {
@@ -236,31 +230,16 @@ document.addEventListener("DOMContentLoaded", function () {
       }
     });
   });
-});
 
-// Función para aplicar tema en checkout
-function aplicarTemaCheckout() {
-  // Verificar si el tema oscuro está activo
-  const isBodyDark = document.body.style.background === "black" ||
-    document.body.style.backgroundColor === "black";
-
-  if (isBodyDark) {
-    console.log("Tema oscuro aplicado al checkout");
-  }
-}
-
-// Escuchar cambios en el botón de tema
-document.addEventListener("DOMContentLoaded", function () {
+  // Botón de tema
   const themeButton = document.getElementById("myButton");
   if (themeButton) {
     themeButton.addEventListener("click", function () {
       setTimeout(aplicarTemaCheckout, 100);
     });
   }
-});
 
-// Event listener para Bootstrap modal
-document.addEventListener("DOMContentLoaded", function () {
+  // Modal del carrito
   const modalCarrito = document.getElementById('modalCarrito');
   if (modalCarrito) {
     modalCarrito.addEventListener('show.bs.modal', function () {
@@ -269,13 +248,15 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 });
 
+// Función para aplicar tema en checkout
+function aplicarTemaCheckout() {
+  // Verificar si el tema oscuro está activo
+  const isBodyDark = document.body.style.background === "black" ||
+    document.body.style.backgroundColor === "black";
+}
+
 // Hacer funciones globales
 window.modificarCantidadModal = modificarCantidadModal;
 window.modificarCantidadCheckout = modificarCantidadCheckout;
 window.mostrarCarritoEnModal = mostrarCarritoEnModal;
 window.mostrarResumenCheckout = mostrarResumenCheckout;
-
-// Inicializar contador al cargar la página
-document.addEventListener("DOMContentLoaded", () => {
-  actualizarContador();
-});

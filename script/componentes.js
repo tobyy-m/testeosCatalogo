@@ -29,7 +29,7 @@ function incluirHTML(id, archivo) {
   }
 
   /* =================================== */
-  /* FUNCIÓN DE NOTIFICACIÓN - AGREGAR ESTA FUNCIÓN A TODOS LOS PRODUCTOS */
+  /* FUNCIÓN DE NOTIFICACIÓN */
   /* =================================== */
   function mostrarNotificacion(mensaje, tipo = 'success') {
     // Crear elemento de notificación

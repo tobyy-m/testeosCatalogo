@@ -143,9 +143,6 @@ function confirmarEliminacion() {
   // Mostrar notificación (si está disponible)
   if (typeof window.mostrarNotificacion === 'function') {
     window.mostrarNotificacion("Producto eliminado del carrito");
-  } else {
-    // Fallback si no hay notificaciones
-    console.log("Producto eliminado del carrito");
   }
   
   // Cerrar modal

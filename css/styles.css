@@ -149,7 +149,7 @@ main {
 }
 
 /* =================================== */
-/* BARRA DE NOTIFICACIÓN - AGREGAR ESTE CSS A TODOS LOS PRODUCTOS */
+/* BARRA DE NOTIFICACIÓN */
 /* =================================== */
 .notification-bar {
     position: fixed;
@@ -231,37 +231,6 @@ main {
     margin-top: 8px;
     position: relative;
     z-index: 2;
-}
-
-.precio-oferta {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 10px;
-}
-
-.precio-antes {
-    color: rgba(255, 255, 255, 0.7);
-    text-decoration: line-through;
-    font-size: 1.4rem;
-    font-weight: 500;
-}
-
-.precio-descuento {
-    background: #dc3545;
-    color: white;
-    padding: 4px 12px;
-    border-radius: 15px;
-    font-size: 0.8rem;
-    font-weight: bold;
-    animation: pulse 2s infinite;
-}
-
-@keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
-    100% { transform: scale(1); }
 }
 
 .precio-envio {
