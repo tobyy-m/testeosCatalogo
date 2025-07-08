@@ -487,3 +487,66 @@ body[style*="background-color: black"] .section-description {
     width: 100%;
     margin-bottom: 0.5rem;
 }
+
+/* ============================= */
+/* MODAL DE CONFIRMACIÓN DE PEDIDO */
+/* ============================= */
+
+#modalConfirmacion .modal-content {
+    border: 2px solid #28a745;
+    box-shadow: 0 10px 30px rgba(40, 167, 69, 0.3);
+}
+
+#modalConfirmacion .modal-header {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    border-bottom: none;
+}
+
+#modalConfirmacion .modal-header .modal-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+#modalConfirmacion .modal-body {
+    padding: 2rem;
+}
+
+#modalConfirmacion .bi-bag-check-fill {
+    color: #28a745;
+    text-shadow: 0 2px 4px rgba(40, 167, 69, 0.3);
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+#modalConfirmacion #numero-pedido-confirmacion {
+    background: linear-gradient(135deg, #ffc107, #fd7e14);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-weight: bold;
+    text-shadow: 0 2px 4px rgba(255, 193, 7, 0.3);
+}
+
+#modalConfirmacion #descargar-comprobante {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    border: none;
+    font-weight: bold;
+    box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+    transition: all 0.3s ease;
+}
+
+#modalConfirmacion #descargar-comprobante:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(40, 167, 69, 0.4);
+}
+
+#modalConfirmacion #descargar-comprobante:active {
+    transform: translateY(0);
+}
+
+/* ============================= */

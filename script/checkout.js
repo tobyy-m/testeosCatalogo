@@ -199,34 +199,29 @@ document.addEventListener("DOMContentLoaded", function() {
             btnSpinner.classList.remove('d-none');
             submitBtn.disabled = true;
             
-            // Enviar formulario
-            const formData = new FormData(form);
-            
-            // Enviar pedido usando Netlify Functions + SMTP2GO
-            enviarPedidoNetlify(formData)
+            // Enviar formulario vía Netlify Forms
+            fetch('/', {
+                method: 'POST',
+                headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                body: new URLSearchParams(new FormData(form)).toString()
+            })
             .then(() => {
+                // Mostrar modal de confirmación
+                mostrarModalConfirmacion(numeroPedido, carrito);
+                
                 // Vaciar carrito
                 if (typeof window.vaciarCarrito === 'function') {
                     window.vaciarCarrito();
                 } else {
                     localStorage.removeItem('carritoMit');
                 }
-                
-                if (typeof window.mostrarNotificacion === 'function') {
-                    window.mostrarNotificacion("¡Compra realizada con éxito! Recibirás un email de confirmación");
-                } else {
-                    alert("¡Compra realizada con éxito! Recibirás un email de confirmación.");
-                }
-                
-                form.reset();
-                setTimeout(() => window.location.href = 'index.html', 3000);
             })
             .catch((error) => {
                 console.error('Error:', error);
                 if (typeof window.mostrarNotificacion === 'function') {
-                    window.mostrarNotificacion("Error al procesar el pedido", "error");
+                    window.mostrarNotificacion("Error al enviar el pedido", "error");
                 } else {
-                    alert("Error al procesar el pedido.");
+                    alert("Error al enviar el pedido.");
                 }
             })
             .finally(() => {
@@ -237,40 +232,178 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
-// Función para enviar pedido con Netlify Functions + SMTP2GO
-async function enviarPedidoNetlify(formData) {
-    try {
-        const datos = Object.fromEntries(formData);
+// Función para mostrar modal de confirmación
+function mostrarModalConfirmacion(numeroPedido, carrito) {
+    // Actualizar número de pedido en el modal
+    document.getElementById('numero-pedido-confirmacion').textContent = `${numeroPedido}`;
+    
+    // Configurar botón de descarga
+    const btnDescargar = document.getElementById('descargar-comprobante');
+    btnDescargar.onclick = () => generarPDF(numeroPedido, carrito);
+    
+    // Mostrar modal
+    const modal = new bootstrap.Modal(document.getElementById('modalConfirmacion'));
+    modal.show();
+}
+
+// Función para generar PDF del comprobante
+function generarPDF(numeroPedido, carrito) {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+    
+    // Configuración de colores
+    const azulPrimario = [0, 123, 255];
+    const grisTexto = [108, 117, 125];
+    const verde = [40, 167, 69];
+    
+    // Header
+    doc.setFillColor(...azulPrimario);
+    doc.rect(0, 0, 210, 25, 'F');
+    
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(20);
+    doc.setFont(undefined, 'bold');
+    doc.text('MIT ESTAMPADOS', 20, 17);
+    
+    doc.setFontSize(12);
+    doc.setFont(undefined, 'normal');
+    doc.text('Comprobante de Pedido', 140, 17);
+    
+    // Información del pedido
+    doc.setTextColor(0, 0, 0);
+    doc.setFontSize(16);
+    doc.setFont(undefined, 'bold');
+    doc.text(`Pedido ${numeroPedido}`, 20, 40);
+    
+    doc.setFontSize(10);
+    doc.setFont(undefined, 'normal');
+    doc.setTextColor(...grisTexto);
+    doc.text(`Fecha: ${new Date().toLocaleDateString('es-AR')}`, 20, 48);
+    doc.text(`Hora: ${new Date().toLocaleTimeString('es-AR')}`, 20, 54);
+    
+    // Datos del cliente (si están disponibles)
+    const nombre = document.getElementById('nombre').value;
+    const email = document.getElementById('email').value;
+    const telefono = document.getElementById('telefono').value;
+    
+    if (nombre) {
+        doc.setTextColor(0, 0, 0);
+        doc.setFontSize(12);
+        doc.setFont(undefined, 'bold');
+        doc.text('Datos del Cliente:', 20, 70);
         
-        const response = await fetch('/.netlify/functions/send-email', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify({
-                clienteEmail: datos.email,
-                clienteNombre: datos.nombre,
-                numeroPedido: datos.numeroPedido,
-                resumenCompleto: datos.resumenCompleto,
-                direccion: `${datos.calle} ${datos.numero}, ${datos.localidad}`,
-                metodoPago: datos.pago === 'efectivo' ? 'Efectivo' : 'Transferencia Bancaria',
-                telefono: datos.telefono || 'No proporcionado'
-            })
-        });
-
-        if (!response.ok) {
-            const errorData = await response.json();
-            throw new Error(`Error HTTP: ${response.status} - ${errorData.message || 'Error desconocido'}`);
+        doc.setFontSize(10);
+        doc.setFont(undefined, 'normal');
+        doc.setTextColor(...grisTexto);
+        doc.text(`Nombre: ${nombre} ${document.getElementById('apellido').value || ''}`, 20, 78);
+        doc.text(`Email: ${email}`, 20, 84);
+        doc.text(`Teléfono: ${telefono}`, 20, 90);
+        
+        const calle = document.getElementById('calle').value;
+        const numero = document.getElementById('numero').value;
+        const localidad = document.getElementById('localidad').value;
+        const metodoPago = document.getElementById('pago').value;
+        
+        if (calle) {
+            doc.text(`Dirección: ${calle} ${numero}, ${localidad}`, 20, 96);
         }
-
-        const result = await response.json();
-        console.log('✅ Email enviado exitosamente:', result);
-        return { success: true };
-
-    } catch (error) {
-        console.error('❌ Error enviando email:', error);
-        throw error;
+        if (metodoPago) {
+            const pagoTexto = metodoPago === 'efectivo' ? 'Efectivo' : 'Transferencia Bancaria';
+            doc.text(`Método de Pago: ${pagoTexto}`, 20, 102);
+        }
     }
+    
+    // Productos
+    doc.setTextColor(0, 0, 0);
+    doc.setFontSize(12);
+    doc.setFont(undefined, 'bold');
+    doc.text('Detalle del Pedido:', 20, 120);
+    
+    let yPos = 130;
+    let total = 0;
+    
+    // Encabezados de tabla
+    doc.setFillColor(248, 249, 250);
+    doc.rect(20, yPos - 5, 170, 8, 'F');
+    
+    doc.setFontSize(9);
+    doc.setFont(undefined, 'bold');
+    doc.setTextColor(0, 0, 0);
+    doc.text('Producto', 22, yPos);
+    doc.text('Talle', 100, yPos);
+    doc.text('Color', 120, yPos);
+    doc.text('Cant.', 150, yPos);
+    doc.text('Subtotal', 170, yPos);
+    
+    yPos += 10;
+    
+    // Productos
+    doc.setFont(undefined, 'normal');
+    doc.setFontSize(8);
+    
+    carrito.forEach((producto) => {
+        const precio = parseInt(producto.precio || 0);
+        const subtotal = precio * parseInt(producto.cantidad);
+        total += subtotal;
+        
+        doc.setTextColor(...grisTexto);
+        
+        // Nombre del producto (truncar si es muy largo)
+        const nombreCorto = producto.nombre.length > 25 ? 
+            producto.nombre.substring(0, 22) + '...' : producto.nombre;
+        doc.text(nombreCorto, 22, yPos);
+        
+        doc.text(producto.talle || '-', 100, yPos);
+        doc.text(producto.colorBuzo || '-', 120, yPos);
+        doc.text(producto.cantidad.toString(), 155, yPos);
+        doc.text(`$${subtotal}`, 170, yPos);
+        
+        yPos += 6;
+        
+        // Nueva página si es necesario
+        if (yPos > 270) {
+            doc.addPage();
+            yPos = 20;
+        }
+    });
+    
+    // Total
+    yPos += 5;
+    doc.setFillColor(...verde);
+    doc.rect(140, yPos - 3, 50, 10, 'F');
+    
+    doc.setTextColor(255, 255, 255);
+    doc.setFontSize(12);
+    doc.setFont(undefined, 'bold');
+    doc.text(`TOTAL: $${total}`, 145, yPos + 3);
+    
+    // Información adicional
+    yPos += 20;
+    doc.setTextColor(...grisTexto);
+    doc.setFontSize(9);
+    doc.setFont(undefined, 'normal');
+    
+    doc.text('INFORMACIÓN IMPORTANTE:', 20, yPos);
+    yPos += 8;
+    doc.text('• Este comprobante confirma la recepción de tu pedido', 20, yPos);
+    yPos += 5;
+    doc.text('• Pronto nos contactaremos contigo para coordinar entrega y pago', 20, yPos);
+    yPos += 5;
+    doc.text('• Conserva este comprobante para cualquier consulta', 20, yPos);
+    yPos += 10;
+    
+    doc.text('Contacto: Instagram @mit.estampados', 20, yPos);
+    yPos += 5;
+    doc.text('¡Gracias por elegir MIT ESTAMPADOS!', 20, yPos);
+    
+    // Footer
+    doc.setTextColor(...grisTexto);
+    doc.setFontSize(7);
+    doc.text(`Generado el ${new Date().toLocaleString('es-AR')}`, 20, 285);
+    doc.text('MIT ESTAMPADOS © 2025', 150, 285);
+    
+    // Descargar el PDF
+    doc.save(`MIT_ESTAMPADOS_Pedido_${numeroPedido}.pdf`);
 }
 
 // Funciones globales
@@ -278,3 +411,5 @@ window.mostrarModalEliminar = mostrarModalEliminar;
 window.confirmarEliminacion = confirmarEliminacion;
 window.actualizarResumenCheckout = actualizarResumenCheckout;
 window.modificarCantidadEnCheckout = modificarCantidadEnCheckout;
+window.mostrarModalConfirmacion = mostrarModalConfirmacion;
+window.generarPDF = generarPDF;
