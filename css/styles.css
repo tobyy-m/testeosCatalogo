@@ -281,3 +281,82 @@ body.dark-theme .precio-producto:hover {
 }
 
 /* =================================== */
+/* Selectores de color circulares */
+/* =================================== */
+.color-selector {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+.color-option {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.color-option:hover {
+    transform: scale(1.1);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.color-option.selected {
+    border-color: #fff;
+    box-shadow: 0 0 0 2px #007bff;
+    transform: scale(1.1);
+}
+
+.color-option.disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
+    pointer-events: none;
+}
+
+/* Colores específicos */
+.color-negro { background-color: #1a1a1a; }
+.color-blanco { 
+    background-color: #ffffff; 
+    border: 2px solid #ddd;
+}
+.color-rojo { background-color: #dc3545; }
+.color-azul { background-color: #007bff; }
+.color-azulFrancia { background-color: #318ce7; }
+.color-azulMarino { background-color: #1e3a8a; }
+.color-naranja { background-color: #fd7e14; }
+.color-violeta { background-color: #6f42c1; }
+.color-amarillo { background-color: #ffc107; }
+.color-verde { background-color: #28a745; }
+.color-rosa { background-color: #e83e8c; }
+
+/* Tooltip para mostrar el nombre del color */
+.color-option::after {
+    content: attr(data-color);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.color-option:hover::after {
+    opacity: 1;
+}
+
+/* Inputs ocultos para mantener compatibilidad */
+.color-input-hidden {
+    display: none;
+}
