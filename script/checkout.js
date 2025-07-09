@@ -385,16 +385,22 @@ function generarPDF(numeroPedido, carrito) {
     doc.setFont(undefined, 'bold');
     doc.setTextColor(0, 0, 0);
     doc.text('Producto', 22, yPos);
-    doc.text('Talle', 100, yPos);
-    doc.text('Color', 120, yPos);
-    doc.text('Cant.', 150, yPos);
-    doc.text('Subtotal', 170, yPos);
+    doc.text('Talle', 85, yPos);
+    doc.text('Color Buzo', 105, yPos);
+    doc.text('Color Estampa', 135, yPos);
+    doc.text('Cant.', 165, yPos);
+    doc.text('Subtotal', 175, yPos);
     
     yPos += 10;
     
     // Productos
     doc.setFont(undefined, 'normal');
     doc.setFontSize(8);
+    
+    // Lista de productos que tienen variaciones de color de estampa
+    const productosConEstampa = [
+        'marte', 'snipe', 'luna', 'love', 'conejo', 'cash', 'autoslocos', 'pirata'
+    ];
     
     carrito.forEach((producto) => {
         const precio = parseInt(producto.precio || 0);
@@ -404,14 +410,32 @@ function generarPDF(numeroPedido, carrito) {
         doc.setTextColor(...grisTexto);
         
         // Nombre del producto (truncar si es muy largo)
-        const nombreCorto = producto.nombre.length > 25 ? 
-            producto.nombre.substring(0, 22) + '...' : producto.nombre;
+        const nombreCorto = producto.nombre.length > 20 ? 
+            producto.nombre.substring(0, 17) + '...' : producto.nombre;
         doc.text(nombreCorto, 22, yPos);
         
-        doc.text(producto.talle || '-', 100, yPos);
-        doc.text(producto.colorBuzo || '-', 120, yPos);
-        doc.text(producto.cantidad.toString(), 155, yPos);
-        doc.text(`$${subtotal}`, 170, yPos);
+        doc.text(producto.talle || '-', 85, yPos);
+        doc.text(producto.colorBuzo || '-', 105, yPos);
+        
+        // Mostrar color de estampa solo si el producto lo requiere
+        const nombreProducto = producto.nombre.toLowerCase().replace(/\s+/g, '');
+        const tieneEstampa = productosConEstampa.some(p => 
+            nombreProducto.includes(p)
+        );
+        
+        if (tieneEstampa && producto.colorEstampa && 
+            producto.colorEstampa !== 'Sin estampa' && 
+            producto.colorEstampa !== '') {
+            // Capitalizar primera letra del color de estampa
+            const colorEstampaCapitalizado = producto.colorEstampa.charAt(0).toUpperCase() + 
+                                           producto.colorEstampa.slice(1);
+            doc.text(colorEstampaCapitalizado, 135, yPos);
+        } else {
+            doc.text('-', 135, yPos);
+        }
+        
+        doc.text(producto.cantidad.toString(), 165, yPos);
+        doc.text(`$${subtotal}`, 175, yPos);
         
         yPos += 6;
         
@@ -425,12 +449,12 @@ function generarPDF(numeroPedido, carrito) {
     // Total
     yPos += 5;
     doc.setFillColor(...verde);
-    doc.rect(140, yPos - 3, 50, 10, 'F');
+    doc.rect(145, yPos - 3, 45, 10, 'F');
     
     doc.setTextColor(255, 255, 255);
     doc.setFontSize(12);
     doc.setFont(undefined, 'bold');
-    doc.text(`TOTAL: $${total}`, 145, yPos + 3);
+    doc.text(`TOTAL: $${total}`, 150, yPos + 3);
     
     // Información adicional
     yPos += 20;

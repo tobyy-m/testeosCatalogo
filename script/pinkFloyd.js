@@ -1,4 +1,7 @@
 const colorBuzo = document.getElementById("colorBuzo");
+const colorBuzoSelector = document.getElementById("colorBuzoSelector");
+const talleSelector = document.getElementById("talleSelector");
+const talleInput = document.getElementById("talle");
 const imgFront = document.getElementById("imgFront");
 const imgBack = document.getElementById("imgBack");
 
@@ -11,19 +14,19 @@ function precargarImagen(src) {
   imagenesPrecargadas[src] = img;
 }
 
-// Cargar imagen .webp con fade
+// Cargar imagen .jpg con fade
 function cargarImagen(imgElement, basePath, tipo) {
-  const webp = `${basePath}_${tipo}.jpg`;
+  const jpg = `${basePath}_${tipo}.jpg`;
 
   imgElement.classList.add("hidden"); // comienza fade out
 
   const nuevaImg = new Image();
   nuevaImg.onload = () => {
-    imgElement.src = webp;
-    precargarImagen(webp);
+    imgElement.src = jpg;
+    precargarImagen(jpg);
     setTimeout(() => imgElement.classList.remove("hidden"), 50); // fade in
   };
-  nuevaImg.src = webp;
+  nuevaImg.src = jpg;
 }
 
 function actualizarImagen() {
@@ -33,8 +36,35 @@ function actualizarImagen() {
   cargarImagen(imgBack, basePath, "back");
 }
 
-// Eventos
-colorBuzo.addEventListener("change", actualizarImagen);
+// Configurar selectores circulares de color
+colorBuzoSelector?.addEventListener("click", (e) => {
+  const option = e.target.closest('.color-option');
+  if (!option) return;
+  
+  // Actualizar selección visual
+  colorBuzoSelector.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+  option.classList.add('selected');
+  
+  // Actualizar valor del input hidden
+  colorBuzo.value = option.dataset.value;
+  
+  // Actualizar imagen
+  actualizarImagen();
+});
+
+// Configurar selectores circulares de talle
+talleSelector?.addEventListener("click", (e) => {
+  const option = e.target.closest('.talle-option');
+  if (!option) return;
+  
+  // Actualizar selección visual
+  talleSelector.querySelectorAll('.talle-option').forEach(opt => opt.classList.remove('selected'));
+  option.classList.add('selected');
+  
+  // Actualizar valor del input hidden
+  talleInput.value = option.dataset.talle;
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   actualizarImagen();
 });

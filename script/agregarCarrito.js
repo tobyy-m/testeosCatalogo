@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", () => {
       nombre: document.querySelector("h1")?.textContent.trim() || "Producto",
       colorBuzo: document.getElementById("colorBuzo")?.value || "",
       colorEstampa: document.getElementById("colorEstampa")?.value || "Sin estampa",
-      talle: document.getElementById("selector-talle")?.value || "",
+      talle: document.getElementById("talle")?.value || document.getElementById("selector-talle")?.value || "",
       cantidad: parseInt(document.getElementById("cantidad")?.value) || 1,
       precio: parseInt(document.getElementById("precio-producto")?.value) || 0,
       imagen: document.getElementById("imgFront")?.src || ""

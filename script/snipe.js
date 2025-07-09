@@ -1,5 +1,9 @@
 const colorBuzo = document.getElementById("colorBuzo");
 const colorEstampa = document.getElementById("colorEstampa");
+const colorBuzoSelector = document.getElementById("colorBuzoSelector");
+const colorEstampaSelector = document.getElementById("colorEstampaSelector");
+const talleSelector = document.getElementById("talleSelector");
+const talleInput = document.getElementById("talle");
 const imgFront = document.getElementById("imgFront");
 const imgBack = document.getElementById("imgBack");
 
@@ -35,29 +39,133 @@ function actualizarImagen() {
   cargarImagen(imgBack, basePath, "back");
 }
 
-// Actualiza opciones del color de estampa
+// Actualiza opciones del color de estampa para selectores circulares
 function actualizarOpcionesEstampa() {
   const buzo = colorBuzo.value;
   let opciones = ["rojo", "azul", "verde", "naranja", "celeste"];
 
-
-  colorEstampa.innerHTML = "";
-  opciones.forEach((color) => {
-    const option = document.createElement("option");
-    option.value = color;
-    option.textContent = color.charAt(0).toUpperCase() + color.slice(1);
-    colorEstampa.appendChild(option);
+  // Habilitar/deshabilitar círculos de color de estampa
+  const allEstampaOptions = colorEstampaSelector.querySelectorAll('.color-option');
+  allEstampaOptions.forEach(option => {
+    const colorValue = option.getAttribute('data-value');
+    if (opciones.includes(colorValue)) {
+      option.classList.remove('hidden');
+    } else {
+      option.classList.add('hidden');
+      option.classList.remove('selected');
+    }
   });
+
+  // Seleccionar el primer color disponible si el actual no está disponible
+  const currentEstampa = colorEstampa.value;
+  if (!opciones.includes(currentEstampa)) {
+    const firstAvailable = opciones[0];
+    colorEstampa.value = firstAvailable;
+    
+    // Actualizar selección visual
+    allEstampaOptions.forEach(option => option.classList.remove('selected'));
+    const newSelected = colorEstampaSelector.querySelector(`[data-value="${firstAvailable}"]`);
+    if (newSelected) newSelected.classList.add('selected');
+  }
 
   actualizarImagen(); // Cambiar imagen con la nueva estampa
 }
 
-// Eventos
-colorBuzo.addEventListener("change", actualizarOpcionesEstampa);
-colorEstampa.addEventListener("change", actualizarImagen);
+// Función para manejar clics en círculos de color
+function setupColorSelectors() {
+  // Selector de color de buzo
+  colorBuzoSelector.addEventListener('click', (e) => {
+    if (e.target.classList.contains('color-option') && !e.target.classList.contains('hidden')) {
+      // Quitar selección anterior
+      colorBuzoSelector.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+      // Agregar selección nueva
+      e.target.classList.add('selected');
+      // Actualizar input oculto
+      colorBuzo.value = e.target.getAttribute('data-value');
+      // Actualizar opciones de estampa
+      actualizarOpcionesEstampa();
+    }
+  });
+
+  // Selector de color de estampa
+  colorEstampaSelector.addEventListener('click', (e) => {
+    if (e.target.classList.contains('color-option') && !e.target.classList.contains('hidden')) {
+      // Quitar selección anterior
+      colorEstampaSelector.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+      // Agregar selección nueva
+      e.target.classList.add('selected');
+      // Actualizar input oculto
+      colorEstampa.value = e.target.getAttribute('data-value');
+      // Actualizar imagen
+      actualizarImagen();
+    }
+  });
+}
+
+// Función para manejar la selección de talles
+function setupTalleSelector() {
+  if (!talleSelector) return;
+  
+  talleSelector.addEventListener('click', (e) => {
+    if (e.target.classList.contains('talle-option')) {
+      // Quitar selección anterior
+      talleSelector.querySelectorAll('.talle-option').forEach(opt => opt.classList.remove('selected'));
+      // Agregar selección nueva
+      e.target.classList.add('selected');
+      // Actualizar input oculto y select original
+      const talle = e.target.getAttribute('data-talle');
+      if (talleInput) talleInput.value = talle;
+      
+      // Mantener sincronizado el select original para compatibilidad
+      const selectTalle = document.getElementById('selector-talle');
+      if (selectTalle) selectTalle.value = talle;
+    }
+  });
+}
+
+// Función para manejar controles de cantidad
+function setupCantidadControls() {
+  const cantidadInput = document.getElementById('cantidad');
+  const btnDisminuir = document.getElementById('disminuir-cantidad');
+  const btnAumentar = document.getElementById('aumentar-cantidad');
+  
+  if (!cantidadInput || !btnDisminuir || !btnAumentar) return;
+  
+  btnAumentar.addEventListener('click', () => {
+    const valor = parseInt(cantidadInput.value) || 1;
+    cantidadInput.value = valor + 1;
+    actualizarEstadoBotones();
+  });
+  
+  btnDisminuir.addEventListener('click', () => {
+    const valor = parseInt(cantidadInput.value) || 1;
+    if (valor > 1) {
+      cantidadInput.value = valor - 1;
+      actualizarEstadoBotones();
+    }
+  });
+  
+  // Actualizar estado del botón disminuir
+  function actualizarEstadoBotones() {
+    const valor = parseInt(cantidadInput.value) || 1;
+    if (valor <= 1) {
+      btnDisminuir.classList.add('disabled');
+      btnDisminuir.style.opacity = '0.3';
+    } else {
+      btnDisminuir.classList.remove('disabled');
+      btnDisminuir.style.opacity = '1';
+    }
+  }
+  
+  cantidadInput.addEventListener('input', actualizarEstadoBotones);
+  actualizarEstadoBotones(); // Estado inicial
+}
 
 document.addEventListener("DOMContentLoaded", () => {
-  actualizarOpcionesEstampa();
+  setupColorSelectors();
+  setupTalleSelector();
+  setupCantidadControls();
+  actualizarImagen();
 });
 
 // 🌗 Modo claro/oscuro funcional

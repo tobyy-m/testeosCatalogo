@@ -2,6 +2,8 @@ const colorBuzo = document.getElementById("colorBuzo");
 const colorEstampa = document.getElementById("colorEstampa");
 const colorBuzoSelector = document.getElementById("colorBuzoSelector");
 const colorEstampaSelector = document.getElementById("colorEstampaSelector");
+const talleSelector = document.getElementById("talleSelector");
+const talleInput = document.getElementById("talle");
 const imgFront = document.getElementById("imgFront");
 const imgBack = document.getElementById("imgBack");
 
@@ -51,9 +53,9 @@ function actualizarOpcionesEstampa() {
   allEstampaOptions.forEach(option => {
     const colorValue = option.getAttribute('data-value');
     if (opciones.includes(colorValue)) {
-      option.classList.remove('disabled');
+      option.classList.remove('hidden');
     } else {
-      option.classList.add('disabled');
+      option.classList.add('hidden');
       option.classList.remove('selected');
     }
   });
@@ -67,7 +69,9 @@ function actualizarOpcionesEstampa() {
     // Actualizar selección visual
     allEstampaOptions.forEach(option => option.classList.remove('selected'));
     const newSelected = colorEstampaSelector.querySelector(`[data-value="${firstAvailable}"]`);
-    if (newSelected) newSelected.classList.add('selected');
+    if (newSelected && !newSelected.classList.contains('hidden')) {
+      newSelected.classList.add('selected');
+    }
   }
 
   actualizarImagen(); // Cambiar imagen con la nueva estampa
@@ -77,7 +81,7 @@ function actualizarOpcionesEstampa() {
 function setupColorSelectors() {
   // Selector de color de buzo
   colorBuzoSelector.addEventListener('click', (e) => {
-    if (e.target.classList.contains('color-option') && !e.target.classList.contains('disabled')) {
+    if (e.target.classList.contains('color-option') && !e.target.classList.contains('hidden')) {
       // Quitar selección anterior
       colorBuzoSelector.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
       // Agregar selección nueva
@@ -91,7 +95,7 @@ function setupColorSelectors() {
 
   // Selector de color de estampa
   colorEstampaSelector.addEventListener('click', (e) => {
-    if (e.target.classList.contains('color-option') && !e.target.classList.contains('disabled')) {
+    if (e.target.classList.contains('color-option') && !e.target.classList.contains('hidden')) {
       // Quitar selección anterior
       colorEstampaSelector.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
       // Agregar selección nueva
@@ -104,9 +108,70 @@ function setupColorSelectors() {
   });
 }
 
+// Función para manejar la selección de talles
+function setupTalleSelector() {
+  if (!talleSelector) return;
+  
+  talleSelector.addEventListener('click', (e) => {
+    if (e.target.classList.contains('talle-option')) {
+      // Quitar selección anterior
+      talleSelector.querySelectorAll('.talle-option').forEach(opt => opt.classList.remove('selected'));
+      // Agregar selección nueva
+      e.target.classList.add('selected');
+      // Actualizar input oculto y select original
+      const talle = e.target.getAttribute('data-talle');
+      if (talleInput) talleInput.value = talle;
+      
+      // Mantener sincronizado el select original para compatibilidad
+      const selectTalle = document.getElementById('selector-talle');
+      if (selectTalle) selectTalle.value = talle;
+    }
+  });
+}
+
+// Función para manejar controles de cantidad
+function setupCantidadControls() {
+  const cantidadInput = document.getElementById('cantidad');
+  const btnDisminuir = document.getElementById('disminuir-cantidad');
+  const btnAumentar = document.getElementById('aumentar-cantidad');
+  
+  if (!cantidadInput || !btnDisminuir || !btnAumentar) return;
+  
+  btnAumentar.addEventListener('click', () => {
+    const valor = parseInt(cantidadInput.value) || 1;
+    cantidadInput.value = valor + 1;
+    actualizarEstadoBotones();
+  });
+  
+  btnDisminuir.addEventListener('click', () => {
+    const valor = parseInt(cantidadInput.value) || 1;
+    if (valor > 1) {
+      cantidadInput.value = valor - 1;
+      actualizarEstadoBotones();
+    }
+  });
+  
+  // Actualizar estado del botón disminuir
+  function actualizarEstadoBotones() {
+    const valor = parseInt(cantidadInput.value) || 1;
+    if (valor <= 1) {
+      btnDisminuir.classList.add('disabled');
+      btnDisminuir.style.opacity = '0.3';
+    } else {
+      btnDisminuir.classList.remove('disabled');
+      btnDisminuir.style.opacity = '1';
+    }
+  }
+  
+  cantidadInput.addEventListener('input', actualizarEstadoBotones);
+  actualizarEstadoBotones(); // Estado inicial
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   setupColorSelectors();
-  actualizarOpcionesEstampa();
+  setupTalleSelector();
+  setupCantidadControls();
+  actualizarImagen();
 });
 
 

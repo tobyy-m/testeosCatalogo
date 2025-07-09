@@ -1,4 +1,7 @@
 const colorBuzo = document.getElementById("colorBuzo");
+const colorBuzoSelector = document.getElementById("colorBuzoSelector");
+const talleSelector = document.getElementById("talleSelector");
+const talleInput = document.getElementById("talle");
 const imgFront = document.getElementById("imgFront");
 const imgBack = document.getElementById("imgBack");
 
@@ -33,12 +36,93 @@ function actualizarImagen() {
   cargarImagen(imgBack, basePath, "back");
 }
 
+// Función para manejar clics en círculos de color
+function setupColorSelectors() {
+  if (!colorBuzoSelector) return;
+  
+  // Selector de color de buzo
+  colorBuzoSelector.addEventListener('click', (e) => {
+    if (e.target.classList.contains('color-option')) {
+      // Quitar selección anterior
+      colorBuzoSelector.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+      // Agregar selección nueva
+      e.target.classList.add('selected');
+      // Actualizar input oculto
+      colorBuzo.value = e.target.getAttribute('data-value');
+      // Actualizar imagen
+      actualizarImagen();
+    }
+  });
+}
+
+// Función para manejar la selección de talles
+function setupTalleSelector() {
+  if (!talleSelector) return;
+  
+  talleSelector.addEventListener('click', (e) => {
+    if (e.target.classList.contains('talle-option')) {
+      // Quitar selección anterior
+      talleSelector.querySelectorAll('.talle-option').forEach(opt => opt.classList.remove('selected'));
+      // Agregar selección nueva
+      e.target.classList.add('selected');
+      // Actualizar input oculto y select original
+      const talle = e.target.getAttribute('data-talle');
+      if (talleInput) talleInput.value = talle;
+      
+      // Mantener sincronizado el select original para compatibilidad
+      const selectTalle = document.getElementById('selector-talle');
+      if (selectTalle) selectTalle.value = talle;
+    }
+  });
+}
+
+// Función para manejar controles de cantidad
+function setupCantidadControls() {
+  const cantidadInput = document.getElementById('cantidad');
+  const btnDisminuir = document.getElementById('disminuir-cantidad');
+  const btnAumentar = document.getElementById('aumentar-cantidad');
+  
+  if (!cantidadInput || !btnDisminuir || !btnAumentar) return;
+  
+  btnAumentar.addEventListener('click', () => {
+    const valor = parseInt(cantidadInput.value) || 1;
+    cantidadInput.value = valor + 1;
+    actualizarEstadoBotones();
+  });
+  
+  btnDisminuir.addEventListener('click', () => {
+    const valor = parseInt(cantidadInput.value) || 1;
+    if (valor > 1) {
+      cantidadInput.value = valor - 1;
+      actualizarEstadoBotones();
+    }
+  });
+  
+  // Actualizar estado del botón disminuir
+  function actualizarEstadoBotones() {
+    const valor = parseInt(cantidadInput.value) || 1;
+    if (valor <= 1) {
+      btnDisminuir.classList.add('disabled');
+      btnDisminuir.style.opacity = '0.3';
+    } else {
+      btnDisminuir.classList.remove('disabled');
+      btnDisminuir.style.opacity = '1';
+    }
+  }
+  
+  cantidadInput.addEventListener('input', actualizarEstadoBotones);
+  actualizarEstadoBotones(); // Estado inicial
+}
+
 // Eventos
-colorBuzo.addEventListener("change", actualizarImagen);
+// Event listener comentado - ahora se maneja con selectores circulares
+// colorBuzo.addEventListener("change", actualizarImagen);
 document.addEventListener("DOMContentLoaded", () => {
+  setupColorSelectors();
+  setupTalleSelector();
+  setupCantidadControls();
   actualizarImagen();
 });
-
 
 // 🌗 Modo claro/oscuro funcional
 const button = document.getElementById("myButton");

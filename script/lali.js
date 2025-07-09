@@ -2,6 +2,10 @@
 const colorBuzo     = document.getElementById("colorBuzo");      // blanco | negro
 const modeloEstampa = document.getElementById("colorEstampa");  // modelo1 | modelo2
 const buzoImg       = document.getElementById("buzoLali");      // única imagen
+const colorBuzoSelector = document.getElementById("colorBuzoSelector");
+const modeloSelector = document.getElementById("modeloSelector");
+const talleSelector = document.getElementById("talleSelector");
+const talleInput = document.getElementById("talle");
 
 /* ─── Caché de imágenes ───────────────────────────────── */
 const cache = {};
@@ -32,9 +36,52 @@ function actualizarImagen() {
   fadeLoad(buzoImg, url);
 }
 
+// Configurar selectores circulares de color de buzo
+colorBuzoSelector?.addEventListener("click", (e) => {
+  const option = e.target.closest('.color-option');
+  if (!option) return;
+  
+  // Actualizar selección visual
+  colorBuzoSelector.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+  option.classList.add('selected');
+  
+  // Actualizar valor del input hidden
+  colorBuzo.value = option.dataset.value;
+  
+  // Actualizar imagen
+  actualizarImagen();
+});
+
+// Configurar selectores circulares de modelo
+modeloSelector?.addEventListener("click", (e) => {
+  const option = e.target.closest('.color-option');
+  if (!option) return;
+  
+  // Actualizar selección visual
+  modeloSelector.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+  option.classList.add('selected');
+  
+  // Actualizar valor del input hidden
+  modeloEstampa.value = option.dataset.value;
+  
+  // Actualizar imagen
+  actualizarImagen();
+});
+
+// Configurar selectores circulares de talle
+talleSelector?.addEventListener("click", (e) => {
+  const option = e.target.closest('.talle-option');
+  if (!option) return;
+  
+  // Actualizar selección visual
+  talleSelector.querySelectorAll('.talle-option').forEach(opt => opt.classList.remove('selected'));
+  option.classList.add('selected');
+  
+  // Actualizar valor del input hidden
+  talleInput.value = option.dataset.talle;
+});
+
 /* ─── Eventos ─────────────────────────────────────────── */
-colorBuzo    .addEventListener("change", actualizarImagen);
-modeloEstampa.addEventListener("change", actualizarImagen);
 document.addEventListener("DOMContentLoaded", actualizarImagen);
 
 // 🌗 Modo claro/oscuro funcional

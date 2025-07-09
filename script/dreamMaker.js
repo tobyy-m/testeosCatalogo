@@ -1,4 +1,7 @@
 const colorBuzo = document.getElementById("colorBuzo");
+const colorBuzoSelector = document.getElementById("colorBuzoSelector");
+const talleSelector = document.getElementById("talleSelector");
+const talleInput = document.getElementById("talle");
 const imgFront = document.getElementById("imgFront");
 const imgBack = document.getElementById("imgBack");
 
@@ -42,8 +45,36 @@ function extraSegunColor() {
     extra.textContent = "*El color final puede ser ligeramente diferente al de la imagen. Consultar Disponibilidad.";
   }
 }
-// Eventos
-colorBuzo.addEventListener("change", actualizarImagen);
+
+// Configurar selectores circulares de color
+colorBuzoSelector?.addEventListener("click", (e) => {
+  const option = e.target.closest('.color-option');
+  if (!option) return;
+  
+  // Actualizar selección visual
+  colorBuzoSelector.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+  option.classList.add('selected');
+  
+  // Actualizar valor del input hidden
+  colorBuzo.value = option.dataset.value;
+  
+  // Actualizar imagen
+  actualizarImagen();
+});
+
+// Configurar selectores circulares de talle
+talleSelector?.addEventListener("click", (e) => {
+  const option = e.target.closest('.talle-option');
+  if (!option) return;
+  
+  // Actualizar selección visual
+  talleSelector.querySelectorAll('.talle-option').forEach(opt => opt.classList.remove('selected'));
+  option.classList.add('selected');
+  
+  // Actualizar valor del input hidden
+  talleInput.value = option.dataset.talle;
+});
+
 document.addEventListener("DOMContentLoaded", () => {
   actualizarImagen();
 });
