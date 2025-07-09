@@ -40,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
       talle: document.getElementById("talle")?.value || document.getElementById("selector-talle")?.value || "",
       cantidad: parseInt(document.getElementById("cantidad")?.value) || 1,
       precio: parseInt(document.getElementById("precio-producto")?.value) || 0,
-      imagen: document.getElementById("imgFront")?.src || ""
+      imagen: document.getElementById("imgFront")?.src || document.getElementById("buzoLali")?.src || ""
     };
 
     if (!producto.talle || !producto.cantidad || !producto.precio) {

@@ -54,11 +54,11 @@ colorBuzoSelector?.addEventListener("click", (e) => {
 
 // Configurar selectores circulares de modelo
 modeloSelector?.addEventListener("click", (e) => {
-  const option = e.target.closest('.color-option');
+  const option = e.target.closest('.talle-option');
   if (!option) return;
   
   // Actualizar selección visual
-  modeloSelector.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+  modeloSelector.querySelectorAll('.talle-option').forEach(opt => opt.classList.remove('selected'));
   option.classList.add('selected');
   
   // Actualizar valor del input hidden

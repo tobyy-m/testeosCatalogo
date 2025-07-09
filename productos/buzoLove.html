@@ -70,6 +70,13 @@
             <div class="col-md-6">
                 
                 <form id="formProducto" class="p-4 rounded shadow bg-dark text-light">
+                    <!-- Botón Volver al inicio -->
+                    <div class="mb-3">
+                        <a href="../index.html" class="btn btn-outline-secondary btn-sm">
+                            <i class="bi bi-arrow-left me-2"></i>Volver al inicio
+                        </a>
+                    </div>
+                    
                     <div class="mb-3">
                         <label class="form-label">Color del buzo</label>
                         <div class="color-selector" id="colorBuzoSelector">
@@ -114,14 +121,6 @@
                                 <div class="talle-option" data-talle="XXL" data-info="Talle XXL">XXL</div>
                             </div>
                             <input type="hidden" id="talle" class="talle-input-hidden" value="S">
-                            <select id="selector-talle" class="form-select hidden">
-                                <option value="S">S</option>
-                                <option value="M">M</option>
-                                <option value="L">L</option>
-                                <option value="XL">XL</option>
-                                <option value="XXL">XXL</option>
-                            </select>
-                        </div>
 
                         <div class="mb-3">
                             <label class="form-label">Cantidad</label>
@@ -144,7 +143,7 @@
                         <span>Envíos por Andreani</span>
                     </div>
                     <div class="precio-disclaimer">
-                        <small class="text-muted">(Los precios pueden variar sin previo aviso)</small>
+                        <small class="text-muted">(Los precios pueden variar sin previo aviso. El costo de envio no está incluido)</small>
                     </div>
                 </div>
             </div>

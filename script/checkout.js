@@ -28,9 +28,23 @@ function actualizarResumenCheckout() {
         const subtotal = precio * parseInt(p.cantidad);
         total += subtotal;
 
+        // Determinar el nombre del producto con modelo si corresponde
+        let nombreProducto = p.nombre;
+        if (p.colorEstampa && p.colorEstampa.includes('modelo')) {
+            const numeroModelo = p.colorEstampa.replace('modelo', '');
+            nombreProducto += ` (Mod: ${numeroModelo})`;
+        }
+
+        // Determinar los detalles del producto
+        let detalles = `${p.talle} - ${p.colorBuzo}`;
+        // Solo mostrar estampa si no es un modelo (para evitar duplicar la información)
+        if (p.colorEstampa && p.colorEstampa !== 'Sin estampa' && !p.colorEstampa.includes('modelo')) {
+            detalles += ` - ${p.colorEstampa}`;
+        }
+
         contenedor.innerHTML += `
             <div class="order-item">
-                <img src="${p.imagen || 'imagenes/default.webp'}" alt="${p.nombre}">
+                <img src="${p.imagen || 'imagenes/default.webp'}" alt="${nombreProducto}">
                 <div class="quantity-controls">
                     <button class="quantity-btn" onclick="modificarCantidadEnCheckout(${i}, -1)" ${p.cantidad <= 1 ? 'disabled' : ''}>-</button>
                     <span class="quantity-number">${p.cantidad}</span>
@@ -38,8 +52,8 @@ function actualizarResumenCheckout() {
                     <button class="remove-btn btn btn-danger btn-sm" onclick="mostrarModalEliminar(${i})" title="Eliminar">×</button>
                 </div>
                 <div class="item-info">
-                    <div class="item-name">${p.nombre}</div>
-                    <div class="item-details">${p.talle} - ${p.colorBuzo}${p.colorEstampa ? ' - ' + p.colorEstampa : ''}</div>
+                    <div class="item-name">${nombreProducto}</div>
+                    <div class="item-details">${detalles}</div>
                 </div>
                 <span class="price">$${subtotal}</span>
             </div>`;

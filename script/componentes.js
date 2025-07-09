@@ -154,22 +154,52 @@ function incluirHTML(id, archivo) {
     resumen += `Este es un resumen de tu pedido:\n\n`;
     
     let total = 0;
+    let observaciones = [];
+    let contadorObservaciones = 1;
+    
     carrito.forEach((producto, index) => {
       const subtotal = parseInt(producto.precio) * parseInt(producto.cantidad);
       total += subtotal;
       
-      resumen += `${index + 1}. ${producto.nombre}\n`;
+      let nombreProducto = producto.nombre;
+      let superindice = '';
+      
+      // Verificar si el producto tiene modelo de estampa
+      if (producto.colorEstampa && producto.colorEstampa.includes('modelo')) {
+        const numeroModelo = producto.colorEstampa.replace('modelo', '');
+        superindice = `⁽${contadorObservaciones}⁾`;
+        nombreProducto += superindice;
+        
+        // Agregar observación
+        observaciones.push(`${contadorObservaciones} - Modelo ${numeroModelo}`);
+        contadorObservaciones++;
+      }
+      
+      resumen += `${index + 1}. ${nombreProducto}\n`;
       resumen += `   - Talle: ${producto.talle}\n`;
       resumen += `   - Color: ${producto.colorBuzo}`;
-      if (producto.colorEstampa && producto.colorEstampa !== 'Sin estampa') {
+      
+      // Solo mostrar estampa si no es un modelo (para evitar duplicar la información)
+      if (producto.colorEstampa && producto.colorEstampa !== 'Sin estampa' && !producto.colorEstampa.includes('modelo')) {
         resumen += ` - Estampa: ${producto.colorEstampa}`;
       }
+      
       resumen += `\n   - Cantidad: ${producto.cantidad}\n`;
       resumen += `   - Precio unitario: $${producto.precio}\n`;
       resumen += `   - Subtotal: $${subtotal}\n\n`;
     });
     
     resumen += `TOTAL: $${total}\n\n`;
+    
+    // Agregar apartado de observaciones si hay alguna
+    if (observaciones.length > 0) {
+      resumen += `OBSERVACIONES:\n`;
+      observaciones.forEach(obs => {
+        resumen += `${obs}\n`;
+      });
+      resumen += `\n`;
+    }
+    
     resumen += `Pronto nos pondremos en contacto para confirmar el pedido.\n\n`;
     resumen += `¡Gracias por elegirnos!`;
     

@@ -50,6 +50,13 @@
       </div>
       <div class="col-md-6">
         <form id="formProducto" class="p-4 rounded shadow bg-dark text-light">
+          <!-- Botón Volver al inicio -->
+          <div class="mb-3">
+            <a href="../index.html" class="btn btn-outline-secondary btn-sm">
+              <i class="bi bi-arrow-left me-2"></i>Volver al inicio
+            </a>
+          </div>
+          
           <div class="mb-3">
             <label class="form-label">Color del buzo</label>
             <div class="color-selector" id="colorBuzoSelector">
@@ -57,25 +64,15 @@
               <div class="color-option color-negro" data-color="Negro" data-value="negro"></div>
             </div>
             <input type="hidden" id="colorBuzo" class="color-input-hidden" value="blanco">
-            <select id="colorBuzoOld" class="form-select bg-light text-dark hidden">
-              <option value="negro">Negro</option>
-              <option value="blanco" selected>Blanco</option>
-            </select>
           </div>
 
           <div class="mb-3">
             <label class="form-label">Modelo de estampa</label>
-            <div class="color-selector" id="modeloSelector">
-              <div class="color-option color-modelo1 selected" data-color="Modelo 1" data-value="modelo1"
-                style="background: linear-gradient(45deg, #ff6b6b, #4ecdc4);"></div>
-              <div class="color-option color-modelo2" data-color="Modelo 2" data-value="modelo2"
-                style="background: linear-gradient(45deg, #a8e6cf, #ffd93d);"></div>
+            <div class="talle-selector" id="modeloSelector">
+              <div class="talle-option selected" data-talle="modelo1" data-info="Modelo 1" data-color="Modelo 1" data-value="modelo1">1</div>
+              <div class="talle-option" data-talle="modelo2" data-info="Modelo 2" data-color="Modelo 2" data-value="modelo2">2</div>
             </div>
             <input type="hidden" id="colorEstampa" class="color-input-hidden" value="modelo1">
-            <select id="colorEstampaOld" class="form-select bg-light text-dark hidden">
-              <option value="modelo1" selected>Modelo 1</option>
-              <option value="modelo2">Modelo 2</option>
-            </select>
           </div>
 
           <div class="mb-3">
@@ -95,14 +92,6 @@
                 <div class="talle-option" data-talle="XXL" data-info="Talle XXL">XXL</div>
               </div>
               <input type="hidden" id="talle" class="talle-input-hidden" value="S">
-              <select id="selector-talle" class="form-select hidden">
-                <option value="S">S</option>
-                <option value="M">M</option>
-                <option value="L">L</option>
-                <option value="XL">XL</option>
-                <option value="XXL">XXL</option>
-              </select>
-            </div>
 
             <div class="mb-3">
               <label class="form-label">Cantidad</label>
@@ -125,7 +114,7 @@
             <span>Envíos por Andreani</span>
           </div>
           <div class="precio-disclaimer">
-            <small class="text-muted">(Los precios pueden variar sin previo aviso)</small>
+            <small class="text-muted">(Los precios pueden variar sin previo aviso. El costo de envio no está incluido)</small>
           </div>
         </div>
 
