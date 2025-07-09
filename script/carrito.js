@@ -43,6 +43,20 @@ function eliminarProducto(index) {
   }
 }
 
+function vaciarCarrito() {
+  localStorage.removeItem(carritoKey);
+  actualizarContador();
+  mostrarCarritoEnModal();
+  if (document.getElementById("resumen-carrito")) {
+    mostrarResumenCheckout();
+  }
+  
+  // Mostrar notificación
+  if (typeof window.mostrarNotificacion === 'function') {
+    window.mostrarNotificacion("Carrito vaciado correctamente", "success");
+  }
+}
+
 function modificarCantidad(index, cambio) {
   const carrito = obtenerCarrito();
   carrito[index].cantidad += cambio;
@@ -74,14 +88,21 @@ function mostrarCarritoEnModal() {
   const carrito = obtenerCarrito();
   const contenedor = document.getElementById("carrito-contenido");
   const totalDiv = document.getElementById("carrito-total");
+  const btnVaciar = document.getElementById("btn-vaciar-carrito");
+  
   contenedor.innerHTML = "";
   let total = 0;
 
   if (carrito.length === 0) {
     contenedor.innerHTML = "<p>Tu carrito está vacío.</p>";
     totalDiv.innerHTML = "";
+    // Ocultar botón de vaciar carrito si está vacío
+    if (btnVaciar) btnVaciar.style.display = 'none';
     return;
   }
+
+  // Mostrar botón de vaciar carrito si hay productos
+  if (btnVaciar) btnVaciar.style.display = 'block';
 
   carrito.forEach((p, i) => {
     const precio = parseInt(p.precio || 0);

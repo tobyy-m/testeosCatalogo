@@ -26,6 +26,42 @@ function incluirHTML(id, archivo) {
     if (btnConfirmarEliminar) {
       btnConfirmarEliminar.addEventListener('click', confirmarEliminacion);
     }
+
+    // Configurar el botón de vaciar carrito
+    const btnVaciarCarrito = document.getElementById('btn-vaciar-carrito');
+    if (btnVaciarCarrito) {
+      btnVaciarCarrito.addEventListener('click', function() {
+        // Verificar si hay productos en el carrito
+        const carrito = obtenerCarrito();
+        if (carrito.length === 0) {
+          mostrarNotificacion("El carrito ya está vacío", "error");
+          return;
+        }
+        
+        // Mostrar modal de confirmación
+        const modalVaciar = new bootstrap.Modal(document.getElementById('modalVaciarCarrito'));
+        modalVaciar.show();
+      });
+    }
+
+    // Configurar el botón de confirmar vaciado
+    const btnConfirmarVaciar = document.getElementById('confirmar-vaciar-carrito');
+    if (btnConfirmarVaciar) {
+      btnConfirmarVaciar.addEventListener('click', function() {
+        // Vaciar el carrito
+        vaciarCarrito();
+        
+        // Cerrar el modal de confirmación
+        const modalVaciar = bootstrap.Modal.getInstance(document.getElementById('modalVaciarCarrito'));
+        modalVaciar.hide();
+        
+        // Cerrar el modal del carrito también
+        const modalCarrito = bootstrap.Modal.getInstance(document.getElementById('modalCarrito'));
+        if (modalCarrito) {
+          modalCarrito.hide();
+        }
+      });
+    }
   }
 
   /* =================================== */
@@ -244,5 +280,12 @@ function incluirHTML(id, archivo) {
   /* =================================== */
 
   document.addEventListener("DOMContentLoaded", () => {
-    incluirHTML("modal-container", "../componentes/modalBootstrap.html");
+    // Si hay un contenedor para modales externos, cargar el archivo
+    const modalContainer = document.getElementById("modal-container");
+    if (modalContainer) {
+      incluirHTML("modal-container", "../componentes/modalBootstrap.html");
+    } else {
+      // Si los modales ya están en el DOM (como en index.html), configurarlos directamente
+      configurarModalCarrito();
+    }
   });

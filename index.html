@@ -378,9 +378,14 @@
                     <div class="modal-body" id="carrito-contenido">
                         <!-- Aquí se renderizan los productos del carrito -->
                     </div>
-                    <div class="modal-footer d-flex flex-column">
-                        <div id="carrito-total" class="mb-2 fs-5"></div>
-                        <a href="checkout.html" class="btn btn-success w-100">Finalizar compra</a>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-outline-danger me-auto" id="btn-vaciar-carrito">
+                            <i class="bi bi-trash me-2"></i>Vaciar carrito
+                        </button>
+                        <div class="d-flex flex-column flex-grow-1">
+                            <div id="carrito-total" class="mb-2 fs-5 text-center"></div>
+                            <a href="checkout.html" class="btn btn-success w-100">Finalizar compra</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -413,6 +418,35 @@
                 </div>
             </div>
         </div>
+
+        <!-- Modal Vaciar Carrito -->
+        <div class="modal fade" id="modalVaciarCarrito" tabindex="-1" aria-labelledby="modalVaciarCarritoLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content bg-dark text-light">
+                    <div class="modal-header border-secondary">
+                        <h5 class="modal-title" id="modalVaciarCarritoLabel">
+                            <i class="bi bi-exclamation-triangle text-warning me-2"></i>
+                            Vaciar Carrito
+                        </h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+                    </div>
+                    <div class="modal-body text-center">
+                        <p class="mb-3">¿Estás seguro de que quieres vaciar todo el carrito?</p>
+                        <p class="text-warning">
+                            <i class="bi bi-info-circle me-2"></i>
+                            Esta acción eliminará todos los productos y no se puede deshacer.
+                        </p>
+                    </div>
+                    <div class="modal-footer border-secondary">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="button" class="btn btn-danger" id="confirmar-vaciar-carrito">
+                            <i class="bi bi-trash me-2"></i>
+                            Sí, vaciar carrito
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
 
     <footer class="bg-dark text-white text-center py-3">
@@ -420,6 +454,7 @@
             Estampados</p>
     </footer>
     <script src="script/index.js"></script>
+    <script src="script/componentes.js"></script>
     <script src="script/carrito.js" defer></script>
 </body>
 
