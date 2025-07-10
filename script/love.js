@@ -134,6 +134,7 @@ function setupTalleSelector() {
 document.addEventListener("DOMContentLoaded", () => {
   setupColorSelectors();
   setupTalleSelector();
+  actualizarOpcionesEstampa(); // Aplicar restricciones iniciales
   actualizarImagen();
 });
 
@@ -141,6 +142,15 @@ document.addEventListener("DOMContentLoaded", () => {
 // 🌗 Modo claro/oscuro funcional
 const button = document.getElementById("myButton");
 let isDark = true;
+
+// Inicializar el icono correcto al cargar la página
+if (button) {
+  button.innerHTML = isDark
+    ? '<i class="bi bi-sun-fill"></i>'
+    : '<i class="bi bi-moon-fill"></i>';
+  button.classList.toggle("btn-dark", isDark);
+  button.classList.toggle("btn-light", !isDark);
+}
 
 button?.addEventListener("click", () => {
   isDark = !isDark;

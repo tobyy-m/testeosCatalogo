@@ -533,3 +533,52 @@ body.dark-theme .precio-producto:hover {
     border-color: #007bff;
     box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
 }
+
+/* Mejoras de contraste para temas claro/oscuro */
+
+/* Color negro con mejor contraste en tema oscuro */
+.color-negro { 
+    background-color: #1a1a1a; 
+    border: 2px solid #666 !important; /* Siempre visible */
+}
+
+/* Color blanco ajustado para ambos temas */
+body.bg-light .color-blanco { 
+    background-color: #ffffff; 
+    border: 2px solid #333 !important; /* Borde oscuro en tema claro */
+}
+
+body.bg-dark .color-blanco { 
+    background-color: #ffffff; 
+    border: 2px solid #ddd !important; /* Borde claro en tema oscuro */
+}
+
+/* Ajustes para selectores de talle en tema claro */
+body.bg-light .talle-option {
+    color: #333;
+    border-color: #333;
+}
+
+body.bg-light .talle-option.selected {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+}
+
+/* Ajustes para input de cantidad en tema claro */
+body.bg-light .cantidad-input {
+    color: #333;
+    border-color: #333;
+    background-color: #fff;
+}
+
+body.bg-light .cantidad-input:focus {
+    border-color: #007bff;
+}
+
+/* Ajustes para tooltips de talle en tema claro */
+body.bg-light .talle-option::after {
+    background: rgba(255,255,255,0.95);
+    color: #333;
+    border: 1px solid rgba(0,0,0,0.2);
+}
