@@ -413,8 +413,8 @@ function generarPDF(numeroPedido, carrito) {
     
     // Lista de productos que tienen variaciones de color de estampa
     const productosConEstampa = [
-        'marte', 'snipe', 'luna', 'love', 'conejo', 'cash', 'autoslocos', 'pirata'
-    ];
+        'marte', 'snipe', 'luna', 'love', 'conejo', 'cash', 'autoslocos', 'pirata', 'justice'
+];
     
     carrito.forEach((producto) => {
         const precio = parseInt(producto.precio || 0);
