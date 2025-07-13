@@ -34,21 +34,22 @@ function cargarImagen(imgElement, basePath, tipo) {
 function actualizarImagen() {
   const buzo = colorBuzo.value;
   const estampa = colorEstampa.value;
-  const basePath = `../imagenes/marte/marte_${buzo}_${estampa}`;
+  const basePath = `../../imagenes/buzos/love/love_${buzo}_${estampa}`;
   cargarImagen(imgFront, basePath, "front");
   cargarImagen(imgBack, basePath, "back");
 }
 
-// Actualiza opciones del color de estampa para selectores circulares
+const opcionesPorColorBuzo = {
+  blanco: ["negro", "naranja", "azul","amarillo","morado","verde","rosa","celeste", "rojo", "pistacho"],
+  negro: ["blanco", "naranja", "azul","amarillo","verde","rosa","celeste", "rojo","arena", "pistacho"],
+  celeste: ["blanco","negro","rojo","arena","pistacho"], 
+};
+
 function actualizarOpcionesEstampa() {
   const buzo = colorBuzo.value;
-  let opciones = ["rojo", "azul", "violeta"];
+  const opciones = opcionesPorColorBuzo[buzo] || [];
 
-  // Si es blanco, agregar negro; si es negro, agregar blanco
-  if (buzo === "blanco") opciones.unshift("negro");
-  else if (buzo === "negro") opciones.unshift("blanco");
-
-  // Habilitar/deshabilitar círculos de color de estampa
+  // Ocultar/mostrar círculos de color de estampa
   const allEstampaOptions = colorEstampaSelector.querySelectorAll('.color-option');
   allEstampaOptions.forEach(option => {
     const colorValue = option.getAttribute('data-value');
@@ -74,7 +75,7 @@ function actualizarOpcionesEstampa() {
     }
   }
 
-  actualizarImagen(); // Cambiar imagen con la nueva estampa
+  actualizarImagen(); // actualiza con el primer color disponible
 }
 
 // Función para manejar clics en círculos de color
@@ -95,7 +96,8 @@ function setupColorSelectors() {
 
   // Selector de color de estampa
   colorEstampaSelector.addEventListener('click', (e) => {
-    if (e.target.classList.contains('color-option') && !e.target.classList.contains('hidden')) {
+    if (e.target.classList.contains('color-option') && 
+        !e.target.classList.contains('hidden')) {
       // Quitar selección anterior
       colorEstampaSelector.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
       // Agregar selección nueva
@@ -132,6 +134,7 @@ function setupTalleSelector() {
 document.addEventListener("DOMContentLoaded", () => {
   setupColorSelectors();
   setupTalleSelector();
+  actualizarOpcionesEstampa(); // Aplicar restricciones iniciales
   actualizarImagen();
 });
 

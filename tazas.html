@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MIT ESTAMPADOS - Tazas</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+        <div class="container">
+            <a class="navbar-brand d-flex align-items-center" id="mitNav" href="#">
+                <img src="imagenes/logo mit.png" alt="MIT ESTAMPADOS" height="35" class="me-2">
+                <span>MIT ESTAMPADOS</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="menu">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="imdex.html">Inicio</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#diseños">Diseños</a></li>
+                </ul>
+                <button id="myButton" class="btn btn-light ms-3"><i class="bi bi-moon-fill"></i></button>
+                <button type="button" class="btn btn-outline-light position-relative" data-bs-toggle="modal"
+                    data-bs-target="#modalCarrito">
+                    🛒
+                    <span id="contador-carrito"
+                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                        0
+                        <span class="visually-hidden">productos en carrito</span>
+                    </span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-dark text-white text-center py-5 mt-5">
+        <h1>MIT ESTAMPADOS</h1>
+        <p class="lead">Tazas personalizadas con sublimación</p>
+    </header>
+
+    <main class="pt-4">
+        <section id="diseños" class="container my-5">
+            <h2 class="text-center mb-4">Nuestras Tazas</h2>
+            
+            <!-- Aquí irán las tarjetas de tazas cuando tengas los diseños -->
+            <div class="row g-4">
+                <div class="col-12 text-center">
+                    <div class="card bg-light p-5">
+                        <div class="card-body">
+                            <i class="bi bi-cup-hot display-1 text-warning mb-3"></i>
+                            <h3>Próximamente</h3>
+                            <p class="lead">Estamos preparando una increíble selección de tazas personalizadas con sublimación.</p>
+                            <p>¡Muy pronto podrás ver todos nuestros diseños!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p>Contacto: <a href="https://www.instagram.com/mit.estampados/">@mit.estampados</a> | &copy; 2025 MIT Estampados</p>
+    </footer>
+
+    <script src="script/index.js"></script>
+    <script src="script/componentes.js"></script>
+    <script src="script/carrito.js" defer></script>
+</body>
+
+</html>

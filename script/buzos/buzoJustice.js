@@ -34,7 +34,7 @@ const colorBuzo = document.getElementById("colorBuzo");
     function actualizarImagen() {
     const buzo = colorBuzo.value;
     const estampa = colorEstampa ? colorEstampa.value : "";
-    const basePath = `../imagenes/buzoJustice/buzoJustice_${buzo}_${estampa}`;
+    const basePath = `../../imagenes/buzos/buzoJustice/buzoJustice_${buzo}_${estampa}`;
     cargarImagen(imgFront, basePath, "front");
     cargarImagen(imgBack, basePath, "back");
     }

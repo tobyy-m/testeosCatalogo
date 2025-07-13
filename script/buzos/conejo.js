@@ -16,7 +16,7 @@ function precargarImagen(src) {
 
 // Cargar imagen .webp con fade
 function cargarImagen(imgElement, basePath, tipo) {
-  const webp = `${basePath}_${tipo}.webp`;
+  const webp = `${basePath}_${tipo}.jpg`;
 
   imgElement.classList.add("hidden"); // comienza fade out
 
@@ -31,51 +31,52 @@ function cargarImagen(imgElement, basePath, tipo) {
 
 function actualizarImagen() {
   const buzo = colorBuzo.value;
-  const basePath = `../imagenes/dreamMaker/dreamMaker_${buzo}`;
+  const basePath = `../../imagenes/buzos/conejo/conejo_${buzo}`;
   cargarImagen(imgFront, basePath, "front");
   cargarImagen(imgBack, basePath, "back");
-  extraSegunColor();
 }
 
-function extraSegunColor() {
-  const color = colorBuzo.value;
-  let colores = ["rojo","negro","azulFrancia","azulMarino","naranja"];
-  const extra = document.getElementById("extra");
-  if (colores.includes(color)) {
-    extra.textContent = "*El color final puede ser ligeramente diferente al de la imagen. Consultar Disponibilidad.";
-  }
+// Función para manejar clics en círculos de color
+function setupColorSelectors() {
+  // Selector de color de buzo
+  colorBuzoSelector.addEventListener('click', (e) => {
+    if (e.target.classList.contains('color-option')) {
+      // Quitar selección anterior
+      colorBuzoSelector.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+      // Agregar selección nueva
+      e.target.classList.add('selected');
+      // Actualizar input oculto
+      colorBuzo.value = e.target.getAttribute('data-value');
+      // Actualizar imagen
+      actualizarImagen();
+    }
+  });
 }
 
-// Configurar selectores circulares de color
-colorBuzoSelector?.addEventListener("click", (e) => {
-  const option = e.target.closest('.color-option');
-  if (!option) return;
+// Función para manejar la selección de talles
+function setupTalleSelector() {
+  if (!talleSelector) return;
   
-  // Actualizar selección visual
-  colorBuzoSelector.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
-  option.classList.add('selected');
-  
-  // Actualizar valor del input hidden
-  colorBuzo.value = option.dataset.value;
-  
-  // Actualizar imagen
-  actualizarImagen();
-});
-
-// Configurar selectores circulares de talle
-talleSelector?.addEventListener("click", (e) => {
-  const option = e.target.closest('.talle-option');
-  if (!option) return;
-  
-  // Actualizar selección visual
-  talleSelector.querySelectorAll('.talle-option').forEach(opt => opt.classList.remove('selected'));
-  option.classList.add('selected');
-  
-  // Actualizar valor del input hidden
-  talleInput.value = option.dataset.talle;
-});
+  talleSelector.addEventListener('click', (e) => {
+    if (e.target.classList.contains('talle-option')) {
+      // Quitar selección anterior
+      talleSelector.querySelectorAll('.talle-option').forEach(opt => opt.classList.remove('selected'));
+      // Agregar selección nueva
+      e.target.classList.add('selected');
+      // Actualizar input oculto y select original
+      const talle = e.target.getAttribute('data-talle');
+      if (talleInput) talleInput.value = talle;
+      
+      // Mantener sincronizado el select original para compatibilidad
+      const selectTalle = document.getElementById('selector-talle');
+      if (selectTalle) selectTalle.value = talle;
+    }
+  });
+}
 
 document.addEventListener("DOMContentLoaded", () => {
+  setupColorSelectors();
+  setupTalleSelector();
   actualizarImagen();
 });
 

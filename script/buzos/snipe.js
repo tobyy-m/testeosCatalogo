@@ -34,22 +34,17 @@ function cargarImagen(imgElement, basePath, tipo) {
 function actualizarImagen() {
   const buzo = colorBuzo.value;
   const estampa = colorEstampa.value;
-  const basePath = `../imagenes/love/love_${buzo}_${estampa}`;
+  const basePath = `../../imagenes/buzos/snipe/snipe_${buzo}_${estampa}`;
   cargarImagen(imgFront, basePath, "front");
   cargarImagen(imgBack, basePath, "back");
 }
 
-const opcionesPorColorBuzo = {
-  blanco: ["negro", "naranja", "azul","amarillo","morado","verde","rosa","celeste", "rojo", "pistacho"],
-  negro: ["blanco", "naranja", "azul","amarillo","verde","rosa","celeste", "rojo","arena", "pistacho"],
-  celeste: ["blanco","negro","rojo","arena","pistacho"], 
-};
-
+// Actualiza opciones del color de estampa para selectores circulares
 function actualizarOpcionesEstampa() {
   const buzo = colorBuzo.value;
-  const opciones = opcionesPorColorBuzo[buzo] || [];
+  let opciones = ["rojo", "azul", "verde", "naranja", "celeste"];
 
-  // Ocultar/mostrar círculos de color de estampa
+  // Habilitar/deshabilitar círculos de color de estampa
   const allEstampaOptions = colorEstampaSelector.querySelectorAll('.color-option');
   allEstampaOptions.forEach(option => {
     const colorValue = option.getAttribute('data-value');
@@ -70,12 +65,10 @@ function actualizarOpcionesEstampa() {
     // Actualizar selección visual
     allEstampaOptions.forEach(option => option.classList.remove('selected'));
     const newSelected = colorEstampaSelector.querySelector(`[data-value="${firstAvailable}"]`);
-    if (newSelected && !newSelected.classList.contains('hidden')) {
-      newSelected.classList.add('selected');
-    }
+    if (newSelected) newSelected.classList.add('selected');
   }
 
-  actualizarImagen(); // actualiza con el primer color disponible
+  actualizarImagen(); // Cambiar imagen con la nueva estampa
 }
 
 // Función para manejar clics en círculos de color
@@ -96,8 +89,7 @@ function setupColorSelectors() {
 
   // Selector de color de estampa
   colorEstampaSelector.addEventListener('click', (e) => {
-    if (e.target.classList.contains('color-option') && 
-        !e.target.classList.contains('hidden')) {
+    if (e.target.classList.contains('color-option') && !e.target.classList.contains('hidden')) {
       // Quitar selección anterior
       colorEstampaSelector.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
       // Agregar selección nueva
@@ -131,13 +123,13 @@ function setupTalleSelector() {
   });
 }
 
+
+
 document.addEventListener("DOMContentLoaded", () => {
   setupColorSelectors();
   setupTalleSelector();
-  actualizarOpcionesEstampa(); // Aplicar restricciones iniciales
   actualizarImagen();
 });
-
 
 // 🌗 Modo claro/oscuro funcional
 const button = document.getElementById("myButton");
@@ -183,6 +175,7 @@ button?.addEventListener("click", () => {
   button.classList.toggle("btn-dark", isDark);
   button.classList.toggle("btn-light", !isDark);
 });
+
 document.addEventListener("carrito-actualizado", function () {
     mostrarCarritoEnModal(); // refresca el modal
     actualizarContador();    // refresca el número rojo del carrito

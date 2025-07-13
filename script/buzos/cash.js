@@ -14,24 +14,24 @@ function precargarImagen(src) {
   imagenesPrecargadas[src] = img;
 }
 
-// Cargar imagen .webp con fade
+// Cargar imagen .jpg con fade
 function cargarImagen(imgElement, basePath, tipo) {
-  const webp = `${basePath}_${tipo}.jpg`;
+  const jpg = `${basePath}_${tipo}.jpg`;
 
   imgElement.classList.add("hidden"); // comienza fade out
 
   const nuevaImg = new Image();
   nuevaImg.onload = () => {
-    imgElement.src = webp;
-    precargarImagen(webp);
+    imgElement.src = jpg;
+    precargarImagen(jpg);
     setTimeout(() => imgElement.classList.remove("hidden"), 50); // fade in
   };
-  nuevaImg.src = webp;
+  nuevaImg.src = jpg;
 }
 
 function actualizarImagen() {
   const buzo = colorBuzo.value;
-  const basePath = `../imagenes/autosLocos/autosLocos_${buzo}`;
+  const basePath = `../../imagenes/buzos/cash/cash_${buzo}`;
   cargarImagen(imgFront, basePath, "front");
   cargarImagen(imgBack, basePath, "back");
 }
@@ -85,7 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
   actualizarImagen();
 });
 
-
 // 🌗 Modo claro/oscuro funcional
 const button = document.getElementById("myButton");
 let isDark = true;
@@ -130,7 +129,6 @@ button?.addEventListener("click", () => {
   button.classList.toggle("btn-dark", isDark);
   button.classList.toggle("btn-light", !isDark);
 });
-
 document.addEventListener("carrito-actualizado", function () {
     mostrarCarritoEnModal(); // refresca el modal
     actualizarContador();    // refresca el número rojo del carrito

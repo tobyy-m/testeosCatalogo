@@ -313,7 +313,8 @@ function incluirHTML(id, archivo) {
     // Si hay un contenedor para modales externos, cargar el archivo
     const modalContainer = document.getElementById("modal-container");
     if (modalContainer) {
-      incluirHTML("modal-container", "../componentes/modalBootstrap.html");
+      incluirHTML("modal-container", "../../componentes/modalBootstrap.html");
+      incluirHTML("modal-talles-container", "../../componentes/modalBootstrap.html");
     } else {
       // Si los modales ya están en el DOM (como en index.html), configurarlos directamente
       configurarModalCarrito();

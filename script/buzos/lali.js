@@ -1,42 +1,42 @@
-const colorBuzo = document.getElementById("colorBuzo");
+/* ─── Referencias al DOM ─────────────────────────────── */
+const colorBuzo     = document.getElementById("colorBuzo");      // blanco | negro
+const modeloEstampa = document.getElementById("colorEstampa");  // modelo1 | modelo2
+const buzoImg       = document.getElementById("buzoLali");      // única imagen
 const colorBuzoSelector = document.getElementById("colorBuzoSelector");
+const modeloSelector = document.getElementById("modeloSelector");
 const talleSelector = document.getElementById("talleSelector");
 const talleInput = document.getElementById("talle");
-const imgFront = document.getElementById("imgFront");
-const imgBack = document.getElementById("imgBack");
 
-let imagenesPrecargadas = {};
+/* ─── Caché de imágenes ───────────────────────────────── */
+const cache = {};
+const preload = src => {
+  if (cache[src]) return;
+  const im = new Image();
+  im.src = src;
+  cache[src] = im;
+};
 
-function precargarImagen(src) {
-  if (imagenesPrecargadas[src]) return;
-  const img = new Image();
-  img.src = src;
-  imagenesPrecargadas[src] = img;
-}
-
-// Cargar imagen .jpg con fade
-function cargarImagen(imgElement, basePath, tipo) {
-  const jpg = `${basePath}_${tipo}.jpg`;
-
-  imgElement.classList.add("hidden"); // comienza fade out
-
-  const nuevaImg = new Image();
-  nuevaImg.onload = () => {
-    imgElement.src = jpg;
-    precargarImagen(jpg);
-    setTimeout(() => imgElement.classList.remove("hidden"), 50); // fade in
+/* ─── Helper fade-in/out ──────────────────────────────── */
+function fadeLoad(imgEl, url) {
+  imgEl.classList.add("hidden");         // fade-out
+  const probe = new Image();
+  probe.onload = () => {
+    imgEl.src = url;
+    preload(url);
+    setTimeout(() => imgEl.classList.remove("hidden"), 40); // fade-in
   };
-  nuevaImg.src = jpg;
+  probe.src = url;
 }
 
+/* ─── Cargar la combinación elegida ───────────────────── */
 function actualizarImagen() {
-  const buzo = colorBuzo.value;
-  const basePath = `../imagenes/pinkFloyd/pinkFloyd_${buzo}`;
-  cargarImagen(imgFront, basePath, "front");
-  cargarImagen(imgBack, basePath, "back");
+  const buzo   = colorBuzo.value;        // blanco / negro
+  const modelo = modeloEstampa.value;    // modelo1 / modelo2
+  const url    = `../../imagenes/buzos/lali/lali_${buzo}_${modelo}_back.webp`;
+  fadeLoad(buzoImg, url);
 }
 
-// Configurar selectores circulares de color
+// Configurar selectores circulares de color de buzo
 colorBuzoSelector?.addEventListener("click", (e) => {
   const option = e.target.closest('.color-option');
   if (!option) return;
@@ -47,6 +47,22 @@ colorBuzoSelector?.addEventListener("click", (e) => {
   
   // Actualizar valor del input hidden
   colorBuzo.value = option.dataset.value;
+  
+  // Actualizar imagen
+  actualizarImagen();
+});
+
+// Configurar selectores circulares de modelo
+modeloSelector?.addEventListener("click", (e) => {
+  const option = e.target.closest('.talle-option');
+  if (!option) return;
+  
+  // Actualizar selección visual
+  modeloSelector.querySelectorAll('.talle-option').forEach(opt => opt.classList.remove('selected'));
+  option.classList.add('selected');
+  
+  // Actualizar valor del input hidden
+  modeloEstampa.value = option.dataset.value;
   
   // Actualizar imagen
   actualizarImagen();
@@ -65,10 +81,8 @@ talleSelector?.addEventListener("click", (e) => {
   talleInput.value = option.dataset.talle;
 });
 
-document.addEventListener("DOMContentLoaded", () => {
-  actualizarImagen();
-});
-
+/* ─── Eventos ─────────────────────────────────────────── */
+document.addEventListener("DOMContentLoaded", actualizarImagen);
 
 // 🌗 Modo claro/oscuro funcional
 const button = document.getElementById("myButton");

@@ -31,57 +31,51 @@ function cargarImagen(imgElement, basePath, tipo) {
 
 function actualizarImagen() {
   const buzo = colorBuzo.value;
-  const basePath = `../imagenes/duki/duki_${buzo}`;
+  const basePath = `../../imagenes/buzos/dreamMaker/dreamMaker_${buzo}`;
   cargarImagen(imgFront, basePath, "front");
   cargarImagen(imgBack, basePath, "back");
+  extraSegunColor();
 }
 
-// Función para manejar clics en círculos de color
-function setupColorSelectors() {
-  if (!colorBuzoSelector) return;
+function extraSegunColor() {
+  const color = colorBuzo.value;
+  let colores = ["rojo","negro","azulFrancia","azulMarino","naranja"];
+  const extra = document.getElementById("extra");
+  if (colores.includes(color)) {
+    extra.textContent = "*El color final puede ser ligeramente diferente al de la imagen. Consultar Disponibilidad.";
+  }
+}
+
+// Configurar selectores circulares de color
+colorBuzoSelector?.addEventListener("click", (e) => {
+  const option = e.target.closest('.color-option');
+  if (!option) return;
   
-  // Selector de color de buzo
-  colorBuzoSelector.addEventListener('click', (e) => {
-    if (e.target.classList.contains('color-option')) {
-      // Quitar selección anterior
-      colorBuzoSelector.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
-      // Agregar selección nueva
-      e.target.classList.add('selected');
-      // Actualizar input oculto
-      colorBuzo.value = e.target.getAttribute('data-value');
-      // Actualizar imagen
-      actualizarImagen();
-    }
-  });
-}
-
-// Función para manejar la selección de talles
-function setupTalleSelector() {
-  if (!talleSelector) return;
+  // Actualizar selección visual
+  colorBuzoSelector.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
+  option.classList.add('selected');
   
-  talleSelector.addEventListener('click', (e) => {
-    if (e.target.classList.contains('talle-option')) {
-      // Quitar selección anterior
-      talleSelector.querySelectorAll('.talle-option').forEach(opt => opt.classList.remove('selected'));
-      // Agregar selección nueva
-      e.target.classList.add('selected');
-      // Actualizar input oculto y select original
-      const talle = e.target.getAttribute('data-talle');
-      if (talleInput) talleInput.value = talle;
-      
-      // Mantener sincronizado el select original para compatibilidad
-      const selectTalle = document.getElementById('selector-talle');
-      if (selectTalle) selectTalle.value = talle;
-    }
-  });
-}
+  // Actualizar valor del input hidden
+  colorBuzo.value = option.dataset.value;
+  
+  // Actualizar imagen
+  actualizarImagen();
+});
 
-// Eventos
-// Event listener comentado - ahora se maneja con selectores circulares
-// colorBuzo.addEventListener("change", actualizarImagen);
+// Configurar selectores circulares de talle
+talleSelector?.addEventListener("click", (e) => {
+  const option = e.target.closest('.talle-option');
+  if (!option) return;
+  
+  // Actualizar selección visual
+  talleSelector.querySelectorAll('.talle-option').forEach(opt => opt.classList.remove('selected'));
+  option.classList.add('selected');
+  
+  // Actualizar valor del input hidden
+  talleInput.value = option.dataset.talle;
+});
+
 document.addEventListener("DOMContentLoaded", () => {
-  setupColorSelectors();
-  setupTalleSelector();
   actualizarImagen();
 });
 

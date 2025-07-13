@@ -1,7 +1,5 @@
 const colorBuzo = document.getElementById("colorBuzo");
-const colorEstampa = document.getElementById("colorEstampa");
 const colorBuzoSelector = document.getElementById("colorBuzoSelector");
-const colorEstampaSelector = document.getElementById("colorEstampaSelector");
 const talleSelector = document.getElementById("talleSelector");
 const talleInput = document.getElementById("talle");
 const imgFront = document.getElementById("imgFront");
@@ -33,74 +31,24 @@ function cargarImagen(imgElement, basePath, tipo) {
 
 function actualizarImagen() {
   const buzo = colorBuzo.value;
-  const estampa = colorEstampa.value;
-  const basePath = `../imagenes/luna/luna_${buzo}_${estampa}`;
+  const basePath = `../../imagenes/buzos/duki/duki_${buzo}`;
   cargarImagen(imgFront, basePath, "front");
   cargarImagen(imgBack, basePath, "back");
 }
 
-function actualizarOpcionesEstampa() {
-  const buzo = colorBuzo.value;
-  let opciones = ["rojo", "violeta", "azul"];
-
-  if (buzo === "blanco") {
-    opciones.unshift("negro");
-  } else if (buzo === "negro") {
-    opciones.unshift("blanco");
-  }
-
-  // Habilitar/deshabilitar círculos de color de estampa
-  const allEstampaOptions = colorEstampaSelector.querySelectorAll('.color-option');
-  allEstampaOptions.forEach(option => {
-    const colorValue = option.getAttribute('data-value');
-    if (opciones.includes(colorValue)) {
-      option.classList.remove('hidden');
-    } else {
-      option.classList.add('hidden');
-      option.classList.remove('selected');
-    }
-  });
-
-  // Seleccionar el primer color disponible si el actual no está disponible
-  const currentEstampa = colorEstampa.value;
-  if (!opciones.includes(currentEstampa)) {
-    const firstAvailable = opciones[0];
-    colorEstampa.value = firstAvailable;
-    
-    // Actualizar selección visual
-    allEstampaOptions.forEach(option => option.classList.remove('selected'));
-    const newSelected = colorEstampaSelector.querySelector(`[data-value="${firstAvailable}"]`);
-    if (newSelected) newSelected.classList.add('selected');
-  }
-
-  actualizarImagen();
-}
-
 // Función para manejar clics en círculos de color
 function setupColorSelectors() {
+  if (!colorBuzoSelector) return;
+  
   // Selector de color de buzo
   colorBuzoSelector.addEventListener('click', (e) => {
-    if (e.target.classList.contains('color-option') && !e.target.classList.contains('hidden')) {
+    if (e.target.classList.contains('color-option')) {
       // Quitar selección anterior
       colorBuzoSelector.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
       // Agregar selección nueva
       e.target.classList.add('selected');
       // Actualizar input oculto
       colorBuzo.value = e.target.getAttribute('data-value');
-      // Actualizar opciones de estampa
-      actualizarOpcionesEstampa();
-    }
-  });
-
-  // Selector de color de estampa
-  colorEstampaSelector.addEventListener('click', (e) => {
-    if (e.target.classList.contains('color-option') && !e.target.classList.contains('hidden')) {
-      // Quitar selección anterior
-      colorEstampaSelector.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('selected'));
-      // Agregar selección nueva
-      e.target.classList.add('selected');
-      // Actualizar input oculto
-      colorEstampa.value = e.target.getAttribute('data-value');
       // Actualizar imagen
       actualizarImagen();
     }
@@ -128,14 +76,13 @@ function setupTalleSelector() {
   });
 }
 
+// Eventos
+// Event listener comentado - ahora se maneja con selectores circulares
+// colorBuzo.addEventListener("change", actualizarImagen);
 document.addEventListener("DOMContentLoaded", () => {
   setupColorSelectors();
   setupTalleSelector();
-  actualizarOpcionesEstampa();
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  actualizarOpcionesEstampa();
+  actualizarImagen();
 });
 
 
