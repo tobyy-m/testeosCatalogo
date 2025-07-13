@@ -74,6 +74,24 @@ document.addEventListener("DOMContentLoaded", () => {
       nombreCompleto = `${nombreProducto} - Modelo ${numeroModelo}`;
     }
     
+    // Función para obtener la imagen principal del producto
+    function obtenerImagenPrincipal() {
+      // Lista de IDs comunes para imágenes principales
+      const posiblesIds = ['imgFront', 'buzoLali', 'tazaGato', 'tazaCarpincho'];
+      
+      for (const id of posiblesIds) {
+        const img = document.getElementById(id);
+        if (img && img.src) {
+          return img.src;
+        }
+      }
+      
+      // Si no encuentra por ID, buscar la primera imagen en el contenedor principal
+      const mainContainer = document.querySelector('main');
+      const primeraImg = mainContainer?.querySelector('img');
+      return primeraImg?.src || "";
+    }
+    
     const producto = {
       nombre: nombreCompleto,
       colorBuzo: document.getElementById("colorBuzo")?.value || "",
@@ -81,7 +99,7 @@ document.addEventListener("DOMContentLoaded", () => {
       talle: document.getElementById("talle")?.value || document.getElementById("selector-talle")?.value || "",
       cantidad: parseInt(document.getElementById("cantidad")?.value) || 1,
       precio: parseInt(document.getElementById("precio-producto")?.value) || 0,
-      imagen: document.getElementById("imgFront")?.src || document.getElementById("buzoLali")?.src || document.getElementById("tazaGato")?.src || ""
+      imagen: obtenerImagenPrincipal()
     };
 
     // Validación específica por tipo de producto
