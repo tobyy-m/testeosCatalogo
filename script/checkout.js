@@ -400,7 +400,7 @@ function generarPDF(numeroPedido, carrito) {
     doc.setTextColor(0, 0, 0);
     doc.text('Producto', 22, yPos);
     doc.text('Talle', 85, yPos);
-    doc.text('Color Buzo', 105, yPos);
+    doc.text('Color Prenda', 105, yPos);
     doc.text('Color Estampa', 135, yPos);
     doc.text('Cant.', 165, yPos);
     doc.text('Subtotal', 175, yPos);
@@ -423,29 +423,55 @@ function generarPDF(numeroPedido, carrito) {
         
         doc.setTextColor(...grisTexto);
         
+        // Verificar si es un producto con solo modelo (sin colores de prenda)
+        const esTaza = producto.nombre.toLowerCase().includes('taza');
+        const esBuzoLali = producto.nombre.toLowerCase().includes('buzo lali');
+        const esSoloModelo = esTaza || esBuzoLali;
+        
         // Nombre del producto (truncar si es muy largo)
-        const nombreCorto = producto.nombre.length > 20 ? 
-            producto.nombre.substring(0, 17) + '...' : producto.nombre;
+        let nombreCorto;
+        if (esSoloModelo) {
+            // Para productos con solo modelo, el nombre ya incluye el modelo
+            nombreCorto = producto.nombre.length > 35 ? 
+                producto.nombre.substring(0, 32) + '...' : producto.nombre;
+        } else {
+            nombreCorto = producto.nombre.length > 20 ? 
+                producto.nombre.substring(0, 17) + '...' : producto.nombre;
+        }
         doc.text(nombreCorto, 22, yPos);
         
-        doc.text(producto.talle || '-', 85, yPos);
-        doc.text(producto.colorBuzo || '-', 105, yPos);
-        
-        // Mostrar color de estampa solo si el producto lo requiere
-        const nombreProducto = producto.nombre.toLowerCase().replace(/\s+/g, '');
-        const tieneEstampa = productosConEstampa.some(p => 
-            nombreProducto.includes(p)
-        );
-        
-        if (tieneEstampa && producto.colorEstampa && 
-            producto.colorEstampa !== 'Sin estampa' && 
-            producto.colorEstampa !== '') {
-            // Capitalizar primera letra del color de estampa
-            const colorEstampaCapitalizado = producto.colorEstampa.charAt(0).toUpperCase() + 
-                                           producto.colorEstampa.slice(1);
-            doc.text(colorEstampaCapitalizado, 135, yPos);
+        // Manejo específico según tipo de producto
+        if (esTaza) {
+            // Tazas: no mostrar talle, color de prenda ni color de estampa
+            doc.text('-', 85, yPos);  // Talle
+            doc.text('-', 105, yPos); // Color Prenda
+            doc.text('-', 135, yPos); // Color Estampa (ya está en el nombre)
+        } else if (esBuzoLali) {
+            // Buzo Lali: mostrar talle pero no colores (ya está en el nombre)
+            doc.text(producto.talle || '-', 85, yPos);  // Talle
+            doc.text('-', 105, yPos); // Color Prenda
+            doc.text('-', 135, yPos); // Color Estampa (ya está en el nombre)
         } else {
-            doc.text('-', 135, yPos);
+            // Otros buzos: mostrar todo normalmente
+            doc.text(producto.talle || '-', 85, yPos);
+            doc.text(producto.colorBuzo || '-', 105, yPos);
+            
+            // Mostrar color de estampa solo si el producto lo requiere
+            const nombreProducto = producto.nombre.toLowerCase().replace(/\s+/g, '');
+            const tieneEstampa = productosConEstampa.some(p => 
+                nombreProducto.includes(p)
+            );
+            
+            if (tieneEstampa && producto.colorEstampa && 
+                producto.colorEstampa !== 'Sin estampa' && 
+                producto.colorEstampa !== '') {
+                // Capitalizar primera letra del color de estampa
+                const colorEstampaCapitalizado = producto.colorEstampa.charAt(0).toUpperCase() + 
+                                               producto.colorEstampa.slice(1);
+                doc.text(colorEstampaCapitalizado, 135, yPos);
+            } else {
+                doc.text('-', 135, yPos);
+            }
         }
         
         doc.text(producto.cantidad.toString(), 165, yPos);

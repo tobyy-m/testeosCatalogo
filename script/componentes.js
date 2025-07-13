@@ -315,6 +315,9 @@ function incluirHTML(id, archivo) {
     if (modalContainer) {
       incluirHTML("modal-container", "../../componentes/modalBootstrap.html");
       incluirHTML("modal-talles-container", "../../componentes/modalBootstrap.html");
+      incluirHTML("modal-eliminar-container", "../../componentes/modalBootstrap.html");
+      incluirHTML("modal-vaciar-container", "../../componentes/modalBootstrap.html");
+      incluirHTML("modal-carrito-container", "../../componentes/modalBootstrap.html");
     } else {
       // Si los modales ya están en el DOM (como en index.html), configurarlos directamente
       configurarModalCarrito();

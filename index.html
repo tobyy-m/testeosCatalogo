@@ -5,10 +5,60 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MIT ESTAMPADOS - Estampados y sublimaciones</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        
+        .navbar-brand {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.5rem;
+        }
+        
+        .lead {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            font-size: 1.25rem;
+        }
+        
+        .card-title {
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+            font-size: 1.5rem;
+        }
+        
+        .btn {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-link {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400;
+        }
+        
+        .card-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+    </style>
 </head>
 
 <body>
@@ -23,7 +73,8 @@
             </button>
             <div class="collapse navbar-collapse" id="menu">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="#diseños">Diseños</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#quienes-somos">Quiénes Somos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#servicios">Servicios</a></li>
                 </ul>
                 <button id="myButton" class="btn btn-light ms-3"><i class="bi bi-moon-fill"></i></button>
                 <button type="button" class="btn btn-outline-light position-relative" data-bs-toggle="modal"
@@ -35,451 +86,105 @@
                         <span class="visually-hidden">productos en carrito</span>
                     </span>
                 </button>
-
             </div>
         </div>
     </nav>
-
 
     <header class="bg-dark text-white text-center py-5 mt-5">
         <h1>MIT ESTAMPADOS</h1>
         <p class="lead">Estampados y sublimaciones</p>
     </header>
+
     <main class="pt-4">
-        <section id="diseños" class="container my-5">
-            <h2 class="text-center mb-4">Nuestros diseños</h2>
-
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-200">
-                        <div id="carousel11" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active"><img
-                                        src="imagenes/buzos/dreamMaker/dreamMaker_blanco_front.webp" class="d-block w-100"
-                                        alt="..."></div>
-                                <div class="carousel-item"><img src="imagenes/buzos/dreamMaker/dreamMaker_blanco_back.webp"
-                                        class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel11"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel11"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </button>
+        <section id="quienes-somos" class="container my-5">
+            <h2 class="text-center mb-4">Quiénes Somos</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="card">
+                        <div class="card-body text-center p-5">
+                            <p class="lead mb-4">
+                                En <strong>MIT ESTAMPADOS</strong> somos especialistas en estampados y sublimaciones de alta calidad. 
+                                Nos dedicamos a crear productos únicos y personalizados que reflejen tu estilo y personalidad.
+                            </p>
+                            <p class="mb-4">
+                                Con años de experiencia en el sector, utilizamos las mejores técnicas y materiales para 
+                                garantizar durabilidad y acabados profesionales en cada uno de nuestros productos.
+                            </p>
+                            <p>
+                                <i class="bi bi-heart-fill text-danger me-2"></i>
+                                Transformamos tus ideas en realidad con pasión y dedicación.
+                            </p>
                         </div>
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Buzo Dream Maker</h5>
-                        <a href="productos/buzos/buzoDreamMaker.html" class="btn btn-outline-primary btn-ver-mas">Ver más</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-200">
-                        <div id="carousel13" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active"><img
-                                        src="imagenes/buzos/buzoJustice/buzoJustice_negro_arena_front.webp"
-                                        class="d-block w-100" alt="Frente del Buzo Justice" loading="lazy"></div>
-                                <div class="carousel-item"><img
-                                        src="imagenes/buzos/buzoJustice/buzoJustice_negro_arena_back.webp"
-                                        class="d-block w-100" alt="Dorso del Buzo Justice" loading="lazy"></div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel13"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel13"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Buzo Justice</h5>
-                        <a href="productos/buzos/buzoJustice.html" class="btn btn-outline-primary btn-ver-mas">Ver más</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-200">
-                        <div id="carousel2" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active"><img src="imagenes/buzos/snipe/snipe_blanco_rojo_front.webp"
-                                        class="d-block w-100" alt="..."></div>
-                                <div class="carousel-item"><img src="imagenes/buzos/snipe/snipe_blanco_rojo_back.webp"
-                                        class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel2"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel2"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Buzo Snipe</h5>
-                        <a href="productos/buzos/buzoSnipe.html" class="btn btn-outline-primary btn-ver-mas">Ver más</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-200">
-                        <div id="carousel3" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active"><img src="imagenes/buzos/luna/luna_negro_violeta_front.webp"
-                                        class="d-block w-100" alt="..."></div>
-                                <div class="carousel-item"><img src="imagenes/buzos/luna/luna_negro_violeta_back.webp"
-                                        class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel3"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel3"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Buzo Luna</h5>
-                        <a href="productos/buzos/buzoLuna.html" class="btn btn-outline-primary btn-ver-mas">Ver más</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-300">
-                        <div id="carousel1" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active"><img src="imagenes/buzos/marte/marte_negro_rojo_front.webp"
-                                        class="d-block w-100" alt="..."></div>
-                                <div class="carousel-item"><img src="imagenes/buzos/marte/marte_negro_rojo_back.webp"
-                                        class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel1"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel1"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Buzo Marte</h5>
-                        <a href="productos/buzos/buzoMarte.html" class="btn btn-outline-primary btn-ver-mas">Ver más</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-200">
-                        <div id="carousel4" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active"><img src="imagenes/buzos/love/love_blanco_azul_front.webp"
-                                        class="d-block w-100" alt="..."></div>
-                                <div class="carousel-item"><img src="imagenes/buzos/love/love_blanco_azul_back.webp"
-                                        class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel4"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel4"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Buzo Love</h5>
-                        <a href="productos/buzos/buzoLove.html" class="btn btn-outline-primary btn-ver-mas">Ver más</a>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card h-200">
-                        <div id="carousel5" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active"><img src="imagenes/buzos/Duki/duki_negro_front.webp"
-                                        class="d-block w-100" alt="..."></div>
-                                <div class="carousel-item"><img src="imagenes/buzos/Duki/duki_negro_back.webp"
-                                        class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel5"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel5"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Buzo Duki</h5>
-                        <a href="productos/buzos/buzoDuki.html" class="btn btn-outline-primary btn-ver-mas">Ver más</a>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card h-200">
-                        <div id="carousel6" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active"><img src="imagenes/buzos/lali/lali_blanco_modelo1_back.webp"
-                                        class="d-block w-100" alt="Buzo con estampa de Lali"></div>
-                                <div class="carousel-item"><img src="imagenes/buzos/lali/lali_negro_modelo2_back.webp"
-                                        class="d-block w-100" alt="Buzo con estampa de Lali">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel6"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel6"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Buzo Lali</h5>
-                        <a href="productos/buzos/buzoLali.html" class="btn btn-outline-primary btn-ver-mas">Ver más</a>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card h-200">
-                        <div id="carousel7" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active"><img
-                                        src="imagenes/buzos/pinkFloyd/pinkFloyd_negro_front.jpg" class="d-block w-100"
-                                        alt="..."></div>
-                                <div class="carousel-item"><img src="imagenes/buzos/pinkFloyd/pinkFloyd_negro_back.jpg"
-                                        class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel7"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel7"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Buzo Pink Floyd</h5>
-                        <a href="productos/buzos/buzoPinkFloyd.html" class="btn btn-outline-primary btn-ver-mas">Ver más</a>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card h-200">
-                        <div id="carousel8" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active"><img
-                                        src="imagenes/buzos/autosLocos/autosLocos_azulMarino_front.jpg" class="d-block w-100"
-                                        alt="..."></div>
-                                <div class="carousel-item"><img src="imagenes/buzos/autosLocos/autosLocos_azulMarino_back.jpg"
-                                        class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel8"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel8"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Buzo Autos Locos</h5>
-                        <a href="productos/buzos/buzoAutosLocos.html" class="btn btn-outline-primary btn-ver-mas">Ver más</a>
-                    </div>
-                </div>
-
-                <div class="col-md-4">
-                    <div class="card h-200">
-                        <div id="carousel9" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active"><img src="imagenes/buzos/cash/cash_negro_front.jpg"
-                                        class="d-block w-100" alt="..."></div>
-                                <div class="carousel-item"><img src="imagenes/buzos/cash/cash_negro_back.jpg"
-                                        class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel9"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel9"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Buzo Cash</h5>
-                        <a href="productos/buzos/buzoCash.html" class="btn btn-outline-primary btn-ver-mas">Ver más</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-200">
-                        <div id="carousel10" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active"><img
-                                        src="imagenes/buzos/conejo/conejo_azulFrancia_front.jpg" class="d-block w-100"
-                                        alt="..."></div>
-                                <div class="carousel-item"><img src="imagenes/buzos/conejo/conejo_azulFrancia_back.jpg"
-                                        class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel10"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel10"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Buzo Conejo</h5>
-                        <a href="productos/buzos/buzoConejo.html" class="btn btn-outline-primary btn-ver-mas">Ver más</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-200">
-                        <div id="carousel12" class="carousel slide" data-bs-ride="carousel">
-                            <div class="carousel-inner">
-                                <div class="carousel-item active"><img src="imagenes/buzos/pirata/pirata_azulMarino_front.jpg"
-                                        class="d-block w-100" alt="..."></div>
-                                <div class="carousel-item"><img src="imagenes/buzos/pirata/pirata_azulMarino_back.jpg"
-                                        class="d-block w-100" alt="...">
-                                </div>
-                            </div>
-                            <button class="carousel-control-prev" type="button" data-bs-target="#carousel12"
-                                data-bs-slide="prev">
-                                <span class="carousel-control-prev-icon"></span>
-                            </button>
-                            <button class="carousel-control-next" type="button" data-bs-target="#carousel12"
-                                data-bs-slide="next">
-                                <span class="carousel-control-next-icon"></span>
-                            </button>
-                        </div>
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Buzo Pirata</h5>
-                        <a href="productos/buzos/buzoPirata.html" class="btn btn-outline-primary btn-ver-mas">Ver más</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Modal Carrito -->
-        <div class="modal fade" id="modalCarrito" tabindex="-1" aria-labelledby="modalCarritoLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content bg-dark text-white">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="modalCarritoLabel">Tu Carrito</h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                            aria-label="Cerrar"></button>
+        <section id="servicios" class="container my-5">
+            <h2 class="text-center mb-4">Nuestros Servicios</h2>
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="card h-100 text-center">
+                        <img src="imagenes/buzos/dreamMaker/dreamMaker_blanco_front.webp" class="card-img-top" alt="Buzos MIT Estampados" style="height: 300px; object-fit: cover;">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Buzos</h5>
+                            <p class="card-text flex-grow-1">
+                                Buzos con estampados únicos y diseños exclusivos. 
+                                Perfectos para expresar tu estilo personal.
+                            </p>
+                            <a href="buzos.html" class="btn btn-outline-primary btn-ver-mas mt-auto">Ver Catálogo</a>
+                        </div>
                     </div>
-                    <div class="modal-body" id="carrito-contenido">
-                        <!-- Aquí se renderizan los productos del carrito -->
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 text-center">
+                        <img src="imagenes/buzos/snipe/snipe_blanco_rojo_front.webp" class="card-img-top" alt="Remeras MIT Estampados" style="height: 300px; object-fit: cover;">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Remeras</h5>
+                            <p class="card-text flex-grow-1">
+                                Remeras con estampados personalizados y sublimaciones 
+                                de alta calidad para uso diario.
+                            </p>
+                            <a href="remeras.html" class="btn btn-outline-success btn-ver-mas mt-auto">Ver Catálogo</a>
+                        </div>
                     </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-outline-danger me-auto" id="btn-vaciar-carrito">
-                            <i class="bi bi-trash me-2"></i>Vaciar carrito
-                        </button>
-                        <div class="d-flex flex-column flex-grow-1">
-                            <div id="carrito-total" class="mb-2 fs-5 text-center"></div>
-                            <a href="checkout.html" class="btn btn-success w-100">Finalizar compra</a>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 text-center">
+                        <img src="imagenes/portadaTazas.webp" class="card-img-top" alt="Tazas MIT Estampados" style="height: 300px; object-fit: cover;">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">Tazas</h5>
+                            <p class="card-text flex-grow-1">
+                                Tazas personalizadas con sublimación. Ideales para 
+                                regalos especiales o uso personal.
+                            </p>
+                            <a href="tazas.html" class="btn btn-outline-warning btn-ver-mas mt-auto">Ver Catálogo</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card h-100 text-center">
+                        <div class="card-body d-flex flex-column justify-content-center align-items-center">
+                            <div class="mb-3">
+                                <i class="bi bi-palette display-1 text-info"></i>
+                            </div>
+                            <h5 class="card-title">Personalización</h5>
+                            <p class="card-text">
+                                ¿Tienes una idea específica? Trabajamos contigo para 
+                                crear diseños únicos y personalizados.
+                            </p>
+                            <a href="#" class="btn btn-outline-info btn-ver-mas mt-3" data-bs-toggle="modal" data-bs-target="#modalPersonalizacion">Consultar</a>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-
-        <!-- Modal Confirmar Eliminación -->
-        <div class="modal fade" id="modalEliminar" tabindex="-1" aria-labelledby="modalEliminarLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content bg-dark text-light">
-                    <div class="modal-header border-secondary">
-                        <h5 class="modal-title" id="modalEliminarLabel">
-                            <i class="bi bi-exclamation-triangle text-warning me-2"></i>
-                            Confirmar Eliminación
-                        </h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                            aria-label="Cerrar"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <p class="mb-3">¿Estás seguro de que quieres eliminar este producto?</p>
-                        <div id="producto-eliminar"
-                            class="d-flex align-items-center justify-content-center gap-3 p-3 bg-secondary bg-opacity-25 rounded">
-                            <!-- Aquí se cargará la información del producto -->
-                        </div>
-                    </div>
-                    <div class="modal-footer border-secondary">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-danger" id="confirmar-eliminar">
-                            <i class="bi bi-trash me-2"></i>
-                            Eliminar Producto
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal Vaciar Carrito -->
-        <div class="modal fade" id="modalVaciarCarrito" tabindex="-1" aria-labelledby="modalVaciarCarritoLabel"
-            aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered">
-                <div class="modal-content bg-dark text-light">
-                    <div class="modal-header border-secondary">
-                        <h5 class="modal-title" id="modalVaciarCarritoLabel">
-                            <i class="bi bi-exclamation-triangle text-warning me-2"></i>
-                            Vaciar Carrito
-                        </h5>
-                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                            aria-label="Cerrar"></button>
-                    </div>
-                    <div class="modal-body text-center">
-                        <p class="mb-3">¿Estás seguro de que quieres vaciar todo el carrito?</p>
-                        <p class="text-warning">
-                            <i class="bi bi-info-circle me-2"></i>
-                            Esta acción eliminará todos los productos y no se puede deshacer.
-                        </p>
-                    </div>
-                    <div class="modal-footer border-secondary">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                        <button type="button" class="btn btn-danger" id="confirmar-vaciar-carrito">
-                            <i class="bi bi-trash me-2"></i>
-                            Sí, vaciar carrito
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </section>
     </main>
 
     <footer class="bg-dark text-white text-center py-3">
-        <p>Contacto: <a href="https://www.instagram.com/mit.estampados/">@mit.estampados</a> | &copy; 2025 MIT
-            Estampados</p>
+        <p>Contacto: <a href="https://www.instagram.com/mit.estampados/">@mit.estampados</a> | &copy; 2025 MIT Estampados</p>
     </footer>
+
     <script src="script/index.js"></script>
     <script src="script/componentes.js"></script>
     <script src="script/carrito.js" defer></script>
