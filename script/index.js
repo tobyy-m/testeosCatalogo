@@ -1,53 +1,113 @@
 let button = document.getElementById("myButton");
-let isBlack = true; // Modo oscuro por defecto
-
-// Transiciones suaves para todos los elementos que cambian color
-const smoothElements = [
-  document.body,
-  document.querySelector("header"),
-  document.querySelector("footer"),
-  document.querySelector(".navbar"),
-  ...document.querySelectorAll(".card")
-];
-
-smoothElements.forEach(el => {
-  el.style.transition = "background-color 0.5s ease, color 0.5s ease";
-});
+let isBlack = localStorage.getItem('theme') === 'dark'; // Leer del localStorage
 
 // Función para aplicar el tema según el estado de isBlack
 function aplicarModo() {
   if (isBlack) {
     // Modo oscuro
-    document.body.style.background = "black";
-    document.body.style.color = "#ccc";
-    button.innerHTML = '<i class="bi bi-sun-fill"></i>';
-    button.classList.remove("btn-light");
-    button.classList.add("btn-dark");
+    document.body.classList.add('dark');
+    document.body.style.background = "#000000ff";
+    document.body.style.color = "#ffffff";
+    
+    if (button) {
+      button.innerHTML = '<i class="bi bi-sun-fill"></i>';
+      button.classList.remove("btn-light");
+      button.classList.add("btn-dark");
+    }
 
+    // Las tarjetas ahora tendrán el mismo fondo que el body (#212529)
     document.querySelectorAll(".card").forEach((card) => {
-      card.style.backgroundColor = "#1e1e1e";
-      card.style.color = "#ccc";
+      card.style.backgroundColor = "#26292cff";
+      card.style.color = "#ffffffff";
+      card.style.borderColor = "#000000ff";
     });
 
     document.querySelectorAll(".btn-ver-mas").forEach((btn) => {
-      btn.classList.remove("btn-outline-primary");
+      btn.classList.remove("btn-outline-primary", "btn-outline-success", "btn-outline-warning", "btn-outline-info");
       btn.classList.add("btn-outline-light");
     });
 
-    document.querySelector("header").style.backgroundColor = "#222";
-    document.querySelector("footer").style.backgroundColor = "#222";
-    document.querySelector("footer").style.color = "#ccc";
-
-    document.querySelector(".navbar").classList.remove("bg-primary");
-    document.querySelector(".navbar").classList.add("bg-dark");
+    // Header y footer con color gris oscuro (#343a40)
+    const header = document.querySelector("header");
+    const footer = document.querySelector("footer");
+    const navbar = document.querySelector(".navbar");
+    
+    if (header) header.style.backgroundColor = "#000000ff";
+    if (footer) {
+      footer.style.backgroundColor = "#000000ff";
+      footer.style.color = "#ffffff";
+    }
+    if (navbar) {
+      navbar.classList.remove("bg-primary");
+      navbar.classList.add("bg-dark");
+    }
 
   } else {
     // Modo claro
-    document.body.style.background = "#ccc";
-    document.body.style.color = "black";
-    button.innerHTML = '<i class="bi bi-moon-fill"></i>';
-    button.classList.remove("btn-dark");
-    button.classList.add("btn-light");
+    document.body.classList.remove('dark');
+    document.body.style.background = "";
+    document.body.style.color = "";
+    
+    if (button) {
+      button.innerHTML = '<i class="bi bi-moon-fill"></i>';
+      button.classList.remove("btn-dark");
+      button.classList.add("btn-light");
+    }
+
+    document.querySelectorAll(".card").forEach((card) => {
+      card.style.backgroundColor = "";
+      card.style.color = "";
+      card.style.borderColor = "";
+    });
+
+    document.querySelectorAll(".btn-ver-mas").forEach((btn) => {
+      btn.classList.remove("btn-outline-light");
+      // Restaurar colores originales según el contexto
+      if (btn.textContent.includes("Buzo")) {
+        btn.classList.add("btn-outline-primary");
+      } else if (btn.textContent.includes("Remera")) {
+        btn.classList.add("btn-outline-success");
+      } else if (btn.textContent.includes("Taza")) {
+        btn.classList.add("btn-outline-warning");
+      } else {
+        btn.classList.add("btn-outline-info");
+      }
+    });
+
+    const header = document.querySelector("header");
+    const footer = document.querySelector("footer");
+    const navbar = document.querySelector(".navbar");
+    
+    if (header) header.style.backgroundColor = "";
+    if (footer) {
+      footer.style.backgroundColor = "";
+      footer.style.color = "";
+    }
+    if (navbar) {
+      navbar.classList.remove("bg-dark");
+      navbar.classList.add("bg-primary");
+    }
+  }
+  
+  // Guardar en localStorage
+  localStorage.setItem('theme', isBlack ? 'dark' : 'light');
+}
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', function() {
+  button = document.getElementById("myButton");
+  
+  if (button) {
+    // Aplicar modo inicial
+    aplicarModo();
+    
+    // Agregar event listener para cambiar modo
+    button.addEventListener("click", function () {
+      isBlack = !isBlack;
+      aplicarModo();
+    });
+  }
+});
 
     document.querySelectorAll(".card").forEach((card) => {
       card.style.backgroundColor = "white";
@@ -58,24 +118,6 @@ function aplicarModo() {
       btn.classList.remove("btn-outline-light");
       btn.classList.add("btn-outline-primary");
     });
-
-    document.querySelector("header").style.backgroundColor = "#007bff";
-    document.querySelector("footer").style.backgroundColor = "#007bff";
-    document.querySelector("footer").style.color = "white";
-
-    document.querySelector(".navbar").classList.remove("bg-dark");
-    document.querySelector(".navbar").classList.add("bg-primary");
-  }
-}
-
-// Cambiar modo al hacer clic
-button.addEventListener("click", function () {
-  isBlack = !isBlack;
-  aplicarModo();
-});
-
-// Ejecutar al cargar la página
-document.addEventListener("DOMContentLoaded", aplicarModo);
 
 /* =================================== */
 /* FUNCIONES PARA MODAL DE ELIMINACIÓN EN INDEX */

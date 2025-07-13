@@ -12,6 +12,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <link rel="stylesheet" href="css/styles.css">
+    
     <style>
         body {
             font-family: 'Poppins', sans-serif;
@@ -58,10 +59,22 @@
             font-weight: 300;
             line-height: 1.6;
         }
+        
+        /* Optimización de imágenes */
+        .card-img-top {
+            height: 300px;
+            object-fit: cover;
+        }
     </style>
 </head>
 
 <body>
+
+    <header class="bg-dark text-white text-center py-5 mt-5">
+        <h1>MIT ESTAMPADOS</h1>
+        <p class="lead">Estampados y sublimaciones</p>
+    </header>
+
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center" id="mitNav" href="#">
@@ -89,11 +102,6 @@
             </div>
         </div>
     </nav>
-
-    <header class="bg-dark text-white text-center py-5 mt-5">
-        <h1>MIT ESTAMPADOS</h1>
-        <p class="lead">Estampados y sublimaciones</p>
-    </header>
 
     <main class="pt-4">
         <section id="quienes-somos" class="container my-5">
@@ -125,7 +133,9 @@
             <div class="row g-4">
                 <div class="col-md-6">
                     <div class="card h-100 text-center">
-                        <img src="imagenes/buzos/dreamMaker/dreamMaker_blanco_front.webp" class="card-img-top" alt="Buzos MIT Estampados" style="height: 300px; object-fit: cover;">
+                        <img src="imagenes/buzos/dreamMaker/dreamMaker_blanco_front.webp" 
+                             class="card-img-top" 
+                             alt="Buzos MIT Estampados">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">Buzos</h5>
                             <p class="card-text flex-grow-1">
@@ -138,7 +148,9 @@
                 </div>
                 <div class="col-md-6">
                     <div class="card h-100 text-center">
-                        <img src="imagenes/buzos/snipe/snipe_blanco_rojo_front.webp" class="card-img-top" alt="Remeras MIT Estampados" style="height: 300px; object-fit: cover;">
+                        <img src="imagenes/buzos/snipe/snipe_blanco_rojo_front.webp" 
+                             class="card-img-top" 
+                             alt="Remeras MIT Estampados">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">Remeras</h5>
                             <p class="card-text flex-grow-1">
@@ -151,7 +163,9 @@
                 </div>
                 <div class="col-md-6">
                     <div class="card h-100 text-center">
-                        <img src="imagenes/portadaTazas.webp" class="card-img-top" alt="Tazas MIT Estampados" style="height: 300px; object-fit: cover;">
+                        <img src="imagenes/portadaTazas.webp" 
+                             class="card-img-top" 
+                             alt="Tazas MIT Estampados">
                         <div class="card-body d-flex flex-column">
                             <h5 class="card-title">Tazas</h5>
                             <p class="card-text flex-grow-1">
@@ -173,7 +187,10 @@
                                 ¿Tienes una idea específica? Trabajamos contigo para 
                                 crear diseños únicos y personalizados.
                             </p>
-                            <a href="#" class="btn btn-outline-info btn-ver-mas mt-3" data-bs-toggle="modal" data-bs-target="#modalPersonalizacion">Consultar</a>
+                            <a href="https://wa.me/5491234567890?text=Hola! Me interesa hacer una personalización. ¿Podrían ayudarme?" 
+                               class="btn btn-outline-info btn-ver-mas mt-3" 
+                               target="_blank" 
+                               rel="noopener noreferrer">Consultar por WhatsApp</a>
                         </div>
                     </div>
                 </div>
@@ -181,13 +198,23 @@
         </section>
     </main>
 
+    <!-- Modal del carrito -->
+    <div id="modal-container"></div>
+
     <footer class="bg-dark text-white text-center py-3">
-        <p>Contacto: <a href="https://www.instagram.com/mit.estampados/">@mit.estampados</a> | &copy; 2025 MIT Estampados</p>
+        <p>Contacto: <a href="https://www.instagram.com/mit.estampados/" target="_blank" rel="noopener noreferrer">@mit.estampados</a> | &copy; 2025 MIT Estampados</p>
     </footer>
 
     <script src="script/index.js"></script>
     <script src="script/componentes.js"></script>
     <script src="script/carrito.js" defer></script>
+    
+    <!-- Cargar modal del carrito -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            incluirHTML('modal-container', 'componentes/modalBootstrap.html');
+        });
+    </script>
 </body>
 
 </html>

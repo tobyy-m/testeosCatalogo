@@ -4,7 +4,6 @@
     font-family: 'Noto Serif', serif;
 }
 
-
 body,
 .card,
 header,
@@ -533,7 +532,6 @@ body.dark-theme .precio-producto:hover {
     border-color: #007bff;
     box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
 }
-
 /* Mejoras de contraste para temas claro/oscuro */
 
 /* Color negro con mejor contraste en tema oscuro */

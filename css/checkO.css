@@ -556,3 +556,30 @@ body[style*="background-color: black"] .section-description {
 }
 
 /* ============================= */
+
+/* Estilos para tema oscuro en checkout */
+body.dark .checkout-main {
+    background: #212529 !important;
+}
+
+body.dark .checkout-section {
+    background: #212529 !important;
+    color: #ffffff !important;
+    border-color: #495057 !important;
+}
+
+body.dark .section-title {
+    color: #ffffff !important;
+    border-bottom-color: #007bff !important;
+}
+
+body.dark .order-summary {
+    background: #212529 !important;
+    color: #ffffff !important;
+}
+
+body.dark .checkout-header,
+body.dark .checkout-footer {
+    background: #343a40 !important;
+    color: #ffffff !important;
+}

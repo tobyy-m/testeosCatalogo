@@ -1,16 +1,126 @@
-function incluirHTML(id, archivo) {
-    fetch(archivo)
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById(id).innerHTML = html;
-        // Después de cargar el modal, agregar el event listener
-        if (archivo.includes("modalBootstrap.html")) {
-          configurarModalCarrito();
-        }
-      });
-  }
+/* ============================================ */
+/* SISTEMA DE CARGA OPTIMIZADA DE COMPONENTES */
+/* ============================================ */
 
-  function configurarModalCarrito() {
+// Configuración de rutas según el nivel de carpeta
+const CONFIG = {
+  routes: {
+    index: {
+      css: 'css/styles.css',
+      navbar: 'componentes/navbar.html',
+      footer: 'componentes/footer.html',
+      modal: 'componentes/modalBootstrap.html',
+      navLinks: [
+        { href: '#quienes-somos', text: 'Quiénes Somos' },
+        { href: '#servicios', text: 'Servicios' }
+      ]
+    },
+    catalog: {
+      css: 'css/styles.css',
+      navbar: 'componentes/navbar.html',
+      footer: 'componentes/footer.html',
+      modal: 'componentes/modalBootstrap.html',
+      navLinks: [
+        { href: '#diseños', text: 'Diseños' },
+        { href: 'index.html', text: 'Inicio' },
+        { href: 'remeras.html', text: 'Remeras' },
+        { href: 'tazas.html', text: 'Tazas' }
+      ]
+    },
+    product: {
+      css: '../../css/styles.css',
+      navbar: '../../componentes/navbar.html',
+      footer: '../../componentes/footer.html',
+      modal: '../../componentes/modalBootstrap.html',
+      navLinks: [
+        { href: '../../index.html', text: 'Inicio' },
+        { href: '../../buzos.html', text: 'Buzos' },
+        { href: '../../remeras.html', text: 'Remeras' },
+        { href: '../../tazas.html', text: 'Tazas' }
+      ]
+    }
+  }
+};
+
+// Detectar tipo de página automáticamente
+function detectPageType() {
+  const path = window.location.pathname;
+  if (path.includes('/productos/')) return 'product';
+  if (path.includes('buzos.html') || path.includes('remeras.html') || path.includes('tazas.html')) return 'catalog';
+  return 'index';
+}
+
+// Cargar componentes optimizados
+function loadOptimizedComponents() {
+  const pageType = detectPageType();
+  const config = CONFIG.routes[pageType];
+  
+  // Actualizar ruta del CSS si es necesario
+  const customCSS = document.getElementById('custom-css');
+  if (customCSS && customCSS.href !== config.css) {
+    customCSS.href = config.css;
+  }
+  
+  // Cargar navbar y configurar enlaces
+  loadComponent('navbar-container', config.navbar, () => {
+    setupNavigation(config.navLinks);
+  });
+  
+  // Cargar footer
+  loadComponent('footer-container', config.footer);
+  
+  // Cargar modal del carrito
+  loadComponent('modal-container', config.modal, () => {
+    configurarModalCarrito();
+  });
+}
+
+// Función optimizada para cargar componentes
+function loadComponent(containerId, filePath, callback) {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+  
+  fetch(filePath)
+    .then(response => {
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      return response.text();
+    })
+    .then(html => {
+      container.innerHTML = html;
+      if (callback) callback();
+    })
+    .catch(error => {
+      console.warn(`Error loading component ${filePath}:`, error);
+    });
+}
+
+// Configurar navegación dinámica
+function setupNavigation(links) {
+  const navLinks = document.getElementById('nav-links');
+  if (!navLinks || !links) return;
+  
+  navLinks.innerHTML = links.map(link => 
+    `<li class="nav-item"><a class="nav-link" href="${link.href}">${link.text}</a></li>`
+  ).join('');
+}
+
+// Inicializar cuando el DOM esté listo
+document.addEventListener('DOMContentLoaded', loadOptimizedComponents);
+
+/* ============================================ */
+/* FUNCIONES EXISTENTES OPTIMIZADAS */
+/* ============================================ */
+
+// Función original mejorada para compatibilidad
+function incluirHTML(id, archivo) {
+    loadComponent(id, archivo, () => {
+        if (archivo.includes("modalBootstrap.html")) {
+            configurarModalCarrito();
+        }
+    });
+}
+
+function configurarModalCarrito() {
     const modalCarrito = document.getElementById('modalCarrito');
     if (modalCarrito) {
       modalCarrito.addEventListener('show.bs.modal', function () {
