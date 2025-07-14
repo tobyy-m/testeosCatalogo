@@ -110,18 +110,16 @@
                     <div class="card">
                         <div class="card-body text-center p-5">
                             <p class="lead mb-4">
-                                En <strong>MIT ESTAMPADOS</strong> somos especialistas en estampados y sublimaciones de
-                                alta calidad.
-                                Nos dedicamos a crear productos únicos y personalizados que reflejen tu estilo y
-                                personalidad.
+                                Somos <strong>MIT ESTAMPADOS</strong>, un emprendimiento familiar apasionado por crear productos únicos 
+                                que reflejen tu personalidad. Nos especializamos en estampados y sublimaciones de la más alta calidad.
                             </p>
                             <p class="mb-4">
-                                Con años de experiencia en el sector, utilizamos las mejores técnicas y materiales para
-                                garantizar durabilidad y acabados profesionales en cada uno de nuestros productos.
+                                Cada diseño es cuidadosamente trabajado con amor y dedicación, utilizando técnicas modernas 
+                                y materiales premium para garantizar que tu producto sea duradero y especial.
                             </p>
                             <p>
                                 <i class="bi bi-heart-fill text-danger me-2"></i>
-                                Transformamos tus ideas en realidad con pasión y dedicación.
+                                Convertimos tus ideas en piezas únicas que cuentan tu historia.
                             </p>
                         </div>
                     </div>
@@ -197,21 +195,41 @@
     <!-- Modal del carrito -->
     <div id="modal-container"></div>
 
-    <footer class="bg-dark text-white text-center py-3">
-        <p>Contacto: <a href="https://www.instagram.com/mit.estampados/" target="_blank"
-                rel="noopener noreferrer">@mit.estampados</a> | &copy; 2025 MIT Estampados</p>
+    <footer class="bg-dark text-white text-center py-4">
+        <div class="container">
+            <div class="row align-items-center justify-content-center">
+                <div class="col-12 mb-3">
+                    <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap">
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/mit.estampados/" target="_blank" rel="noopener noreferrer"
+                            class="text-decoration-none d-flex align-items-center gap-2">
+                            <div class="social-icon instagram-icon">
+                                <i class="bi bi-instagram"></i>
+                            </div>
+                            <span class="text-white">@mit.estampados</span>
+                        </a>
+
+                        <!-- WhatsApp -->
+                        <a href="https://wa.me/5491234567890?text=Hola! Me interesa consultar sobre los productos de MIT ESTAMPADOS"
+                            target="_blank" rel="noopener noreferrer"
+                            class="text-decoration-none d-flex align-items-center gap-2">
+                            <div class="social-icon whatsapp-icon">
+                                <i class="bi bi-whatsapp"></i>
+                            </div>
+                            <span class="text-white">WhatsApp</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12">
+                    <p class="mb-0">&copy; 2025 MIT Estampados</p>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <script src="script/index.js"></script>
     <script src="script/componentes.js"></script>
     <script src="script/carrito.js" defer></script>
-
-    <!-- Cargar modal del carrito -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            incluirHTML('modal-container', 'componentes/modalBootstrap.html');
-        });
-    </script>
 </body>
 
 </html>

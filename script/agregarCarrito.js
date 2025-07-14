@@ -11,11 +11,19 @@ function agregarAlCarrito(producto) {
   let existente;
   if (esSoloModelo) {
     if (producto.nombre.toLowerCase().includes("taza")) {
-      // Para tazas: solo comparar nombre y modelo
-      existente = carrito.find(p =>
-        p.nombre === producto.nombre &&
-        p.colorEstampa === producto.colorEstampa
-      );
+      // Para tazas: comparar nombre y modelo (si existe)
+      if (producto.colorEstampa && producto.colorEstampa !== "Sin estampa") {
+        existente = carrito.find(p =>
+          p.nombre === producto.nombre &&
+          p.colorEstampa === producto.colorEstampa
+        );
+      } else {
+        // Para tazas sin modelo, solo comparar por nombre
+        existente = carrito.find(p =>
+          p.nombre === producto.nombre &&
+          (p.colorEstampa === producto.colorEstampa || (!p.colorEstampa && !producto.colorEstampa))
+        );
+      }
     } else {
       // Para buzo Lali: comparar nombre, modelo y talle (pero no color de buzo)
       existente = carrito.find(p =>
@@ -67,11 +75,14 @@ document.addEventListener("DOMContentLoaded", () => {
       nombreProducto.toLowerCase().includes(producto)
     );
     
-    // Para productos con solo modelo, agregar el modelo al nombre
+    // Para productos con solo modelo, agregar el modelo al nombre (si existe)
     let nombreCompleto = nombreProducto;
     if (esSoloModelo && modelo) {
       const numeroModelo = modelo.replace("modelo", "");
       nombreCompleto = `${nombreProducto} - Modelo ${numeroModelo}`;
+    } else if (nombreProducto.toLowerCase().includes("taza") && !modelo) {
+      // Si es una taza sin modelo, mantener el nombre original
+      nombreCompleto = nombreProducto;
     }
     
     // Función para obtener la imagen principal del producto
@@ -104,9 +115,14 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Validación específica por tipo de producto
     if (nombreProducto.toLowerCase().includes("taza")) {
-      // Para tazas: solo necesita modelo, cantidad y precio
-      if (!modelo || !producto.cantidad || !producto.precio) {
+      // Para tazas: cantidad y precio son obligatorios, modelo opcional
+      if (!producto.cantidad || !producto.precio) {
         alert("Por favor completá todos los campos antes de agregar al carrito.");
+        return;
+      }
+      // Si hay modelo, validarlo también
+      if (document.getElementById("colorEstampa") && !modelo) {
+        alert("Por favor seleccioná un modelo antes de agregar al carrito.");
         return;
       }
     } else if (nombreProducto.toLowerCase().includes("buzo lali")) {

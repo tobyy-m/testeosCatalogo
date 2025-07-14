@@ -3,7 +3,9 @@
 #mitNav {
     font-family: 'Noto Serif', serif;
 }
-
+#tituloHeader {
+    font-family: 'Noto Serif', serif;
+}
 body,
 .card,
 header,
@@ -597,3 +599,66 @@ body.bg-light .talle-option::after {
 }
 
 /* Modo oscuro - se aplicará automáticamente por el script JS */
+
+/* =================================== */
+/* ICONOS SOCIALES EN FOOTER */
+/* =================================== */
+.social-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.social-icon i {
+    font-size: 1.5rem;
+    color: white;
+}
+
+/* Instagram - Rojo */
+.instagram-icon {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+}
+
+.instagram-icon:hover {
+    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(240, 148, 51, 0.4);
+}
+
+/* WhatsApp - Verde */
+.whatsapp-icon {
+    background: linear-gradient(45deg, #25d366 0%, #128c7e 100%);
+}
+
+.whatsapp-icon:hover {
+    background: linear-gradient(45deg, #25d366 0%, #128c7e 100%);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+}
+
+/* Efectos para los enlaces sociales */
+footer a:hover span {
+    color: #f8f9fa !important;
+    transition: color 0.3s ease;
+}
+
+/* Responsive para móviles */
+@media (max-width: 576px) {
+    .social-icon {
+        width: 45px;
+        height: 45px;
+    }
+    
+    .social-icon i {
+        font-size: 1.3rem;
+    }
+    
+    footer .gap-4 {
+        gap: 1rem !important;
+    }
+}

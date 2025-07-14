@@ -109,12 +109,8 @@ function mostrarCarritoEnModal() {
     const subtotal = precio * parseInt(p.cantidad);
     total += subtotal;
 
-    // Determinar el nombre del producto con modelo si corresponde
+    // Determinar el nombre del producto (ya viene formateado desde agregarCarrito.js)
     let nombreProducto = p.nombre;
-    if (p.colorEstampa && p.colorEstampa.includes('modelo')) {
-      const numeroModelo = p.colorEstampa.replace('modelo', '');
-      nombreProducto += ` (Mod: ${numeroModelo})`;
-    }
 
     // Determinar los detalles del producto
     let detalles = `${p.talle} - ${p.colorBuzo}`;
