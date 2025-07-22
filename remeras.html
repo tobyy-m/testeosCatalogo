@@ -49,91 +49,133 @@
 
     <main class="pt-4">
         <section id="diseños" class="container my-5">
-            <h2 class="text-center mb-4">Nuestras Remeras</h2>
-            <h3 class="text-center mb-4">Para los más Peques</h3>
-            <!-- Aquí irán las tarjetas de remeras cuando tengas los diseños -->
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <div class="card h-200">
-                        <img src="imagenes/remeras/remeraLabubu/remeraLabubu_negro_front.webp" class="card-img-top"
-                            alt="Imagen de Remera Labubu" loading="lazy">
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Remera Labubu</h5>
-                        <a href="productos/remeras/remeraLabubu.html" class="btn btn-outline-primary btn-ver-mas">Ver más</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-200">
-                        <img src="imagenes/remeras/remeraSpacedOut/remeraSpacedOut_negro_front.webp"
-                            class="card-img-top" alt="Imagen de Remera Spacedout" loading="lazy">
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Remera Spacedout</h5>
-                        <a href="productos/remeras/remeraSpacedOut.html" class="btn btn-outline-primary btn-ver-mas">Ver más</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-200">
-                        <img src="imagenes/remeras/remeraOsito/remeraOsito_negro_front.webp" class="card-img-top"
-                            alt="Imagen de Remera Osito" loading="lazy">
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Remera Osito</h5>
-                        <a href="productos/remeras/remeraOsito.html" class="btn btn-outline-primary btn-ver-mas">Ver más</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-200">
-                        <img src="imagenes/remeras/remeraKuromi/remeraKuromi_negro_front.webp" class="card-img-top"
-                            alt="Imagen de Remera Kuromi" loading="lazy">
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Remera Kuromi</h5>
-                        <a href="productos/remeras/remeraKuromi.html" class="btn btn-outline-primary btn-ver-mas">Ver más</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-200">
-                        <img src="imagenes/remeras/remeraTiburon/remeraTiburon_negro_front.webp" class="card-img-top"
-                            alt="Imagen de Remera Tiburon" loading="lazy">
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Remera Tiburon</h5>
-                        <a href="productos/remeras/remeraTiburon.html" class="btn btn-outline-primary btn-ver-mas">Ver más</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-200">
-                        <img src="imagenes/remeras/remeraBugsBunny/remeraBugsBunny_negro_front.webp"
-                            class="card-img-top" alt="Imagen de Remera Bugsbunny" loading="lazy">
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Remera Bugsbunny</h5>
-                        <a href="productos/remeras/remeraBugsBunny.html" class="btn btn-outline-primary btn-ver-mas">Ver más</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-200">
-                        <img src="imagenes/remeras/remeraBallerina/remeraBallerina_negro_front.webp"
-                            class="card-img-top" alt="Imagen de Remera Ballerina" loading="lazy">
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Remera Ballerina</h5>
-                        <a href="productos/remeras/remeraBallerina.html" class="btn btn-outline-primary btn-ver-mas">Ver más</a>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card h-200">
-                        <img src="imagenes/remeras/remeraCapyBara/remeraCapyBara_negro_front.webp" class="card-img-top"
-                            alt="Imagen de Remera Capybara" loading="lazy">
-                    </div>
-                    <div class="card-body text-center">
-                        <h5 class="card-title">Remera Capybara</h5>
-                        <a href="productos/remeras/remeraCapyBara.html" class="btn btn-outline-primary btn-ver-mas">Ver más</a>
-                    </div>
-                </div>
+            <div class="text-center mb-4">
+                <button class="btn btn-outline-secondary btn-filtro me-2" data-filtro="todos">Todos</button>
+                <button class="btn btn-outline-secondary btn-filtro me-2" data-filtro="adultos">Todas Las Edades</button>
+                <button class="btn btn-outline-secondary btn-filtro" data-filtro="niños">Para los Peques</button>
             </div>
+            <h2 class="text-center mb-4">Nuestras Remeras</h2>
+            <section id="remerasGrandes" class="container my-5" data-categoria="adultos">
+                <h3 class="text-center mb-4">Para Todas las Edades
+                    <p class="text-center mb-4">(Talles S a XXL)</p>
+                </h3>
+                <div class="row g-4">
+                    <!--REMERAS TALLE S a XXL-->
+                </div>
+            </section>
+            <section id="peques" class="container my-5" data-categoria="niños">
+                <h3 class="text-center mb-4">Para los más Peques
+                    <p class="text-center mb-4">(Talles 4 a 16)</p>
+                </h3>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/remeras/remeraLabubu/remeraLabubu_negro_front.webp" class="card-img-top"
+                                alt="Imagen de Remera Labubu" loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Remera Labubu</h5>
+                            <a href="productos/remeras/remeraLabubu.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/remeras/remeraSpacedOut/remeraSpacedOut_negro_front.webp"
+                                class="card-img-top" alt="Imagen de Remera Spacedout" loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Remera Spacedout</h5>
+                            <a href="productos/remeras/remeraSpacedOut.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/remeras/remeraOsito/remeraOsito_negro_front.webp" class="card-img-top"
+                                alt="Imagen de Remera Osito" loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Remera Osito</h5>
+                            <a href="productos/remeras/remeraOsito.html" class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/remeras/remeraKuromi/remeraKuromi_negro_front.webp" class="card-img-top"
+                                alt="Imagen de Remera Kuromi" loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Remera Kuromi</h5>
+                            <a href="productos/remeras/remeraKuromi.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/remeras/remeraTiburon/remeraTiburon_negro_front.webp"
+                                class="card-img-top" alt="Imagen de Remera Tiburon" loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Remera Tiburon</h5>
+                            <a href="productos/remeras/remeraTiburon.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/remeras/remeraBugsBunny/remeraBugsBunny_negro_front.webp"
+                                class="card-img-top" alt="Imagen de Remera Bugsbunny" loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Remera Bugsbunny</h5>
+                            <a href="productos/remeras/remeraBugsBunny.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/remeras/remeraBallerina/remeraBallerina_negro_front.webp"
+                                class="card-img-top" alt="Imagen de Remera Ballerina" loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Remera Ballerina</h5>
+                            <a href="productos/remeras/remeraBallerina.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/remeras/remeraCapyBara/remeraCapyBara_negro_front.webp"
+                                class="card-img-top" alt="Imagen de Remera Capybara" loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Remera Capybara</h5>
+                            <a href="productos/remeras/remeraCapyBara.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/remeras/leopardo/leopardo_negro_front.webp" class="card-img-top"
+                                alt="Imagen de Leopardo" loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Leopardo</h5>
+                            <a href="productos/remeras/leopardo.html" class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
         </section>
     </main>
 
@@ -172,6 +214,7 @@
     <script src="script/funciones/index.js"></script>
     <script src="script/funciones/componentes.js"></script>
     <script src="script/funciones/carrito.js" defer></script>
+    <script src="script/funciones/filtroProducto.js"></script>
     <div id="modal-container"></div>
 </body>
 

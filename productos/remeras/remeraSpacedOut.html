@@ -74,18 +74,20 @@
                             <label class="form-label d-flex justify-content-between align-items-center">
                                 Talle
                                 <button type="button" class="btn btn-outline-info btn-sm" data-bs-toggle="modal"
-                                    data-bs-target="#modalTalles">
+                                    data-bs-target="#modalTallesRemerasPeques">
                                     <i class="bi bi-ruler"></i> Ver Tabla de Talles
                                 </button>
                             </label>
                             <div class="talle-selector" id="talleSelector">
-                                <div class="talle-option selected" data-talle="S" data-info="Talle S">S</div>
-                                <div class="talle-option" data-talle="M" data-info="Talle M">M</div>
-                                <div class="talle-option" data-talle="L" data-info="Talle L">L</div>
-                                <div class="talle-option" data-talle="XL" data-info="Talle XL">XL</div>
-                                <div class="talle-option" data-talle="XXL" data-info="Talle XXL">XXL</div>
+                                <div class="talle-option selected" data-talle="4" data-info="Talle 4">4</div>
+                                <div class="talle-option" data-talle="6" data-info="Talle 6">6</div>
+                                <div class="talle-option" data-talle="8" data-info="Talle 8">8</div>
+                                <div class="talle-option" data-talle="10" data-info="Talle 10">10</div>
+                                <div class="talle-option" data-talle="12" data-info="Talle 12">12</div>
+                                <div class="talle-option" data-talle="14" data-info="Talle 14">14</div>
+                                <div class="talle-option" data-talle="16" data-info="Talle 16">16</div>
                             </div>
-                            <input type="hidden" id="talle" class="talle-input-hidden" value="S">
+                            <input type="hidden" id="talle" class="talle-input-hidden" value="4">
 
                             <div class="mb-3">
                                 <label class="form-label">Cantidad</label>
@@ -102,7 +104,7 @@
                     carrito</button>
 
                 <div class="precio-producto text-center mt-4">
-                    <h2 class="precio-numero">$25.000</h2>
+                    <h2 class="precio-numero">$12.000</h2>
                     <div class="precio-etiqueta">Precio por unidad</div>
                     <div class="precio-envio">
                         <i class="bi bi-truck"></i>
@@ -118,35 +120,7 @@
         </div>
     </main>
 
-    <!-- Modal Tabla de Talles -->
-    <div class="modal fade" id="modalTalles" tabindex="-1" aria-labelledby="modalTallesLabel" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered modal-lg">
-            <div class="modal-content bg-dark text-light">
-                <div class="modal-header border-secondary">
-                    <h5 class="modal-title" id="modalTallesLabel">
-                        <i class="bi bi-ruler me-2"></i>Tabla de Talles - Remeras
-                    </h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
-                        aria-label="Close"></button>
-                </div>
-                <div class="modal-body text-center">
-                    <img src="../../imagenes/tabla talle remera.png" alt="Tabla de Talles Remera"
-                        class="img-fluid rounded shadow">
-                    <div class="mt-3">
-                        <small class="text-white">
-                            <i class="bi bi-info-circle me-1"></i>
-                            Si el talle que buscas no aparece, contactanos por instagram @mit.estampados
-                        </small>
-                    </div>
-                </div>
-                <div class="modal-footer border-secondary">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                        <i class="bi bi-x-circle me-2"></i>Cerrar
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
+
 
     <footer class="bg-dark text-light text-center py-3 mt-5">
         <p>&copy; 2025 MIT ESTAMPADOS</p>
