@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+    <html lang="es">
+
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Remera Snipe - MIT ESTAMPADOS</title>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="../../css/styles.css">
+    </head>
+
+    <body class="bg-dark text-light">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" id="mitNav" href="../../index.html">
+                    <img src="../../imagenes/logo mit.png" alt="MIT ESTAMPADOS" height="35" class="me-2">
+                    <span>MIT ESTAMPADOS</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="../../index.html">Inicio</a></li>
+                    </ul>
+                    <button id="myButton" class="btn btn-light ms-3"><i class="bi bi-moon-fill"></i></button>
+                    <button type="button" class="btn btn-outline-light position-relative" data-bs-toggle="modal"
+                        data-bs-target="#modalCarrito">
+                        🛒
+                        <span id="contador-carrito"
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            0
+                            <span class="visually-hidden">productos en carrito</span>
+                        </span>
+                    </button>
+                </div>
+            </div>
+        </nav>
+
+        <main class="container mt-5 pt-5">
+            <h1 class="text-center my-4">Remera Snipe</h1>
+
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    
+                    <div id="carouselProducto" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img id="imgFront" src="../../imagenes/remeras/snipe/snipe_blanco_verde_front.webp" class="d-block w-100 fade-img" alt="Frente de la remera" style="border-radius: 3%;">
+                            </div>
+                            <div class="carousel-item">
+                                <img id="imgBack" src="../../imagenes/remeras/snipe/snipe_blanco_verde_back.webp" class="d-block w-100 fade-img" alt="Dorso de la remera" style="border-radius: 3%;">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselProducto"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselProducto"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                    <h5>Descripción</h5>
+                    <p>Remera de la colección Snipe, perfecta para el uso diario. Confeccionada en algodón 100% peinado, suave al tacto y de excelente calidad.</p>
+                </div>
+                <div class="col-md-6">
+                    <form id="formProducto" class="p-4 rounded shadow bg-dark text-light">
+                        <!-- Botón Volver a remeras-->
+                        <div class="mb-3">
+                            <a href="../../remeras.html" class="btn btn-outline-secondary btn-sm">
+                                <i class="bi bi-arrow-left me-2"></i>Volver a Remeras
+                            </a>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Color de la remera</label>
+                            <div class="color-selector" id="colorRemeraSelector">
+                                <div class="color-option color-blanco selected" data-color="Blanco" data-value="blanco"></div>
+                            <div class="color-option color-negro " data-color="Negro" data-value="negro"></div>
+                            </div>
+                            <input type="hidden" id="colorRemera" class="color-input-hidden" value="blanco">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label class="form-label">Color de la estampa</label>
+                            <div class="color-selector" id="colorEstampaSelector">
+                                <div class="color-option color-verde selected" data-color="Verde" data-value="verde"></div>
+                            <div class="color-option color-celeste " data-color="Celeste" data-value="celeste"></div>
+                            <div class="color-option color-rojo " data-color="Rojo" data-value="rojo"></div>
+                            <div class="color-option color-azul " data-color="Azul" data-value="azul"></div>
+                            <div class="color-option color-naranja " data-color="Naranja" data-value="naranja"></div>
+                            </div>
+                            <input type="hidden" id="colorEstampa" class="color-input-hidden" value="verde">
+                        </div>
+                        <div class="mb-3">
+                            
+                            <div class="mb-3">
+                                <label class="form-label d-flex justify-content-between align-items-center">
+                                    Talle
+                                    <button type="button" class="btn btn-outline-info btn-sm" data-bs-toggle="modal" data-bs-target="#modalTallesRemeras">
+                                        <i class="bi bi-ruler"></i> Ver Tabla de Talles
+                                    </button>
+                                </label>
+                                <div class="talle-selector" id="talleSelector">
+                                    <div class="talle-option selected" data-talle="S" data-info="Talle S">S</div>
+                                    <div class="talle-option" data-talle="M" data-info="Talle M">M</div>
+                                    <div class="talle-option" data-talle="L" data-info="Talle L">L</div>
+                                    <div class="talle-option" data-talle="XL" data-info="Talle XL">XL</div>
+                                    <div class="talle-option" data-talle="XXL" data-info="Talle XXL">XXL</div>
+                                </div>
+                                <input type="hidden" id="talle" class="talle-input-hidden" value="S">
+                            </div>
+
+                            <div class="mb-3">
+                                <label class="form-label">Cantidad</label>
+                                <div class="cantidad-controls">
+                                    <button type="button" class="cantidad-btn" id="disminuir-cantidad">−</button>
+                                    <input type="number" id="cantidad" class="cantidad-input" min="1" value="1" readonly>
+                                    <button type="button" class="cantidad-btn" id="aumentar-cantidad">+</button>
+                                </div>
+                            </div>
+                            <input type="hidden" id="precio-producto" value="25000" />
+                    </form>
+                    <button type="button" id="btn-agregar-carrito" class="btn btn-success w-100 mt-3">Agregar al
+                        carrito</button>
+
+                    <div class="precio-producto text-center mt-4">
+                        <h2 class="precio-numero">$18.000</h2>
+                        <div class="precio-etiqueta">Precio por unidad</div>
+                        <div class="precio-envio">
+                            <i class="bi bi-truck"></i>
+                            <span>Envíos por Andreani</span>
+                        </div>
+                        <div class="precio-disclaimer">
+                            <small class="text-muted">(Los precios pueden variar sin previo aviso. El costo de envio no está incluido)</small>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+        <footer class="bg-dark text-light text-center py-3 mt-5">
+            <p>&copy; 2025 MIT ESTAMPADOS</p>
+        </footer>
+        
+        <script src="../../script/remeras/snipe.js"></script>
+        <script src="../../script/funciones/alternarModo.js"></script>
+        <script src="../../script/funciones/cantidadControls.js"></script>
+        <script src="../../script/funciones/componentes.js"></script>
+        <script src="../../script/funciones/carrito.js"></script>
+        <script src="../../script/funciones/agregarCarrito.js"></script> <!-- último -->
+        <div id="modal-container"></div>
+    </body>
+
+    </html>
