@@ -287,7 +287,7 @@ function configurarModalCarrito() {
       
       resumen += `${index + 1}. ${nombreProducto}\n`;
       resumen += `   - Talle: ${producto.talle}\n`;
-      resumen += `   - Color: ${producto.colorBuzo}`;
+      resumen += `   - Color: ${producto.colorRemera || producto.colorBuzo || ""}`;
       
       // Solo mostrar estampa si no es un modelo (para evitar duplicar la información)
       if (producto.colorEstampa && producto.colorEstampa !== 'Sin estampa' && !producto.colorEstampa.includes('modelo')) {
@@ -356,7 +356,7 @@ function configurarModalCarrito() {
       <div class="text-start">
         <div class="fw-bold">${producto.nombre}</div>
         <div class="text-muted small">
-          ${producto.talle} - ${producto.colorBuzo}${producto.colorEstampa ? ' - ' + producto.colorEstampa : ''}
+          ${producto.talle} - ${producto.colorRemera || producto.colorBuzo || ""}${producto.colorEstampa ? ' - ' + producto.colorEstampa : ''}
         </div>
         <div class="text-warning">
           Cantidad: ${producto.cantidad} | Total: $${subtotal}

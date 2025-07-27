@@ -150,7 +150,7 @@ function mostrarModalEliminar(index, context) {
     <div class="text-start">
       <div class="fw-bold">${producto.nombre}</div>
       <div class="text-muted small">
-        ${producto.talle} - ${producto.colorBuzo}${producto.colorEstampa ? ' - ' + producto.colorEstampa : ''}
+        ${producto.talle} - ${producto.colorRemera || producto.colorBuzo || ""}${producto.colorEstampa ? ' - ' + producto.colorEstampa : ''}
       </div>
       <div class="text-warning">
         Cantidad: ${producto.cantidad} | Total: $${subtotal}

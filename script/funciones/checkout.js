@@ -36,7 +36,8 @@ function actualizarResumenCheckout() {
         }
 
         // Determinar los detalles del producto
-        let detalles = `${p.talle} - ${p.colorBuzo}`;
+        const colorPrenda = p.colorRemera || p.colorBuzo || "";
+        let detalles = `${p.talle} - ${colorPrenda}`;
         // Solo mostrar estampa si no es un modelo (para evitar duplicar la información)
         if (p.colorEstampa && p.colorEstampa !== 'Sin estampa' && !p.colorEstampa.includes('modelo')) {
             detalles += ` - ${p.colorEstampa}`;
@@ -63,7 +64,7 @@ function actualizarResumenCheckout() {
 
     if (productosInput) {
         const resumenProductos = carrito.map(p =>
-            `${p.nombre} (${p.talle}, ${p.colorBuzo}${p.colorEstampa ? ', ' + p.colorEstampa : ''}) x${p.cantidad} - $${parseInt(p.precio || 0) * parseInt(p.cantidad)}`
+            `${p.nombre} (${p.talle}, ${p.colorRemera || p.colorBuzo || ""}${p.colorEstampa ? ', ' + p.colorEstampa : ''}) x${p.cantidad} - $${parseInt(p.precio || 0) * parseInt(p.cantidad)}`
         ).join('; ');
         productosInput.value = `${resumenProductos}. TOTAL: $${total}`;
     }
@@ -106,7 +107,7 @@ function mostrarModalEliminar(index) {
         <div class="text-start">
             <div class="fw-bold">${producto.nombre}</div>
             <div class="text-muted small">
-                ${producto.talle} - ${producto.colorBuzo}${producto.colorEstampa ? ' - ' + producto.colorEstampa : ''}
+                ${producto.talle} - ${producto.colorRemera || producto.colorBuzo || ""}${producto.colorEstampa ? ' - ' + producto.colorEstampa : ''}
             </div>
             <div class="text-warning">
                 Cantidad: ${producto.cantidad} | Total: $${subtotal}
@@ -391,19 +392,19 @@ function generarPDF(numeroPedido, carrito) {
     let yPos = 130;
     let total = 0;
     
-    // Encabezados de tabla
+    // Encabezados de tabla - reajustados para dar más espacio al producto
     doc.setFillColor(248, 249, 250);
-    doc.rect(20, yPos - 5, 170, 8, 'F');
+    doc.rect(20, yPos - 5, 175, 8, 'F');
     
     doc.setFontSize(9);
     doc.setFont(undefined, 'bold');
     doc.setTextColor(0, 0, 0);
     doc.text('Producto', 22, yPos);
-    doc.text('Talle', 85, yPos);
-    doc.text('Color Prenda', 105, yPos);
-    doc.text('Color Estampa', 135, yPos);
-    doc.text('Cant.', 165, yPos);
-    doc.text('Subtotal', 175, yPos);
+    doc.text('Talle', 95, yPos);
+    doc.text('Color Prenda', 115, yPos);
+    doc.text('Color Estampa', 145, yPos);
+    doc.text('Cant.', 170, yPos);
+    doc.text('Subtotal', 180, yPos);
     
     yPos += 10;
     
@@ -413,8 +414,9 @@ function generarPDF(numeroPedido, carrito) {
     
     // Lista de productos que tienen variaciones de color de estampa
     const productosConEstampa = [
-        'marte', 'snipe', 'luna', 'love', 'conejo', 'cash', 'autoslocos', 'pirata', 'justice'
-];
+        'marte', 'snipe', 'luna', 'love', 'conejo', 'cash', 'autoslocos', 'pirata', 'justice',
+        'dreammaker', 'pinkfloyd', 'leopardo', 'drew', 'remera'
+    ];
     
     carrito.forEach((producto) => {
         const precio = parseInt(producto.precio || 0);
@@ -426,41 +428,49 @@ function generarPDF(numeroPedido, carrito) {
         // Verificar si es un producto con solo modelo (sin colores de prenda)
         const esTaza = producto.nombre.toLowerCase().includes('taza');
         const esBuzoLali = producto.nombre.toLowerCase().includes('buzo lali');
+        const esRemeraLali = producto.nombre.toLowerCase().includes('remera lali');
         const esSoloModelo = esTaza || esBuzoLali;
         
-        // Nombre del producto (truncar si es muy largo)
+        // Nombre del producto (ampliar límite de caracteres)
         let nombreCorto;
         if (esSoloModelo) {
             // Para productos con solo modelo, el nombre ya incluye el modelo
+            nombreCorto = producto.nombre.length > 45 ? 
+                producto.nombre.substring(0, 42) + '...' : producto.nombre;
+        } else {
             nombreCorto = producto.nombre.length > 35 ? 
                 producto.nombre.substring(0, 32) + '...' : producto.nombre;
-        } else {
-            nombreCorto = producto.nombre.length > 20 ? 
-                producto.nombre.substring(0, 17) + '...' : producto.nombre;
         }
         doc.text(nombreCorto, 22, yPos);
         
         // Manejo específico según tipo de producto
         if (esTaza) {
             // Tazas: no mostrar talle, color de prenda ni color de estampa
-            doc.text('-', 85, yPos);  // Talle
-            doc.text('-', 105, yPos); // Color Prenda
-            doc.text('-', 135, yPos); // Color Estampa (ya está en el nombre)
+            doc.text('-', 95, yPos);  // Talle
+            doc.text('-', 115, yPos); // Color Prenda
+            doc.text('-', 145, yPos); // Color Estampa (ya está en el nombre)
         } else if (esBuzoLali) {
-            // Buzo Lali: mostrar talle pero no colores (ya está en el nombre)
-            doc.text(producto.talle || '-', 85, yPos);  // Talle
-            doc.text('-', 105, yPos); // Color Prenda
-            doc.text('-', 135, yPos); // Color Estampa (ya está en el nombre)
+            // Buzo Lali: mostrar talle y color de buzo (modelo ya está en el nombre)
+            doc.text(producto.talle || '-', 95, yPos);  // Talle
+            doc.text(producto.colorBuzo || '-', 115, yPos); // Color Buzo
+            doc.text('-', 145, yPos); // Color Estampa (ya está en el nombre)
+        } else if (esRemeraLali) {
+            // Remera Lali: mostrar talle y color de remera (modelo ya está en el nombre)
+            doc.text(producto.talle || '-', 95, yPos);  // Talle
+            doc.text(producto.colorRemera || '-', 115, yPos); // Color Remera
+            doc.text('-', 145, yPos); // Color Estampa (ya está en el nombre)
         } else {
-            // Otros buzos: mostrar todo normalmente
-            doc.text(producto.talle || '-', 85, yPos);
-            doc.text(producto.colorBuzo || '-', 105, yPos);
+            // Otros productos: mostrar todo normalmente
+            doc.text(producto.talle || '-', 95, yPos);
             
-            // Mostrar color de estampa solo si el producto lo requiere
+            // Mostrar color de prenda (remera o buzo)
+            const colorPrenda = producto.colorRemera || producto.colorBuzo || '-';
+            doc.text(colorPrenda, 115, yPos);
+            // Mostrar color de estampa solo si el producto lo requiere y no es remera Lali
             const nombreProducto = producto.nombre.toLowerCase().replace(/\s+/g, '');
             const tieneEstampa = productosConEstampa.some(p => 
                 nombreProducto.includes(p)
-            );
+            ) && !esRemeraLali; // Excluir remera Lali ya que el modelo está en el nombre
             
             if (tieneEstampa && producto.colorEstampa && 
                 producto.colorEstampa !== 'Sin estampa' && 
@@ -468,14 +478,14 @@ function generarPDF(numeroPedido, carrito) {
                 // Capitalizar primera letra del color de estampa
                 const colorEstampaCapitalizado = producto.colorEstampa.charAt(0).toUpperCase() + 
                                                producto.colorEstampa.slice(1);
-                doc.text(colorEstampaCapitalizado, 135, yPos);
+                doc.text(colorEstampaCapitalizado, 145, yPos);
             } else {
-                doc.text('-', 135, yPos);
+                doc.text('-', 145, yPos);
             }
         }
         
-        doc.text(producto.cantidad.toString(), 165, yPos);
-        doc.text(`$${subtotal}`, 175, yPos);
+        doc.text(producto.cantidad.toString(), 170, yPos);
+        doc.text(`$${subtotal}`, 180, yPos);
         
         yPos += 6;
         
@@ -486,15 +496,15 @@ function generarPDF(numeroPedido, carrito) {
         }
     });
     
-    // Total
+    // Total - ajustado para las nuevas posiciones
     yPos += 5;
     doc.setFillColor(...verde);
-    doc.rect(145, yPos - 3, 45, 10, 'F');
+    doc.rect(150, yPos - 3, 45, 10, 'F');
     
     doc.setTextColor(255, 255, 255);
     doc.setFontSize(12);
     doc.setFont(undefined, 'bold');
-    doc.text(`TOTAL: $${total}`, 150, yPos + 3);
+    doc.text(`TOTAL: $${total}`, 155, yPos + 3);
     
     // Información adicional
     yPos += 20;

@@ -11,12 +11,34 @@ function guardarCarrito(carrito) {
 
 function agregarAlCarrito(producto) {
   const carrito = obtenerCarrito();
-  const existente = carrito.find(p =>
-    p.nombre === producto.nombre &&
-    p.colorBuzo === producto.colorBuzo &&
-    p.colorEstampa === producto.colorEstampa &&
-    p.talle === producto.talle
-  );
+  
+  let existente;
+  if (producto.colorRemera) {
+    // Es una remera (incluyendo remera Lali)
+    existente = carrito.find(p =>
+      p.nombre === producto.nombre &&
+      p.colorRemera === producto.colorRemera &&
+      p.colorEstampa === producto.colorEstampa &&
+      p.talle === producto.talle
+    );
+  } else if (producto.nombre.toLowerCase().includes('buzo lali')) {
+    // Es buzo Lali (color de buzo + modelo + talle)
+    existente = carrito.find(p =>
+      p.nombre === producto.nombre &&
+      p.colorBuzo === producto.colorBuzo &&
+      p.colorEstampa === producto.colorEstampa &&
+      p.talle === producto.talle
+    );
+  } else {
+    // Es un buzo normal
+    existente = carrito.find(p =>
+      p.nombre === producto.nombre &&
+      p.colorBuzo === producto.colorBuzo &&
+      p.colorEstampa === producto.colorEstampa &&
+      p.talle === producto.talle
+    );
+  }
+  
   if (existente) {
     existente.cantidad = parseInt(existente.cantidad) + parseInt(producto.cantidad);
   } else {
@@ -113,7 +135,8 @@ function mostrarCarritoEnModal() {
     let nombreProducto = p.nombre;
 
     // Determinar los detalles del producto
-    let detalles = `${p.talle} - ${p.colorBuzo}`;
+    const colorPrenda = p.colorRemera || p.colorBuzo || "";
+    let detalles = `${p.talle} - ${colorPrenda}`;
     // Solo mostrar estampa si no es un modelo (para evitar duplicar la información)
     if (p.colorEstampa && p.colorEstampa !== 'Sin estampa' && !p.colorEstampa.includes('modelo')) {
       detalles += ` - ${p.colorEstampa}`;
@@ -171,7 +194,7 @@ function mostrarResumenCheckout() {
         </div>
         <div class="item-info">
           <div class="item-name">${p.nombre}</div>
-          <div class="item-details">${p.talle} - ${p.colorBuzo}${p.colorEstampa ? ' - ' + p.colorEstampa : ''}</div>
+          <div class="item-details">${p.talle} - ${p.colorRemera || p.colorBuzo || ""}${p.colorEstampa ? ' - ' + p.colorEstampa : ''}</div>
         </div>
         <span class="price">$${subtotal}</span>
       </div>`;
@@ -182,7 +205,7 @@ function mostrarResumenCheckout() {
   // Preparar datos para el formulario
   if (productosInput) {
     const resumenProductos = carrito.map(p =>
-      `${p.nombre} (${p.talle}, ${p.colorBuzo}${p.colorEstampa ? ', ' + p.colorEstampa : ''}) x${p.cantidad} - $${parseInt(p.precio || 0) * parseInt(p.cantidad)}`
+      `${p.nombre} (${p.talle}, ${p.colorRemera || p.colorBuzo || ""}${p.colorEstampa ? ', ' + p.colorEstampa : ''}) x${p.cantidad} - $${parseInt(p.precio || 0) * parseInt(p.cantidad)}`
     ).join('; ');
     productosInput.value = `${resumenProductos}. TOTAL: $${total}`;
   }
