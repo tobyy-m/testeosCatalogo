@@ -1,29 +1,30 @@
 <!DOCTYPE html>
 <html lang="es">
 
-<head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description"
-        content="Remeras con estampados únicos de MIT ESTAMPADOS. Diseños exclusivos para todas las edades y gustos.">
-    <meta name="keywords" content="remeras, estampados, diseños únicos, ropa personalizada, MIT ESTAMPADOS">
-    <meta name="robots" content="index, follow">
-    <meta name="theme-color" content="#0d6efd">
-    <title>MIT ESTAMPADOS - Remeras</title>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description"
+            content="Remeras con estampados únicos de MIT ESTAMPADOS. Diseños exclusivos para todas las edades y gustos.">
+        <meta name="keywords"
+            content="remeras, estampados, diseños únicos, ropa personalizada, MIT ESTAMPADOS">
+        <meta name="robots" content="index, follow">
+        <meta name="theme-color" content="#0d6efd">
+        <title>MIT ESTAMPADOS - Remeras</title>
 
-    <!-- DNS prefetch para dominios externos -->
-    <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
-    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+        <!-- DNS prefetch para dominios externos -->
+        <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+        <link rel="dns-prefetch" href="//fonts.googleapis.com">
 
-    <!-- Preload recursos críticos -->
-    <link rel="preload" href="css/styles.css" as="style">
-    <link rel="preload" href="imagenes/logo mit.png" as="image">
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <!-- Preload recursos críticos -->
+        <link rel="preload" href="css/styles.css" as="style">
+        <link rel="preload" href="imagenes/logo mit.png" as="image">
+        <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+        <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <!-- CSS crítico inline para evitar render blocking -->
-    <style>
+        <!-- CSS crítico inline para evitar render blocking -->
+        <style>
         /* CSS crítico mínimo */
         body {
             margin: 0;
@@ -63,8 +64,8 @@
         }
     </style>
 
-    <!-- CSS crítico inline -->
-    <style>
+        <!-- CSS crítico inline -->
+        <style>
         body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; }
         
         /* Pantalla de carga simple y efectiva */
@@ -134,672 +135,779 @@
         }
     </style>
 
-    <!-- CSS unificado - carga inmediata para evitar FOUC -->
-    <link rel="stylesheet" href="css/styles-unified.css">
-</head>
+        <!-- CSS unificado - carga inmediata para evitar FOUC -->
+        <link rel="stylesheet" href="css/styles-unified.css">
+    </head>
 
-<body class="loading">
-    <!-- Pantalla de carga -->
-    <div id="loading-screen">
-        <div class="loading-content">
-            <div class="loading-logo">MIT ESTAMPADOS</div>
-            <div class="loading-subtitle">Estampados y sublimaciones</div>
-            <div class="loading-spinner"></div>
+    <body class="loading">
+        <!-- Pantalla de carga -->
+        <div id="loading-screen">
+            <div class="loading-content">
+                <div class="loading-logo">MIT ESTAMPADOS</div>
+                <div class="loading-subtitle">Estampados y sublimaciones</div>
+                <div class="loading-spinner"></div>
+            </div>
         </div>
-    </div>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
-        <div class="container">
-            <a class="navbar-brand d-flex align-items-center" id="mitNav" href="index.html">
-                <img src="imagenes/logo mit.png" alt="LOGO MIT ESTAMPADOS" height="35" class="me-2">
-                <span>MIT ESTAMPADOS</span>
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menu">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="menu">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.html">Inicio</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#diseños">Diseños</a></li>
-                    <li class="nav-item"><a class="nav-link" href="buzos.html">Buzos</a></li>
-                    <li class="nav-item"><a class="nav-link" href="tazas.html">Tazas</a></li>
-                </ul>
-                <button id="myButton" class="btn btn-light ms-3"><i class="bi bi-moon-fill"></i></button>
-                <button type="button" class="btn btn-outline-light position-relative" data-bs-toggle="modal"
-                    data-bs-target="#modalCarrito">
-                    🛒
-                    <span id="contador-carrito"
-                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-                        0
-                        <span class="visually-hidden">productos en carrito</span>
-                    </span>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top">
+            <div class="container">
+                <a class="navbar-brand d-flex align-items-center" id="mitNav"
+                    href="index.html">
+                    <img src="imagenes/logo mit.png" alt="LOGO MIT ESTAMPADOS"
+                        height="35" class="me-2">
+                    <span>MIT ESTAMPADOS</span>
+                </a>
+                <button class="navbar-toggler" type="button"
+                    data-bs-toggle="collapse" data-bs-target="#menu">
+                    <span class="navbar-toggler-icon"></span>
                 </button>
+                <div class="collapse navbar-collapse" id="menu">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link"
+                                href="index.html">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="#diseños">Diseños</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="buzos.html">Buzos</a></li>
+                        <li class="nav-item"><a class="nav-link"
+                                href="tazas.html">Tazas</a></li>
+                    </ul>
+                    <button id="myButton" class="btn btn-light ms-3"><i
+                            class="bi bi-moon-fill"></i></button>
+                    <button type="button"
+                        class="btn btn-outline-light position-relative"
+                        data-bs-toggle="modal"
+                        data-bs-target="#modalCarrito">
+                        🛒
+                        <span id="contador-carrito"
+                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                            0
+                            <span class="visually-hidden">productos en
+                                carrito</span>
+                        </span>
+                    </button>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <header class="bg-dark text-white text-center py-5 mt-5">
-        <h1>MIT ESTAMPADOS</h1>
-        <p class="lead">Remeras con estampados únicos</p>
-    </header>
+        <header class="bg-dark text-white text-center py-5 mt-5">
+            <h1>MIT ESTAMPADOS</h1>
+            <p class="lead">Remeras con estampados únicos</p>
+        </header>
 
-    <main class="pt-4">
-        <section id="diseños" class="container my-5">
-            <div class="text-center mb-4">
-                <button class="btn btn-outline-secondary btn-filtro me-2" data-filtro="todos">Todos</button>
-                <button class="btn btn-outline-secondary btn-filtro me-2" data-filtro="adultos">Todas Las
-                    Edades</button>
-                <button class="btn btn-outline-secondary btn-filtro" data-filtro="niños">Para Los Más Peques</button>
-            </div>
-            <h2 class="text-center mb-4">Nuestras Remeras</h2>
-            <section id="remerasGrandes" class="container my-5" data-categoria="adultos">
-                <h3 class="text-center mb-4">Para Todas las Edades
-                    <p class="text-center mb-4">(Talles S a XXL)</p>
-                </h3>
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="card h-200">
-                            <div id="carousel1" class="carousel slide" data-bs-ride="false" data-bs-interval="false">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="imagenes/remeras/autosLocos/autosLocos_naranja_front.webp"
-                                            class="d-block w-100" alt="Frente de Autos Locos" loading="lazy">
+        <main class="pt-4">
+            <section id="diseños" class="container my-5">
+                <div class="text-center mb-4">
+                    <button class="btn btn-outline-secondary btn-filtro me-2"
+                        data-filtro="todos">Todos</button>
+                    <button class="btn btn-outline-secondary btn-filtro me-2"
+                        data-filtro="adultos">Todas Las
+                        Edades</button>
+                    <button class="btn btn-outline-secondary btn-filtro"
+                        data-filtro="niños">Para Los Más Peques</button>
+                </div>
+                <h2 class="text-center mb-4">Nuestras Remeras</h2>
+                <section id="remerasGrandes" class="container my-5"
+                    data-categoria="adultos">
+                    <h3 class="text-center mb-4">Para Todas las Edades
+                        <p class="text-center mb-4">(Talles S a XXL)</p>
+                    </h3>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <div id="carousel1" class="carousel slide"
+                                    data-bs-ride="false"
+                                    data-bs-interval="false">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img
+                                                src="imagenes/remeras/autosLocos/autosLocos_naranja_front.webp"
+                                                class="d-block w-100"
+                                                alt="Frente de Autos Locos"
+                                                loading="lazy">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img
+                                                src="imagenes/remeras/autosLocos/autosLocos_naranja_back.webp"
+                                                class="d-block w-100"
+                                                alt="Dorso de Autos Locos"
+                                                loading="lazy">
+                                        </div>
                                     </div>
-                                    <div class="carousel-item">
-                                        <img src="imagenes/remeras/autosLocos/autosLocos_naranja_back.webp"
-                                            class="d-block w-100" alt="Dorso de Autos Locos" loading="lazy">
+                                    <button class="carousel-control-prev"
+                                        type="button"
+                                        data-bs-target="#carousel1"
+                                        data-bs-slide="prev"
+                                        aria-label="Imagen anterior">
+                                        <span class="carousel-control-prev-icon"
+                                            aria-hidden="true"></span>
+                                    </button>
+                                    <button class="carousel-control-next"
+                                        type="button"
+                                        data-bs-target="#carousel1"
+                                        data-bs-slide="next"
+                                        aria-label="Imagen siguiente">
+                                        <span class="carousel-control-next-icon"
+                                            aria-hidden="true"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title"> Autos Locos</h5>
+                                <a href="productos/remeras/autosLocos.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div><!--Autos locos-->
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <div id="carousel2" class="carousel slide"
+                                    data-bs-ride="false"
+                                    data-bs-interval="false">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active">
+                                            <img
+                                                src="imagenes/remeras/conejo/conejo_azulMarino_front.webp"
+                                                class="d-block w-100"
+                                                alt="Frente del Conejo"
+                                                loading="lazy">
+                                        </div>
+                                        <div class="carousel-item">
+                                            <img
+                                                src="imagenes/remeras/conejo/conejo_azulMarino_back.webp"
+                                                class="d-block w-100"
+                                                alt="Dorso del Conejo"
+                                                loading="lazy">
+                                        </div>
                                     </div>
+                                    <button class="carousel-control-prev"
+                                        type="button"
+                                        data-bs-target="#carousel2"
+                                        data-bs-slide="prev"
+                                        aria-label="Imagen anterior">
+                                        <span class="carousel-control-prev-icon"
+                                            aria-hidden="true"></span>
+                                    </button>
+                                    <button class="carousel-control-next"
+                                        type="button"
+                                        data-bs-target="#carousel2"
+                                        data-bs-slide="next"
+                                        aria-label="Imagen siguiente">
+                                        <span class="carousel-control-next-icon"
+                                            aria-hidden="true"></span>
+                                    </button>
                                 </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel1"
-                                    data-bs-slide="prev" aria-label="Imagen anterior">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel1"
-                                    data-bs-slide="next" aria-label="Imagen siguiente">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                </button>
                             </div>
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title"> Autos Locos</h5>
-                            <a href="productos/remeras/autosLocos.html" class="btn btn-outline-primary btn-ver-mas">Ver
-                                más</a>
-                        </div>
-                    </div><!--Autos locos-->
-                    <div class="col-md-4">
-                        <div class="card h-200">
-                            <div id="carousel2" class="carousel slide" data-bs-ride="false" data-bs-interval="false">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <img src="imagenes/remeras/conejo/conejo_azulMarino_front.webp"
-                                            class="d-block w-100" alt="Frente del Conejo" loading="lazy">
+                            <div class="card-body text-center">
+                                <h5 class="card-title"> Conejo</h5>
+                                <a href="productos/remeras/conejo.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div><!-- Conejo -->
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <div id="carousel3" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active"><img
+                                                src="imagenes/remeras/cash/cash_rojo_front.webp"
+                                                class="d-block w-100"
+                                                alt="Frente del Cash"
+                                                loading="lazy"></div>
+                                        <div class="carousel-item"><img
+                                                src="imagenes/remeras/cash/cash_rojo_back.webp"
+                                                class="d-block w-100"
+                                                alt="Dorso del Cash"
+                                                loading="lazy"></div>
                                     </div>
-                                    <div class="carousel-item">
-                                        <img src="imagenes/remeras/conejo/conejo_azulMarino_back.webp"
-                                            class="d-block w-100" alt="Dorso del Conejo" loading="lazy">
+                                    <button class="carousel-control-prev"
+                                        type="button"
+                                        data-bs-target="#carousel3"
+                                        data-bs-slide="prev">
+                                        <span
+                                            class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next"
+                                        type="button"
+                                        data-bs-target="#carousel3"
+                                        data-bs-slide="next">
+                                        <span
+                                            class="carousel-control-next-icon"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title"> Cash</h5>
+                                <a href="productos/remeras/cash.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div><!-- Cash -->
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <div id="carousel4" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active"><img
+                                                src="imagenes/remeras/pirata/pirata_azulMarino_front.webp"
+                                                class="d-block w-100"
+                                                alt="Frente del Pirata"
+                                                loading="lazy"></div>
+                                        <div class="carousel-item"><img
+                                                src="imagenes/remeras/pirata/pirata_azulMarino_back.webp"
+                                                class="d-block w-100"
+                                                alt="Dorso del Pirata"
+                                                loading="lazy"></div>
                                     </div>
+                                    <button class="carousel-control-prev"
+                                        type="button"
+                                        data-bs-target="#carousel4"
+                                        data-bs-slide="prev">
+                                        <span
+                                            class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next"
+                                        type="button"
+                                        data-bs-target="#carousel4"
+                                        data-bs-slide="next">
+                                        <span
+                                            class="carousel-control-next-icon"></span>
+                                    </button>
                                 </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel2"
-                                    data-bs-slide="prev" aria-label="Imagen anterior">
-                                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel2"
-                                    data-bs-slide="next" aria-label="Imagen siguiente">
-                                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                </button>
                             </div>
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title"> Conejo</h5>
-                            <a href="productos/remeras/conejo.html" class="btn btn-outline-primary btn-ver-mas">Ver
-                                más</a>
-                        </div>
-                    </div><!-- Conejo -->
-                    <div class="col-md-4">
-                        <div class="card h-200">
-                            <div id="carousel3" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active"><img
-                                            src="imagenes/remeras/cash/cash_rojo_front.webp" class="d-block w-100"
-                                            alt="Frente del Cash" loading="lazy"></div>
-                                    <div class="carousel-item"><img src="imagenes/remeras/cash/cash_rojo_back.webp"
-                                            class="d-block w-100" alt="Dorso del Cash" loading="lazy"></div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel3"
-                                    data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon"></span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel3"
-                                    data-bs-slide="next">
-                                    <span class="carousel-control-next-icon"></span>
-                                </button>
+                            <div class="card-body text-center">
+                                <h5 class="card-title"> Pirata</h5>
+                                <a href="productos/remeras/pirata.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
                             </div>
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title"> Cash</h5>
-                            <a href="productos/remeras/cash.html" class="btn btn-outline-primary btn-ver-mas">Ver
-                                más</a>
-                        </div>
-                    </div><!-- Cash -->
-                    <div class="col-md-4">
-                        <div class="card h-200">
-                            <div id="carousel4" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active"><img
-                                            src="imagenes/remeras/pirata/pirata_azulMarino_front.webp"
-                                            class="d-block w-100" alt="Frente del Pirata" loading="lazy"></div>
-                                    <div class="carousel-item"><img
-                                            src="imagenes/remeras/pirata/pirata_azulMarino_back.webp"
-                                            class="d-block w-100" alt="Dorso del Pirata" loading="lazy"></div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel4"
-                                    data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon"></span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel4"
-                                    data-bs-slide="next">
-                                    <span class="carousel-control-next-icon"></span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title"> Pirata</h5>
-                            <a href="productos/remeras/pirata.html" class="btn btn-outline-primary btn-ver-mas">Ver
-                                más</a>
-                        </div>
-                    </div><!-- Pirata -->
-                    <div class="col-md-4">
-                        <div class="card h-200">
-                            <div id="carousel5" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active"><img
-                                            src="imagenes/remeras/pinkFloyd/pinkFloyd_negro_front.webp"
-                                            class="d-block w-100" alt="Frente del Pinkfloyd" loading="lazy"></div>
-                                    <div class="carousel-item"><img
-                                            src="imagenes/remeras/pinkFloyd/pinkFloyd_negro_back.webp"
-                                            class="d-block w-100" alt="Dorso del Pinkfloyd" loading="lazy"></div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel5"
-                                    data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon"></span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel5"
-                                    data-bs-slide="next">
-                                    <span class="carousel-control-next-icon"></span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title"> Pink Floyd</h5>
-                            <a href="productos/remeras/pinkFloyd.html" class="btn btn-outline-primary btn-ver-mas">Ver
-                                más</a>
-                        </div>
-                    </div><!-- Pinkfloyd -->
-                    <div class="col-md-4">
-                        <div class="card h-200">
-                            <div id="carousel6" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active"><img
-                                            src="imagenes/remeras/dreamMaker/dreamMaker_blanco_front.webp"
-                                            class="d-block w-100" alt="Frente del Dreammaker" loading="lazy"></div>
-                                    <div class="carousel-item"><img
-                                            src="imagenes/remeras/dreamMaker/dreamMaker_blanco_back.webp"
-                                            class="d-block w-100" alt="Dorso del Dreammaker" loading="lazy"></div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel6"
-                                    data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon"></span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel6"
-                                    data-bs-slide="next">
-                                    <span class="carousel-control-next-icon"></span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title"> Dream Maker</h5>
-                            <a href="productos/remeras/dreamMaker.html" class="btn btn-outline-primary btn-ver-mas">Ver
-                                más</a>
-                        </div>
-                    </div><!-- Dreammaker -->
-                    <div class="col-md-4">
-                        <div class="card h-200">
-                            <div id="carousel7" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active"><img
-                                            src="imagenes/remeras/justice/justice_azulMarino_arena_front.webp"
-                                            class="d-block w-100" alt="Frente del Justice" loading="lazy"></div>
-                                    <div class="carousel-item"><img
-                                            src="imagenes/remeras/justice/justice_azulMarino_arena_back.webp"
-                                            class="d-block w-100" alt="Dorso del Justice" loading="lazy"></div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel7"
-                                    data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon"></span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel7"
-                                    data-bs-slide="next">
-                                    <span class="carousel-control-next-icon"></span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Justice</h5>
-                            <a href="productos/remeras/justice.html" class="btn btn-outline-primary btn-ver-mas">Ver
-                                más</a>
-                        </div>
-                    </div><!-- Remera Justice -->
-
-                    <div class="col-md-4">
-                        <div class="card h-200">
-                            <div id="carousel8" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active"><img
-                                            src="imagenes/remeras/snipe/snipe_negro_naranja_front.webp"
-                                            class="d-block w-100" alt="Frente del Snipe" loading="lazy"></div>
-                                    <div class="carousel-item"><img
-                                            src="imagenes/remeras/snipe/snipe_negro_naranja_back.webp"
-                                            class="d-block w-100" alt="Dorso del Snipe" loading="lazy"></div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel8"
-                                    data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon"></span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel8"
-                                    data-bs-slide="next">
-                                    <span class="carousel-control-next-icon"></span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Snipe</h5>
-                            <a href="productos/remeras/snipe.html" class="btn btn-outline-primary btn-ver-mas">Ver
-                                más</a>
-                        </div>
-                    </div><!-- Remera Snipe -->
-
-                    <div class="col-md-4">
-                        <div class="card h-200">
-                            <div id="carousel9" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active"><img
-                                            src="imagenes/remeras/marte/marte_blanco_azul_front.webp"
-                                            class="d-block w-100" alt="Frente del Marte" loading="lazy"></div>
-                                    <div class="carousel-item"><img
-                                            src="imagenes/remeras/marte/marte_blanco_azul_back.webp"
-                                            class="d-block w-100" alt="Dorso del Marte" loading="lazy"></div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel9"
-                                    data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon"></span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel9"
-                                    data-bs-slide="next">
-                                    <span class="carousel-control-next-icon"></span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title"> Marte</h5>
-                            <a href="productos/remeras/marte.html" class="btn btn-outline-primary btn-ver-mas">Ver
-                                más</a>
-                        </div>
-                    </div><!--  Marte -->
-
-                    <div class="col-md-4">
-                        <div class="card h-200">
-                            <div id="carousel10" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active"><img
-                                            src="imagenes/remeras/luna/luna_negro_blanco_front.webp"
-                                            class="d-block w-100" alt="Frente del Luna" loading="lazy"></div>
-                                    <div class="carousel-item"><img
-                                            src="imagenes/remeras/luna/luna_negro_blanco_back.webp"
-                                            class="d-block w-100" alt="Dorso del Luna" loading="lazy"></div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel10"
-                                    data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon"></span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel10"
-                                    data-bs-slide="next">
-                                    <span class="carousel-control-next-icon"></span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Luna</h5>
-                            <a href="productos/remeras/luna.html" class="btn btn-outline-primary btn-ver-mas">Ver
-                                más</a>
-                        </div>
-                    </div><!-- Remera Luna -->
-
-                    <div class="col-md-4">
-                        <div class="card h-200">
-                            <div id="carousel11" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active"><img
-                                            src="imagenes/remeras/love/love_blanco_verde_front.webp"
-                                            class="d-block w-100" alt="Frente del Love" loading="lazy"></div>
-                                    <div class="carousel-item"><img
-                                            src="imagenes/remeras/love/love_blanco_verde_back.webp"
-                                            class="d-block w-100" alt="Dorso del Love" loading="lazy"></div>
-                                </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel11"
-                                    data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon"></span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel11"
-                                    data-bs-slide="next">
-                                    <span class="carousel-control-next-icon"></span>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Love</h5>
-                            <a href="productos/remeras/love.html" class="btn btn-outline-primary btn-ver-mas">Ver
-                                más</a>
-                        </div>
-                    </div><!-- Remera Love -->
-                    <div class="col-md-4">
-                        <div class="card h-200">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23f8f9fa'/%3E%3C/svg%3E"
-                                data-src="imagenes/remeras/drew/drew_blanco_front.webp"
-                                class="card-img-top img-placeholder" alt="Imagen de Drew" loading="lazy">
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Drew</h5>
-                            <a href="productos/remeras/drew.html" class="btn btn-outline-primary btn-ver-mas">Ver
-                                más</a>
-                        </div>
-                    </div> <!-- Remera Drew -->
-                    <div class="col-md-4">
-                        <div class="card h-200">
-                            <div id="carousel6" class="carousel slide" data-bs-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active"><img
-                                            src="imagenes/remeras/lali/lali_blanco_modelo1_back.webp"
-                                            class="d-block w-100" alt="Remera con estamapa de Lali"></div>
-                                    <div class="carousel-item"><img
-                                            src="imagenes/remeras/lali/lali_negro_modelo2_back.webp" class="d-block w-100"
-                                            alt="Remera con estampa de Lali">
+                        </div><!-- Pirata -->
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <div id="carousel5" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active"><img
+                                                src="imagenes/remeras/pinkFloyd/pinkFloyd_negro_front.webp"
+                                                class="d-block w-100"
+                                                alt="Frente del Pinkfloyd"
+                                                loading="lazy"></div>
+                                        <div class="carousel-item"><img
+                                                src="imagenes/remeras/pinkFloyd/pinkFloyd_negro_back.webp"
+                                                class="d-block w-100"
+                                                alt="Dorso del Pinkfloyd"
+                                                loading="lazy"></div>
                                     </div>
+                                    <button class="carousel-control-prev"
+                                        type="button"
+                                        data-bs-target="#carousel5"
+                                        data-bs-slide="prev">
+                                        <span
+                                            class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next"
+                                        type="button"
+                                        data-bs-target="#carousel5"
+                                        data-bs-slide="next">
+                                        <span
+                                            class="carousel-control-next-icon"></span>
+                                    </button>
                                 </div>
-                                <button class="carousel-control-prev" type="button" data-bs-target="#carousel6"
-                                    data-bs-slide="prev">
-                                    <span class="carousel-control-prev-icon"></span>
-                                </button>
-                                <button class="carousel-control-next" type="button" data-bs-target="#carousel6"
-                                    data-bs-slide="next">
-                                    <span class="carousel-control-next-icon"></span>
-                                </button>
                             </div>
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title">Remera Lali</h5>
-                            <a href="productos/remeras/remeraLali.html" class="btn btn-outline-primary btn-ver-mas">Ver
-                                más</a>
+                            <div class="card-body text-center">
+                                <h5 class="card-title"> Pink Floyd</h5>
+                                <a href="productos/remeras/pinkFloyd.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div><!-- Pinkfloyd -->
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <div id="carousel6" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active"><img
+                                                src="imagenes/remeras/dreamMaker/dreamMaker_blanco_front.webp"
+                                                class="d-block w-100"
+                                                alt="Frente del Dreammaker"
+                                                loading="lazy"></div>
+                                        <div class="carousel-item"><img
+                                                src="imagenes/remeras/dreamMaker/dreamMaker_blanco_back.webp"
+                                                class="d-block w-100"
+                                                alt="Dorso del Dreammaker"
+                                                loading="lazy"></div>
+                                    </div>
+                                    <button class="carousel-control-prev"
+                                        type="button"
+                                        data-bs-target="#carousel6"
+                                        data-bs-slide="prev">
+                                        <span
+                                            class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next"
+                                        type="button"
+                                        data-bs-target="#carousel6"
+                                        data-bs-slide="next">
+                                        <span
+                                            class="carousel-control-next-icon"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title"> Dream Maker</h5>
+                                <a href="productos/remeras/dreamMaker.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div><!-- Dreammaker -->
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <div id="carousel7" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active"><img
+                                                src="imagenes/remeras/justice/justice_azulMarino_arena_front.webp"
+                                                class="d-block w-100"
+                                                alt="Frente del Justice"
+                                                loading="lazy"></div>
+                                        <div class="carousel-item"><img
+                                                src="imagenes/remeras/justice/justice_azulMarino_arena_back.webp"
+                                                class="d-block w-100"
+                                                alt="Dorso del Justice"
+                                                loading="lazy"></div>
+                                    </div>
+                                    <button class="carousel-control-prev"
+                                        type="button"
+                                        data-bs-target="#carousel7"
+                                        data-bs-slide="prev">
+                                        <span
+                                            class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next"
+                                        type="button"
+                                        data-bs-target="#carousel7"
+                                        data-bs-slide="next">
+                                        <span
+                                            class="carousel-control-next-icon"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Justice</h5>
+                                <a href="productos/remeras/justice.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div><!-- Remera Justice -->
+
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <div id="carousel8" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active"><img
+                                                src="imagenes/remeras/snipe/snipe_negro_naranja_front.webp"
+                                                class="d-block w-100"
+                                                alt="Frente del Snipe"
+                                                loading="lazy"></div>
+                                        <div class="carousel-item"><img
+                                                src="imagenes/remeras/snipe/snipe_negro_naranja_back.webp"
+                                                class="d-block w-100"
+                                                alt="Dorso del Snipe"
+                                                loading="lazy"></div>
+                                    </div>
+                                    <button class="carousel-control-prev"
+                                        type="button"
+                                        data-bs-target="#carousel8"
+                                        data-bs-slide="prev">
+                                        <span
+                                            class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next"
+                                        type="button"
+                                        data-bs-target="#carousel8"
+                                        data-bs-slide="next">
+                                        <span
+                                            class="carousel-control-next-icon"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Snipe</h5>
+                                <a href="productos/remeras/snipe.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div><!-- Remera Snipe -->
+
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <div id="carousel9" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active"><img
+                                                src="imagenes/remeras/marte/marte_blanco_azul_front.webp"
+                                                class="d-block w-100"
+                                                alt="Frente del Marte"
+                                                loading="lazy"></div>
+                                        <div class="carousel-item"><img
+                                                src="imagenes/remeras/marte/marte_blanco_azul_back.webp"
+                                                class="d-block w-100"
+                                                alt="Dorso del Marte"
+                                                loading="lazy"></div>
+                                    </div>
+                                    <button class="carousel-control-prev"
+                                        type="button"
+                                        data-bs-target="#carousel9"
+                                        data-bs-slide="prev">
+                                        <span
+                                            class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next"
+                                        type="button"
+                                        data-bs-target="#carousel9"
+                                        data-bs-slide="next">
+                                        <span
+                                            class="carousel-control-next-icon"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title"> Marte</h5>
+                                <a href="productos/remeras/marte.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div><!--  Marte -->
+
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <div id="carousel10" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active"><img
+                                                src="imagenes/remeras/luna/luna_negro_blanco_front.webp"
+                                                class="d-block w-100"
+                                                alt="Frente del Luna"
+                                                loading="lazy"></div>
+                                        <div class="carousel-item"><img
+                                                src="imagenes/remeras/luna/luna_negro_blanco_back.webp"
+                                                class="d-block w-100"
+                                                alt="Dorso del Luna"
+                                                loading="lazy"></div>
+                                    </div>
+                                    <button class="carousel-control-prev"
+                                        type="button"
+                                        data-bs-target="#carousel10"
+                                        data-bs-slide="prev">
+                                        <span
+                                            class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next"
+                                        type="button"
+                                        data-bs-target="#carousel10"
+                                        data-bs-slide="next">
+                                        <span
+                                            class="carousel-control-next-icon"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Luna</h5>
+                                <a href="productos/remeras/luna.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div><!-- Remera Luna -->
+
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <div id="carousel11" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active"><img
+                                                src="imagenes/remeras/love/love_blanco_verde_front.webp"
+                                                class="d-block w-100"
+                                                alt="Frente del Love"
+                                                loading="lazy"></div>
+                                        <div class="carousel-item"><img
+                                                src="imagenes/remeras/love/love_blanco_verde_back.webp"
+                                                class="d-block w-100"
+                                                alt="Dorso del Love"
+                                                loading="lazy"></div>
+                                    </div>
+                                    <button class="carousel-control-prev"
+                                        type="button"
+                                        data-bs-target="#carousel11"
+                                        data-bs-slide="prev">
+                                        <span
+                                            class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next"
+                                        type="button"
+                                        data-bs-target="#carousel11"
+                                        data-bs-slide="next">
+                                        <span
+                                            class="carousel-control-next-icon"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Love</h5>
+                                <a href="productos/remeras/love.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div><!-- Remera Love -->
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <img
+                                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23f8f9fa'/%3E%3C/svg%3E"
+                                    data-src="imagenes/remeras/drew/drew_blanco_front.webp"
+                                    class="card-img-top img-placeholder"
+                                    alt="Imagen de Drew" loading="lazy">
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Drew</h5>
+                                <a href="productos/remeras/drew.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div> <!-- Remera Drew -->
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <div id="carousel6" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active"><img
+                                                src="imagenes/remeras/lali/lali_blanco_modelo1_back.webp"
+                                                class="d-block w-100"
+                                                alt="Remera con estamapa de Lali"></div>
+                                        <div class="carousel-item"><img
+                                                src="imagenes/remeras/lali/lali_negro_modelo2_back.webp"
+                                                class="d-block w-100"
+                                                alt="Remera con estampa de Lali">
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev"
+                                        type="button"
+                                        data-bs-target="#carousel6"
+                                        data-bs-slide="prev">
+                                        <span
+                                            class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next"
+                                        type="button"
+                                        data-bs-target="#carousel6"
+                                        data-bs-slide="next">
+                                        <span
+                                            class="carousel-control-next-icon"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Remera Lali</h5>
+                                <a href="productos/remeras/remeraLali.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </section>
+
+                <!--PEQUES-->
+
+                <section id="peques" class="container my-5"
+                    data-categoria="niños">
+                    <h3 class="text-center mb-4">Para los más Peques
+                        <p class="text-center mb-4">(Talles 4 a 16)</p>
+                    </h3>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <img
+                                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23f8f9fa'/%3E%3C/svg%3E"
+                                    data-src="imagenes/remeras/remeraLabubu/remeraLabubu_negro_front.webp"
+                                    class="card-img-top img-placeholder"
+                                    alt="Imagen de Remera Labubu"
+                                    loading="lazy">
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title"> Labubu</h5>
+                                <a href="productos/remeras/remeraLabubu.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <img
+                                    src="imagenes/remeras/remeraSpacedOut/remeraSpacedOut_negro_front.webp"
+                                    class="card-img-top"
+                                    alt="Imagen de Remera Spaced Out"
+                                    loading="lazy">
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title"> Spaced Out</h5>
+                                <a href="productos/remeras/remeraSpacedOut.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <img
+                                    src="imagenes/remeras/remeraOsito/remeraOsito_negro_front.webp"
+                                    class="card-img-top"
+                                    alt="Imagen de Remera Osito" loading="lazy">
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title"> Osito</h5>
+                                <a href="productos/remeras/remeraOsito.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <img
+                                    src="imagenes/remeras/remeraKuromi/remeraKuromi_negro_front.webp"
+                                    class="card-img-top"
+                                    alt="Imagen de Remera Kuromi"
+                                    loading="lazy">
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title"> Kuromi</h5>
+                                <a href="productos/remeras/remeraKuromi.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <img
+                                    src="imagenes/remeras/remeraTiburon/remeraTiburon_negro_front.webp"
+                                    class="card-img-top"
+                                    alt="Imagen de Remera Tiburon"
+                                    loading="lazy">
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title"> Tiburon</h5>
+                                <a href="productos/remeras/remeraTiburon.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <img
+                                    src="imagenes/remeras/remeraBugsBunny/remeraBugsBunny_negro_front.webp"
+                                    class="card-img-top"
+                                    alt="Imagen de Remera Bugsbunny"
+                                    loading="lazy">
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title"> Bugs Bunny</h5>
+                                <a href="productos/remeras/remeraBugsBunny.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <img
+                                    src="imagenes/remeras/remeraBallerina/remeraBallerina_negro_front.webp"
+                                    class="card-img-top"
+                                    alt="Imagen de Remera Ballerina"
+                                    loading="lazy">
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title"> Ballerina</h5>
+                                <a href="productos/remeras/remeraBallerina.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <img
+                                    src="imagenes/remeras/remeraCapyBara/remeraCapyBara_negro_front.webp"
+                                    class="card-img-top"
+                                    alt="Imagen de Remera Capybara"
+                                    loading="lazy">
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title"> Capybara</h5>
+                                <a href="productos/remeras/remeraCapyBara.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <img
+                                    src="imagenes/remeras/leopardo/leopardo_negro_front.webp"
+                                    class="card-img-top"
+                                    alt="Imagen de Leopardo" loading="lazy">
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title"> Leopardo</h5>
+                                <a href="productos/remeras/leopardo.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div>
+                    </div>
+                </section>
             </section>
+        </main>
 
-            <!--PEQUES-->
+        <footer class="bg-dark text-white text-center py-4">
+            <div class="container">
+                <div class="row align-items-center justify-content-center">
+                    <div class="col-12 mb-3">
+                        <div
+                            class="d-flex justify-content-center align-items-center gap-4 flex-wrap">
+                            <!-- Instagram -->
+                            <a href="https://www.instagram.com/mit.estampados/"
+                                target="_blank" rel="noopener noreferrer"
+                                class="text-decoration-none d-flex align-items-center gap-2">
+                                <div class="social-icon instagram-icon">
+                                    <i class="bi bi-instagram"></i>
+                                </div>
+                                <span class="text-white">@mit.estampados</span>
+                            </a>
 
-            <section id="peques" class="container my-5" data-categoria="niños">
-                <h3 class="text-center mb-4">Para los más Peques
-                    <p class="text-center mb-4">(Talles 4 a 16)</p>
-                </h3>
-                <div class="row g-4">
-                    <div class="col-md-4">
-                        <div class="card h-200">
-                            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='300'%3E%3Crect width='100%25' height='100%25' fill='%23f8f9fa'/%3E%3C/svg%3E"
-                                data-src="imagenes/remeras/remeraLabubu/remeraLabubu_negro_front.webp"
-                                class="card-img-top img-placeholder" alt="Imagen de Remera Labubu" loading="lazy">
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title"> Labubu</h5>
-                            <a href="productos/remeras/remeraLabubu.html"
-                                class="btn btn-outline-primary btn-ver-mas">Ver
-                                más</a>
+                            <!-- WhatsApp -->
+                            <a
+                                href="https://wa.me/5491123798994?text=Hola! Me interesa consultar sobre los productos de MIT ESTAMPADOS"
+                                target="_blank" rel="noopener noreferrer"
+                                class="text-decoration-none d-flex align-items-center gap-2">
+                                <div class="social-icon whatsapp-icon">
+                                    <i class="bi bi-whatsapp"></i>
+                                </div>
+                                <span class="text-white">WhatsApp</span>
+                            </a>
                         </div>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card h-200">
-                            <img src="imagenes/remeras/remeraSpacedOut/remeraSpacedOut_negro_front.webp"
-                                class="card-img-top" alt="Imagen de Remera Spaced Out" loading="lazy">
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title"> Spaced Out</h5>
-                            <a href="productos/remeras/remeraSpacedOut.html"
-                                class="btn btn-outline-primary btn-ver-mas">Ver
-                                más</a>
-                        </div>
+                    <div class="col-12">
+                        <p class="mb-0">&copy; 2025 MIT Estampados</p>
                     </div>
-                    <div class="col-md-4">
-                        <div class="card h-200">
-                            <img src="imagenes/remeras/remeraOsito/remeraOsito_negro_front.webp" class="card-img-top"
-                                alt="Imagen de Remera Osito" loading="lazy">
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title"> Osito</h5>
-                            <a href="productos/remeras/remeraOsito.html" class="btn btn-outline-primary btn-ver-mas">Ver
-                                más</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card h-200">
-                            <img src="imagenes/remeras/remeraKuromi/remeraKuromi_negro_front.webp" class="card-img-top"
-                                alt="Imagen de Remera Kuromi" loading="lazy">
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title"> Kuromi</h5>
-                            <a href="productos/remeras/remeraKuromi.html"
-                                class="btn btn-outline-primary btn-ver-mas">Ver
-                                más</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card h-200">
-                            <img src="imagenes/remeras/remeraTiburon/remeraTiburon_negro_front.webp"
-                                class="card-img-top" alt="Imagen de Remera Tiburon" loading="lazy">
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title"> Tiburon</h5>
-                            <a href="productos/remeras/remeraTiburon.html"
-                                class="btn btn-outline-primary btn-ver-mas">Ver
-                                más</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card h-200">
-                            <img src="imagenes/remeras/remeraBugsBunny/remeraBugsBunny_negro_front.webp"
-                                class="card-img-top" alt="Imagen de Remera Bugsbunny" loading="lazy">
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title"> Bugs Bunny</h5>
-                            <a href="productos/remeras/remeraBugsBunny.html"
-                                class="btn btn-outline-primary btn-ver-mas">Ver
-                                más</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card h-200">
-                            <img src="imagenes/remeras/remeraBallerina/remeraBallerina_negro_front.webp"
-                                class="card-img-top" alt="Imagen de Remera Ballerina" loading="lazy">
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title"> Ballerina</h5>
-                            <a href="productos/remeras/remeraBallerina.html"
-                                class="btn btn-outline-primary btn-ver-mas">Ver
-                                más</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card h-200">
-                            <img src="imagenes/remeras/remeraCapyBara/remeraCapyBara_negro_front.webp"
-                                class="card-img-top" alt="Imagen de Remera Capybara" loading="lazy">
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title"> Capybara</h5>
-                            <a href="productos/remeras/remeraCapyBara.html"
-                                class="btn btn-outline-primary btn-ver-mas">Ver
-                                más</a>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="card h-200">
-                            <img src="imagenes/remeras/leopardo/leopardo_negro_front.webp" class="card-img-top"
-                                alt="Imagen de Leopardo" loading="lazy">
-                        </div>
-                        <div class="card-body text-center">
-                            <h5 class="card-title"> Leopardo</h5>
-                            <a href="productos/remeras/leopardo.html" class="btn btn-outline-primary btn-ver-mas">Ver
-                                más</a>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </section>
-    </main>
-
-    <footer class="bg-dark text-white text-center py-4">
-        <div class="container">
-            <div class="row align-items-center justify-content-center">
-                <div class="col-12 mb-3">
-                    <div class="d-flex justify-content-center align-items-center gap-4 flex-wrap">
-                        <!-- Instagram -->
-                        <a href="https://www.instagram.com/mit.estampados/" target="_blank" rel="noopener noreferrer"
-                            class="text-decoration-none d-flex align-items-center gap-2">
-                            <div class="social-icon instagram-icon">
-                                <i class="bi bi-instagram"></i>
-                            </div>
-                            <span class="text-white">@mit.estampados</span>
-                        </a>
-
-                        <!-- WhatsApp -->
-                        <a href="https://wa.me/5491123798994?text=Hola! Me interesa consultar sobre los productos de MIT ESTAMPADOS"
-                            target="_blank" rel="noopener noreferrer"
-                            class="text-decoration-none d-flex align-items-center gap-2">
-                            <div class="social-icon whatsapp-icon">
-                                <i class="bi bi-whatsapp"></i>
-                            </div>
-                            <span class="text-white">WhatsApp</span>
-                        </a>
-                    </div>
-                </div>
-                <div class="col-12">
-                    <p class="mb-0">&copy; 2025 MIT Estampados</p>
                 </div>
             </div>
-        </div>
-    </footer>
+        </footer>
 
-    <!-- Scripts cargados al final para mejor rendimiento -->
-    <script>
-        // Polyfill para loading="lazy" en navegadores no compatibles
-        if (!('loading' in HTMLImageElement.prototype)) {
-            const script = document.createElement('script');
-            script.src = 'https://cdn.jsdelivr.net/npm/loading-attribute-polyfill@2/dist/loading-attribute-polyfill.umd.js';
-            document.head.appendChild(script);
-        }
-
-        // Lazy loading optimizado con Intersection Observer
-        document.addEventListener('DOMContentLoaded', function () {
-            if ('IntersectionObserver' in window) {
-                const imageObserver = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const img = entry.target;
-                            if (img.dataset.src) {
-                                img.src = img.dataset.src;
-                                img.removeAttribute('data-src');
-                                img.classList.remove('img-placeholder');
-
-                                // Preload siguiente imagen del carrusel
-                                const parentCarousel = img.closest('.carousel');
-                                if (parentCarousel) {
-                                    const nextImg = parentCarousel.querySelector('img[data-src]:not([src])');
-                                    if (nextImg) {
-                                        const link = document.createElement('link');
-                                        link.rel = 'prefetch';
-                                        link.href = nextImg.dataset.src;
-                                        document.head.appendChild(link);
-                                    }
-                                }
-                            }
-                            observer.unobserve(img);
-                        }
-                    });
-                }, {
-                    rootMargin: '50px 0px',
-                    threshold: 0.01
-                });
-
-                document.querySelectorAll('img[data-src]').forEach(img => {
-                    imageObserver.observe(img);
-                });
-            } else {
-                // Fallback para navegadores sin Intersection Observer
-                document.querySelectorAll('img[data-src]').forEach(img => {
-                    img.src = img.dataset.src;
-                    img.removeAttribute('data-src');
-                    img.classList.remove('img-placeholder');
-                });
-            }
-        });
-    </script>
-
-    <!-- Script para controlar la pantalla de carga -->
-    <script>
-        // Función para ocultar la pantalla de carga
-        function hideLoadingScreen() {
-            const loadingScreen = document.getElementById('loading-screen');
-            const body = document.body;
-            
-            if (loadingScreen) {
-                loadingScreen.classList.add('hidden');
-                body.classList.remove('loading');
-                
-                // Remover completamente el elemento después de la transición
-                setTimeout(() => {
-                    if (loadingScreen.parentNode) {
-                        loadingScreen.parentNode.removeChild(loadingScreen);
-                    }
-                }, 500);
-            }
-        }
-
-        // Ocultar pantalla cuando el DOM esté listo
-        if (document.readyState === 'loading') {
-            document.addEventListener('DOMContentLoaded', function() {
-                setTimeout(hideLoadingScreen, 500);
-            });
-        } else {
-            setTimeout(hideLoadingScreen, 500);
-        }
-
-        // También escuchar window.load para recursos adicionales
-        window.addEventListener('load', function() {
-            setTimeout(hideLoadingScreen, 100);
-        });
-
-        // Fallback: ocultar después de 2 segundos máximo
-        setTimeout(hideLoadingScreen, 2000);
-    </script>
-
-    <!-- Bootstrap JS cargado de forma diferida -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
-
-    <!-- Scripts de la aplicación cargados en orden de dependencia -->
-    <script src="script/funciones/preload-optimizer.js" defer></script>
-    <script src="script/funciones/config.js" defer></script>
-    <script src="script/funciones/index.js" defer></script>
-    <script src="script/funciones/componentes.js" defer></script>
-    <script src="script/funciones/carrito.js" defer></script>
-    <script src="script/funciones/filtroProducto.js" defer></script>
-
-    <div id="modal-container"></div>
-</body>
+        <script src="script/funciones/pantallaCarga.js"></script>
+        <script src="script/funciones/lazyLoading.js"></script>
+        <script src="script/funciones/preload-optimizer.js" defer></script>
+        <script src="script/funciones/config.js" defer></script>
+        <script src="script/funciones/index.js" defer></script>
+        <script src="script/funciones/componentes.js" defer></script>
+        <script src="script/funciones/carrito.js" defer></script>
+        <script src="script/funciones/filtroProducto.js" defer></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+        <div id="modal-container"></div>
+    </body>
 
 </html>
