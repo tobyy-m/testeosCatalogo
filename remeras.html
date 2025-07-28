@@ -66,12 +66,10 @@
     <!-- CSS crítico inline -->
     <style>
         body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; }
-        .navbar { height: 56px; }
     </style>
 
-    <!-- CSS unificado con Bootstrap incluido - carga diferida -->
-    <link rel="preload" href="css/styles-unified.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/styles-unified.css"></noscript>
+    <!-- CSS unificado - carga inmediata para evitar FOUC -->
+    <link rel="stylesheet" href="css/styles-unified.css">
 </head>
 
 <body>

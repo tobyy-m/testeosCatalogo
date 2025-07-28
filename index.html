@@ -13,18 +13,21 @@
     
     <!-- CSS crítico inline para evitar FOUC -->
     <style>
+        /* Base styles para evitar FOUC */
         body {
             font-family: 'Poppins', sans-serif;
             font-weight: 400;
             margin: 0;
             padding: 0;
         }
-        .navbar { height: 56px; } /* Evitar layout shift */
     </style>
     
-    <!-- CSS unificado con carga diferida -->
-    <link rel="preload" href="css/styles-unified.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="css/styles-unified.css"></noscript>
+    <!-- CSS unificado - carga inmediata para evitar FOUC -->
+    <link rel="stylesheet" href="css/styles-unified.css">
+    
+    <!-- Preload de fuentes para mejorar performance -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"></noscript>
 
 
 </head>
