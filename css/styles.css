@@ -1,179 +1,179 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,500;1,500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,500;1,500&display=swap");
 
 #mitNav {
-    font-family: 'Noto Serif', serif;
+  font-family: "Noto Serif", serif;
 }
 #tituloHeader {
-    font-family: 'Noto Serif', serif;
+  font-family: "Noto Serif", serif;
 }
 body,
 .card,
 header,
 footer,
 .navbar {
-    transition: background-color 0.5s ease, color 0.5s ease;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 
 .fade-img {
-    opacity: 1;
-    transition: opacity 0.4s ease-in-out;
+  opacity: 1;
+  transition: opacity 0.4s ease-in-out;
 }
 
 .fade-img.hidden {
-    opacity: 0;
+  opacity: 0;
 }
 
 html,
 body {
-    height: 100%;
-    margin: 0;
+  height: 100%;
+  margin: 0;
 }
 
 body {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 main {
-    flex: 1;
+  flex: 1;
 }
 
 /* Estilos para el modal del carrito */
 .modal-body .order-item {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    padding: 10px 0;
-    border-bottom: 1px solid #444;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid #444;
 }
 
 .modal-body .order-item:last-child {
-    border-bottom: none;
+  border-bottom: none;
 }
 
 .modal-body .order-item img {
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border-radius: 5px;
-    border: 1px solid #666;
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5px;
+  border: 1px solid #666;
 }
 
 .modal-body .item-info {
-    flex: 1;
-    color: #fff;
+  flex: 1;
+  color: #fff;
 }
 
 .modal-body .item-name {
-    font-weight: bold;
-    margin-bottom: 2px;
-    color: #fff;
+  font-weight: bold;
+  margin-bottom: 2px;
+  color: #fff;
 }
 
 .modal-body .item-details {
-    font-size: 0.85rem;
-    color: #ccc;
+  font-size: 0.85rem;
+  color: #ccc;
 }
 
 .modal-body .price {
-    font-weight: bold;
-    color: #28a745;
-    text-align: right;
+  font-weight: bold;
+  color: #28a745;
+  text-align: right;
 }
 
 .modal-body .quantity-controls {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    min-width: 80px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 80px;
 }
 
 .modal-body .quantity-btn {
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    width: 24px;
-    height: 24px;
-    font-size: 14px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .modal-body .quantity-btn:hover {
-    background: #0056b3;
+  background: #0056b3;
 }
 
 .modal-body .quantity-btn:disabled {
-    background: #555;
-    cursor: not-allowed;
+  background: #555;
+  cursor: not-allowed;
 }
 
 .modal-body .quantity-number {
-    font-weight: bold;
-    color: #007bff;
-    min-width: 20px;
-    text-align: center;
-    font-size: 14px;
+  font-weight: bold;
+  color: #007bff;
+  min-width: 20px;
+  text-align: center;
+  font-size: 14px;
 }
 
 .modal-body .remove-btn {
-    background: #dc3545;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    width: 24px;
-    height: 24px;
-    font-size: 12px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 5px;
+  background: #dc3545;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 24px;
+  height: 24px;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 5px;
 }
 
 .modal-body .remove-btn:hover {
-    background: #c82333;
+  background: #c82333;
 }
 
 .modal-footer .total {
-    background: #007bff;
-    color: white;
-    padding: 0.5rem 1rem;
-    text-align: center;
-    border-radius: 5px;
-    font-weight: bold;
-    width: 100%;
-    margin-bottom: 0.5rem;
+  background: #007bff;
+  color: white;
+  padding: 0.5rem 1rem;
+  text-align: center;
+  border-radius: 5px;
+  font-weight: bold;
+  width: 100%;
+  margin-bottom: 0.5rem;
 }
 
 /* =================================== */
 /* BARRA DE NOTIFICACIÓN */
 /* =================================== */
 .notification-bar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    background-color: #28a745;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    font-weight: bold;
-    z-index: 9999;
-    transform: translateY(-100%);
-    transition: transform 0.3s ease-in-out;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #28a745;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  font-weight: bold;
+  z-index: 9999;
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-in-out;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .notification-bar.show {
-    transform: translateY(0);
+  transform: translateY(0);
 }
 
 .notification-bar.error {
-    background-color: #dc3545;
+  background-color: #dc3545;
 }
 
 /* =================================== */
@@ -181,421 +181,455 @@ main {
 /* =================================== */
 
 .precio-producto {
-    background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
-    border-radius: 20px;
-    padding: 25px 20px;
-    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
-    border: 3px solid rgba(255, 255, 255, 0.2);
-    position: relative;
-    overflow: hidden;
-    transition: all 0.3s ease;
-    margin-bottom: 30px;
+  background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+  border-radius: 20px;
+  padding: 25px 20px;
+  box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+  border: 3px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  margin-bottom: 30px;
 }
 
 .precio-producto:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 35px rgba(40, 167, 69, 0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 35px rgba(40, 167, 69, 0.4);
 }
 
 .precio-producto::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.5s;
 }
 
 .precio-producto:hover::before {
-    left: 100%;
+  left: 100%;
 }
 
 .precio-numero {
-    font-size: 2.8rem;
-    font-weight: 900;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    margin: 0;
-    line-height: 1;
-    position: relative;
-    z-index: 2;
+  font-size: 2.8rem;
+  font-weight: 900;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin: 0;
+  line-height: 1;
+  position: relative;
+  z-index: 2;
 }
 
 .precio-etiqueta {
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.95rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 8px;
-    position: relative;
-    z-index: 2;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.95rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 8px;
+  position: relative;
+  z-index: 2;
 }
 
 .precio-envio {
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 12px;
-    padding: 10px 15px;
-    margin-top: 15px;
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.95);
-    border: 1px solid rgba(255, 255, 255, 0.25);
-    font-weight: 500;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 10px 15px;
+  margin-top: 15px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
 }
 
 .precio-envio i {
-    font-size: 1rem;
-    opacity: 0.9;
+  font-size: 1rem;
+  opacity: 0.9;
 }
 
 /* Responsive para móviles */
 @media (max-width: 768px) {
-    .precio-producto {
-        padding: 20px 15px;
-        margin-bottom: 25px;
-    }
-    
-    .precio-numero {
-        font-size: 2.4rem;
-    }
-    
-    .precio-etiqueta {
-        font-size: 0.9rem;
-    }
+  .precio-producto {
+    padding: 20px 15px;
+    margin-bottom: 25px;
+  }
+
+  .precio-numero {
+    font-size: 2.4rem;
+  }
+
+  .precio-etiqueta {
+    font-size: 0.9rem;
+  }
 }
 
 /* Tema oscuro - ajustes para mejor contraste */
 body.dark-theme .precio-producto {
-    background: linear-gradient(135deg, #198754 0%, #20c997 100%);
-    box-shadow: 0 8px 25px rgba(25, 135, 84, 0.4);
-    border-color: rgba(255, 255, 255, 0.3);
+  background: linear-gradient(135deg, #198754 0%, #20c997 100%);
+  box-shadow: 0 8px 25px rgba(25, 135, 84, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 body.dark-theme .precio-producto:hover {
-    box-shadow: 0 12px 35px rgba(25, 135, 84, 0.5);
+  box-shadow: 0 12px 35px rgba(25, 135, 84, 0.5);
 }
 
 /* =================================== */
 /* Selectores de color circulares */
 /* =================================== */
 .color-selector {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 8px;
 }
 
 .color-option {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 3px solid transparent;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .color-option:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .color-option.selected {
-    border-color: #fff;
-    box-shadow: 0 0 0 2px #007bff;
-    transform: scale(1.1);
+  border-color: #fff;
+  box-shadow: 0 0 0 2px #007bff;
+  transform: scale(1.1);
 }
 
 .color-option.disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
-    pointer-events: none;
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
 }
 
 .color-option.hidden {
-    display: none;
+  display: none;
 }
 
 /* Colores específicos */
-.color-negro { background-color: #1a1a1a; }
-.color-blanco { 
-    background-color: #ffffff; 
-    border: 2px solid #ddd;
+.color-negro {
+  background-color: #1a1a1a;
 }
-.color-rojo { background-color: #dc3545; }
-.color-azul { background-color: #007bff; }
-.color-azulFrancia { background-color: #318ce7; }
-.color-azulMarino { background-color: #1e3a8a; }
-.color-naranja { background-color: #fd7e14; }
-.color-violeta { background-color: #6f42c1; }
-.color-amarillo { background-color: #ffc107; }
-.color-verde { background-color: #28a745; }
-.color-rosa { background-color: #e83e8c; }
-.color-pistacho { background-color: #9ACD32; }
-.color-arena { background-color: #D2B48C; }
-.color-celeste { background-color: #87CEEB; }
-.color-morado { background-color: #6f42c1; }
+.color-blanco {
+  background-color: #ffffff;
+  border: 2px solid #ddd;
+}
+.color-rojo {
+  background-color: #dc3545;
+}
+.color-azul {
+  background-color: #007bff;
+}
+.color-azulFrancia {
+  background-color: #318ce7;
+}
+.color-azulMarino {
+  background-color: #1e3a8a;
+}
+.color-naranja {
+  background-color: #fd7e14;
+}
+.color-violeta {
+  background-color: #6f42c1;
+}
+.color-amarillo {
+  background-color: #ffc107;
+}
+.color-verde {
+  background-color: #28a745;
+}
+.color-rosa {
+  background-color: #e83e8c;
+}
+.color-pistacho {
+  background-color: #9acd32;
+}
+.color-arena {
+  background-color: #d2b48c;
+}
+.color-celeste {
+  background-color: #87ceeb;
+}
+.color-morado {
+  background-color: #6f42c1;
+}
 
 /* Tooltip para mostrar el nombre del color */
 .color-option::after {
-    content: attr(data-color);
-    position: absolute;
-    bottom: -42px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0,0,0,0.95);
-    color: white;
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: 12px;
-    font-weight: 500;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 2000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    border: 1px solid rgba(255,255,255,0.2);
-    min-width: max-content;
+  content: attr(data-color);
+  position: absolute;
+  bottom: -42px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.95);
+  color: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 2000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  min-width: max-content;
 }
 
 .color-option:hover::after {
-    opacity: 1;
-    transform: translateX(-50%) translateY(-2px);
+  opacity: 1;
+  transform: translateX(-50%) translateY(-2px);
 }
 
 /* Asegurar que los tooltips de la primera fila no se tapen con los de la segunda */
 .color-selector {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .color-option {
-    margin: 3px;
+  margin: 3px;
 }
 
 /* Mejorar el espaciado entre filas de colores */
-.color-selector .color-option:nth-child(n+7) {
-    margin: 3px;
+.color-selector .color-option:nth-child(n + 7) {
+  margin: 3px;
 }
 
 /* =================================== */
 /* Selectores de talle circulares */
 /* =================================== */
 .talle-selector {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 8px;
 }
 
 .talle-option {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    border: 3px solid #6c757d;
-    background-color: transparent;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    position: relative;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 14px;
-    color: #fff;
-    text-transform: uppercase;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 3px solid #6c757d;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  font-size: 14px;
+  color: #fff;
+  text-transform: uppercase;
 }
 
 .talle-option:hover {
-    transform: scale(1.1);
-    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-    border-color: #007bff;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  border-color: #007bff;
 }
 
 .talle-option.selected {
-    border-color: #007bff;
-    background-color: #007bff;
-    color: white;
-    box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.3);
-    transform: scale(1.1);
+  border-color: #007bff;
+  background-color: #007bff;
+  color: white;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.3);
+  transform: scale(1.1);
 }
 
 /* Tooltip para mostrar información del talle */
 .talle-option::after {
-    content: attr(data-info);
-    position: absolute;
-    bottom: -38px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0,0,0,0.95);
-    color: white;
-    padding: 6px 10px;
-    border-radius: 6px;
-    font-size: 11px;
-    font-weight: 400;
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
-    z-index: 2000;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    border: 1px solid rgba(255,255,255,0.2);
+  content: attr(data-info);
+  position: absolute;
+  bottom: -38px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.95);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 2000;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .talle-option:hover::after {
-    opacity: 1;
-    transform: translateX(-50%) translateY(-2px);
+  opacity: 1;
+  transform: translateX(-50%) translateY(-2px);
 }
 
 /* Ocultar el select original */
 .form-select.hidden {
-    display: none;
+  display: none;
 }
 
 /* Inputs ocultos para mantener compatibilidad */
 .talle-input-hidden {
-    display: none;
+  display: none;
 }
 
 /* =================================== */
 /* Controles de cantidad */
 /* =================================== */
 .cantidad-controls {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    margin-top: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 8px;
 }
 
 .cantidad-btn {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 2px solid #007bff;
-    background-color: transparent;
-    color: #007bff;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: bold;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #007bff;
+  background-color: transparent;
+  color: #007bff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .cantidad-btn:hover {
-    background-color: #007bff;
-    color: white;
-    transform: scale(1.1);
-    box-shadow: 0 4px 8px rgba(0,123,255,0.3);
+  background-color: #007bff;
+  color: white;
+  transform: scale(1.1);
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
 }
 
 .cantidad-btn:active {
-    transform: scale(0.95);
+  transform: scale(0.95);
 }
 
 .cantidad-btn.disabled {
-    opacity: 0.3;
-    cursor: not-allowed;
+  opacity: 0.3;
+  cursor: not-allowed;
 }
 
 .cantidad-btn.disabled:hover {
-    background-color: transparent;
-    color: #007bff;
-    transform: none;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  background-color: transparent;
+  color: #007bff;
+  transform: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .cantidad-input {
-    width: 80px;
-    text-align: center;
-    font-weight: bold;
-    font-size: 16px;
-    border: 2px solid #6c757d;
-    border-radius: 8px;
-    background-color: transparent;
-    color: #fff;
-    padding: 8px;
-    margin: 0 10px;
+  width: 80px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  border: 2px solid #6c757d;
+  border-radius: 8px;
+  background-color: transparent;
+  color: #fff;
+  padding: 8px;
+  margin: 0 10px;
 }
 
 .cantidad-input:focus {
-    outline: none;
-    border-color: #007bff;
-    box-shadow: 0 0 0 2px rgba(0,123,255,0.25);
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
 /* Mejoras de contraste para temas claro/oscuro */
 
 /* Color negro con mejor contraste en tema oscuro */
-.color-negro { 
-    background-color: #1a1a1a; 
-    border: 2px solid #666 !important; /* Siempre visible */
+.color-negro {
+  background-color: #1a1a1a;
+  border: 2px solid #666 !important; /* Siempre visible */
 }
 
 /* Color blanco ajustado para ambos temas */
-body.bg-light .color-blanco { 
-    background-color: #ffffff; 
-    border: 2px solid #333 !important; /* Borde oscuro en tema claro */
+body.bg-light .color-blanco {
+  background-color: #ffffff;
+  border: 2px solid #333 !important; /* Borde oscuro en tema claro */
 }
 
-body.bg-dark .color-blanco { 
-    background-color: #ffffff; 
-    border: 2px solid #ddd !important; /* Borde claro en tema oscuro */
+body.bg-dark .color-blanco {
+  background-color: #ffffff;
+  border: 2px solid #ddd !important; /* Borde claro en tema oscuro */
 }
 
 /* Ajustes para selectores de talle en tema claro */
 body.bg-light .talle-option {
-    color: #333;
-    border-color: #333;
+  color: #333;
+  border-color: #333;
 }
 
 body.bg-light .talle-option.selected {
-    background-color: #007bff;
-    color: white;
-    border-color: #007bff;
+  background-color: #007bff;
+  color: white;
+  border-color: #007bff;
 }
 
 /* Ajustes para input de cantidad en tema claro */
 body.bg-light .cantidad-input {
-    color: #333;
-    border-color: #333;
-    background-color: #fff;
+  color: #333;
+  border-color: #333;
+  background-color: #fff;
 }
 
 body.bg-light .cantidad-input:focus {
-    border-color: #007bff;
+  border-color: #007bff;
 }
 
 /* Ajustes para tooltips de talle en tema claro */
 body.bg-light .talle-option::after {
-    background: rgba(255,255,255,0.95);
-    color: #333;
-    border: 1px solid rgba(0,0,0,0.2);
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  border: 1px solid rgba(0, 0, 0, 0.2);
 }
 
 /* =================================== */
 /* CARTEL DE PRÓXIMAMENTE */
 /* =================================== */
 #proximamente-card {
-    transition: background-color 0.5s ease, color 0.5s ease, border-color 0.5s ease;
-    border: 2px solid;
+  transition: background-color 0.5s ease, color 0.5s ease,
+    border-color 0.5s ease;
+  border: 2px solid;
 }
 
 /* Modo claro */
 #proximamente-card {
-    background-color: #f8f9fa;
-    color: #333;
-    border-color: #dee2e6;
+  background-color: #f8f9fa;
+  color: #333;
+  border-color: #dee2e6;
 }
 
 /* Modo oscuro - se aplicará automáticamente por el script JS */
@@ -604,61 +638,75 @@ body.bg-light .talle-option::after {
 /* ICONOS SOCIALES EN FOOTER */
 /* =================================== */
 .social-icon {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
 
 .social-icon i {
-    font-size: 1.5rem;
-    color: white;
+  font-size: 1.5rem;
+  color: white;
 }
 
 /* Instagram - Rojo */
 .instagram-icon {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
 }
 
 .instagram-icon:hover {
-    background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(240, 148, 51, 0.4);
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(240, 148, 51, 0.4);
 }
 
 /* WhatsApp - Verde */
 .whatsapp-icon {
-    background: linear-gradient(45deg, #25d366 0%, #128c7e 100%);
+  background: linear-gradient(45deg, #25d366 0%, #128c7e 100%);
 }
 
 .whatsapp-icon:hover {
-    background: linear-gradient(45deg, #25d366 0%, #128c7e 100%);
-    transform: translateY(-3px);
-    box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
+  background: linear-gradient(45deg, #25d366 0%, #128c7e 100%);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(37, 211, 102, 0.4);
 }
 
 /* Efectos para los enlaces sociales */
 footer a:hover span {
-    color: #f8f9fa !important;
-    transition: color 0.3s ease;
+  color: #f8f9fa !important;
+  transition: color 0.3s ease;
 }
 
 /* Responsive para móviles */
 @media (max-width: 576px) {
-    .social-icon {
-        width: 45px;
-        height: 45px;
-    }
-    
-    .social-icon i {
-        font-size: 1.3rem;
-    }
-    
-    footer .gap-4 {
-        gap: 1rem !important;
-    }
+  .social-icon {
+    width: 45px;
+    height: 45px;
+  }
+
+  .social-icon i {
+    font-size: 1.3rem;
+  }
+
+  footer .gap-4 {
+    gap: 1rem !important;
+  }
 }

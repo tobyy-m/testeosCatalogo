@@ -7,137 +7,141 @@
 .carousel-item,
 .btn-filtro,
 .card {
-    will-change: transform, opacity;
+  will-change: transform, opacity;
 }
 
 /* Uso de transform para animaciones más fluidas */
 .card {
-    transform: translateZ(0);
-    backface-visibility: hidden;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 }
 
 /* Optimización de carruseles */
 .carousel-item {
-    transform: translateZ(0);
+  transform: translateZ(0);
 }
 
 .carousel-item.active {
-    transform: translateX(0) translateZ(0);
+  transform: translateX(0) translateZ(0);
 }
 
 /* Optimización de lazy loading */
 .img-placeholder {
-    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-    background-size: 200% 100%;
-    animation: loading 1.5s infinite;
-    min-height: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+  min-height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
 }
 
 .img-placeholder::before {
-    content: "⏳";
-    font-size: 2rem;
-    opacity: 0.5;
-    position: absolute;
+  content: "⏳";
+  font-size: 2rem;
+  opacity: 0.5;
+  position: absolute;
 }
 
 @keyframes loading {
-    0% { background-position: 200% 0; }
-    100% { background-position: -200% 0; }
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
 }
 
 /* Optimización de filtros */
 .btn-filtro {
-    transition: all 0.2s ease;
-    will-change: background-color, border-color;
+  transition: all 0.2s ease;
+  will-change: background-color, border-color;
 }
 
 .btn-filtro:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .btn-filtro.active {
-    transform: translateY(-1px);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 /* Optimización de secciones filtradas */
 section[data-categoria] {
-    transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 section[data-categoria][style*="none"] {
-    opacity: 0;
+  opacity: 0;
 }
 
 /* Preload hover states para mejor UX */
 .btn-ver-mas {
-    transition: all 0.2s ease;
-    will-change: background-color, border-color, transform;
+  transition: all 0.2s ease;
+  will-change: background-color, border-color, transform;
 }
 
 .btn-ver-mas:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* Optimización para dispositivos móviles */
 @media (max-width: 768px) {
-    .carousel-control-prev,
-    .carousel-control-next {
-        width: 30px;
-    }
-    
-    .img-placeholder {
-        min-height: 200px;
-    }
-    
-    .img-placeholder::before {
-        font-size: 1.5rem;
-    }
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 30px;
+  }
+
+  .img-placeholder {
+    min-height: 200px;
+  }
+
+  .img-placeholder::before {
+    font-size: 1.5rem;
+  }
 }
 
 /* Crítico: evitar layout shifts */
 .card-img-top {
-    aspect-ratio: 4/3;
-    object-fit: cover;
+  aspect-ratio: 4/3;
+  object-fit: cover;
 }
 
 .carousel-inner img {
-    aspect-ratio: 4/3;
-    object-fit: cover;
+  aspect-ratio: 4/3;
+  object-fit: cover;
 }
 
 /* Optimización de memoria GPU */
 .carousel-item img,
 .card-img-top {
-    transform: translateZ(0);
-    image-rendering: optimizeQuality;
+  transform: translateZ(0);
+  image-rendering: optimizeQuality;
 }
 
 /* Prefetch de recursos al hover */
 .card:hover .btn-ver-mas {
-    position: relative;
+  position: relative;
 }
 
 /* Optimización de scrolling */
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 /* Contenidos críticos */
 .navbar,
 .navbar-brand,
 main {
-    contain: layout style;
+  contain: layout style;
 }
 
 /* Aislación de repaint para carruseles */
 .carousel {
-    contain: layout style paint;
-    isolation: isolate;
+  contain: layout style paint;
+  isolation: isolate;
 }
