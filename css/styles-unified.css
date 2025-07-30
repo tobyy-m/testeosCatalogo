@@ -767,13 +767,9 @@ footer a:hover span {
   backface-visibility: hidden;
 }
 
-/* Optimización de carruseles */
+/* Optimización de carruseles - SIN interferir con animaciones Bootstrap */
 .carousel-item {
-  transform: translateZ(0);
-}
-
-.carousel-item.active {
-  transform: translateX(0) translateZ(0);
+  backface-visibility: hidden;
 }
 
 /* Optimización de lazy loading */
@@ -891,8 +887,7 @@ main {
   contain: layout style;
 }
 
-/* Aislación de repaint para carruseles */
+/* Mejora de rendimiento para carruseles sin interferir con animaciones */
 .carousel {
-  contain: layout style paint;
-  isolation: isolate;
+  contain: layout style;
 }
