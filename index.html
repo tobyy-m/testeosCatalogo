@@ -126,7 +126,15 @@
             as="style" onload="this.onload=null;this.rel='stylesheet'">
         <noscript><link rel="stylesheet"
                 href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap"></noscript>
+        <script async
+            src="https://www.googletagmanager.com/gtag/js?id=G-JH9MMZDJ5G"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
 
+            gtag('config', 'G-JH9MMZDJ5G');
+        </script>
     </head>
     <body class="loading">
 
@@ -135,7 +143,8 @@
             <div class="loading-content">
                 <div class="loading-logo-container">
                     <div class="loading-logo-img">
-                        <img src="imagenes/logo mit.png" alt="MIT Logo" onerror="console.log('Error cargando logo:', this.src); this.style.display='none'; this.parentElement.classList.add('logo-error');">
+                        <img src="imagenes/logo mit.png" alt="MIT Logo"
+                            onerror="console.log('Error cargando logo:', this.src); this.style.display='none'; this.parentElement.classList.add('logo-error');">
                     </div>
                 </div>
                 <div class="loading-brand">MIT ESTAMPADOS</div>
@@ -346,7 +355,8 @@
         <script src="script/funciones/index.js"></script>
         <script src="script/funciones/componentes.js"></script>
         <script src="script/funciones/carrito.js" defer></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     </body>
 
 </html>
