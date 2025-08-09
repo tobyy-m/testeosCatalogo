@@ -1,6 +1,7 @@
 // Optimización del filtro de productos con debounce y mejores transiciones
 document.addEventListener("DOMContentLoaded", () => {
-    const botonesFiltro = document.querySelectorAll(".btn-filtro");
+    const filtroSelect = document.getElementById("filtroSelect");
+    const botonesFiltro = document.querySelectorAll(".btn-filtro"); // Para compatibilidad con botones antiguos
     const secciones = document.querySelectorAll("section[data-categoria]");
     
     // Cache de elementos para mejor rendimiento
@@ -47,7 +48,15 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }, 100);
 
-    // Event listeners optimizados
+    // Event listener para dropdown
+    if (filtroSelect) {
+        filtroSelect.addEventListener("change", (e) => {
+            const filtro = e.target.value;
+            aplicarFiltro(filtro);
+        });
+    }
+
+    // Event listeners para botones (compatibilidad con páginas que aún usan botones)
     botonesFiltro.forEach(boton => {
         boton.addEventListener("click", (e) => {
             e.preventDefault();
@@ -62,8 +71,11 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     // Activar filtro inicial
-    const filtroInicial = botonesFiltro[0];
-    if (filtroInicial) {
+    if (filtroSelect) {
+        aplicarFiltro(filtroSelect.value);
+    } else if (botonesFiltro.length > 0) {
+        const filtroInicial = botonesFiltro[0];
         filtroInicial.classList.add("active");
+        aplicarFiltro(filtroInicial.dataset.filtro);
     }
 });

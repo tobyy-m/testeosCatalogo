@@ -35,6 +35,54 @@
 }
 
 /* ===================================== */
+/* VARIABLES DE TEMA */
+/* ===================================== */
+:root {
+  /* Base palette */
+  --color-body-bg: #ffffff;
+  --color-body-text: #212529;
+  --color-card-bg: #ffffff;
+  --color-card-text: #212529;
+  --color-card-border: #dee2e6;
+  --color-navbar-bg: #0d6efd;
+  --color-footer-bg: #000000;
+  --color-footer-text: #ffffff;
+  --color-border-muted: #dee2e6;
+  /* Dropdown / filtro */
+  --filtro-bg: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  --filtro-label-color: #495057;
+  --filtro-select-bg: #ffffff;
+  --filtro-select-text: #495057;
+  --filtro-select-border: #dee2e6;
+  --filtro-select-hover-bg: #ffffff;
+  --filtro-select-focus-ring: rgba(13,110,253,0.25);
+  --filtro-select-hover-shadow: 0 6px 20px rgba(13,110,253,0.2);
+  --filtro-select-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  --focus-outline: 0 0 0 3px rgba(13,110,253,0.25);
+}
+
+[data-bs-theme="dark"] {
+  --color-body-bg: #000000;
+  --color-body-text: #ffffff;
+  --color-card-bg: #26292c;
+  --color-card-text: #ffffff;
+  --color-card-border: #000000;
+  --color-navbar-bg: #000000;
+  --color-footer-bg: #000000;
+  --color-footer-text: #ffffff;
+  --color-border-muted: #343a40;
+  --filtro-bg: linear-gradient(135deg, #343a40 0%, #212529 100%);
+  --filtro-label-color: #f8f9fa;
+  --filtro-select-bg: #495057;
+  --filtro-select-text: #f8f9fa;
+  --filtro-select-border: #6c757d;
+  --filtro-select-hover-bg: #5a6268;
+  --filtro-select-focus-ring: rgba(13,110,253,0.35);
+  --filtro-select-hover-shadow: 0 6px 20px rgba(13,110,253,0.3);
+  --filtro-select-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* ===================================== */
 /* ESTILOS PERSONALIZADOS */
 /* ===================================== */
 
@@ -44,12 +92,111 @@
 #tituloHeader {
   font-family: "Noto Serif", serif;
 }
+
+/* Aplicación de variables de tema */
+body {
+  background: var(--color-body-bg);
+  color: var(--color-body-text);
+}
+
+.card {
+  background-color: var(--color-card-bg);
+  color: var(--color-card-text);
+  border: 1px solid var(--color-card-border);
+}
+
+.navbar {
+  background-color: var(--color-navbar-bg) !important;
+}
+
+footer {
+  background-color: var(--color-footer-bg);
+  color: var(--color-footer-text);
+}
+
+/* Estilos del filtro usando variables */
+.filtro-dropdown-container {
+  background: var(--filtro-bg);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+  border: 1px solid var(--filtro-select-border);
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.filtro-dropdown-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.filtro-label {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--filtro-label-color);
+  margin: 0;
+  text-align: center;
+  transition: color 0.2s ease;
+}
+
+.filtro-select {
+  min-width: 300px;
+  padding: 12px 20px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  background: var(--filtro-select-bg);
+  color: var(--filtro-select-text);
+  border: 2px solid var(--filtro-select-border);
+  border-radius: 50px;
+  outline: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+  box-shadow: var(--filtro-select-shadow);
+}
+
+.filtro-select:hover {
+  border-color: #0d6efd;
+  box-shadow: var(--filtro-select-hover-shadow);
+  transform: translateY(-2px);
+  background: var(--filtro-select-hover-bg);
+}
+
+.filtro-select:focus {
+  border-color: #0d6efd;
+  box-shadow: var(--focus-outline);
+  background: var(--filtro-select-hover-bg);
+}
+
+.filtro-select option {
+  background-color: var(--filtro-select-bg);
+  color: var(--filtro-select-text);
+}
+
+/* Responsive para el filtro */
+@media (max-width: 768px) {
+  .filtro-dropdown-container {
+    padding: 20px 15px;
+    margin: 0 15px 30px 15px;
+  }
+  
+  .filtro-select {
+    min-width: 280px;
+    font-size: 1rem;
+  }
+  
+  .filtro-label {
+    font-size: 1.1rem;
+  }
+}
+
 body,
 .card,
 header,
 footer,
 .navbar {
-  transition: background-color 0.5s ease, color 0.5s ease;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .fade-img {
@@ -605,6 +752,7 @@ body.dark-theme .precio-producto:hover {
   border-color: #007bff;
   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
 }
+
 /* Mejoras de contraste para temas claro/oscuro */
 
 /* Color negro con mejor contraste en tema oscuro */
@@ -658,8 +806,8 @@ body.bg-light .talle-option::after {
 /* CARTEL DE PRÓXIMAMENTE */
 /* =================================== */
 #proximamente-card {
-  transition: background-color 0.5s ease, color 0.5s ease,
-    border-color 0.5s ease;
+  transition: background-color 0.2s ease, color 0.2s ease,
+    border-color 0.2s ease;
   border: 2px solid;
 }
 
@@ -670,7 +818,12 @@ body.bg-light .talle-option::after {
   border-color: #dee2e6;
 }
 
-/* Modo oscuro - se aplicará automáticamente por el script JS */
+/* Modo oscuro */
+[data-bs-theme="dark"] #proximamente-card {
+  background-color: var(--color-card-bg);
+  color: var(--color-card-text);
+  border-color: var(--color-card-border);
+}
 
 /* =================================== */
 /* ICONOS SOCIALES EN FOOTER */
@@ -834,6 +987,19 @@ section[data-categoria][style*="none"] {
 .btn-ver-mas:hover {
   transform: translateY(-1px);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos específicos para botones en modo oscuro */
+[data-bs-theme="dark"] .btn-ver-mas {
+  background-color: transparent !important;
+  border: 2px solid white !important;
+  color: white !important;
+}
+
+[data-bs-theme="dark"] .btn-ver-mas:hover {
+  background-color: white !important;
+  color: #000000 !important;
+  border-color: white !important;
 }
 
 /* Optimización para dispositivos móviles */

@@ -1,123 +1,45 @@
-let button = document.getElementById("myButton");
-let isBlack = localStorage.getItem('theme') === 'dark'; // Leer del localStorage
+// Unified theme controller with data-bs-theme attribute and CSS variables
+let themeToggleBtn = document.getElementById('myButton');
 
-// Función para aplicar el tema según el estado de isBlack
-function aplicarModo() {
-  if (isBlack) {
-    // Modo oscuro
-    document.body.classList.add('dark');
-    document.body.style.background = "#000000ff";
-    document.body.style.color = "#ffffff";
-    
-    if (button) {
-      button.innerHTML = '<i class="bi bi-sun-fill"></i>';
-      button.classList.remove("btn-light");
-      button.classList.add("btn-dark");
-    }
-
-    // Las tarjetas ahora tendrán el mismo fondo que el body (#212529)
-    document.querySelectorAll(".card").forEach((card) => {
-      card.style.backgroundColor = "#26292cff";
-      card.style.color = "#ffffffff";
-      card.style.borderColor = "#000000ff";
-    });
-
-    document.querySelectorAll(".btn-ver-mas").forEach((btn) => {
-      btn.classList.remove("btn-outline-primary", "btn-outline-success", "btn-outline-warning", "btn-outline-info");
-      btn.classList.add("btn-outline-light");
-    });
-
-    // Header y footer con color gris oscuro (#343a40)
-    const header = document.querySelector("header");
-    const footer = document.querySelector("footer");
-    const navbar = document.querySelector(".navbar");
-    
-    if (header) header.style.backgroundColor = "#000000ff";
-    if (footer) {
-      footer.style.backgroundColor = "#000000ff";
-      footer.style.color = "#ffffff";
-    }
-    if (navbar) {
-      navbar.classList.remove("bg-primary");
-      navbar.classList.add("bg-dark");
-    }
-
-  } else {
-    // Modo claro
-    document.body.classList.remove('dark');
-    document.body.style.background = "";
-    document.body.style.color = "";
-    
-    if (button) {
-      button.innerHTML = '<i class="bi bi-moon-fill"></i>';
-      button.classList.remove("btn-dark");
-      button.classList.add("btn-light");
-    }
-
-    document.querySelectorAll(".card").forEach((card) => {
-      card.style.backgroundColor = "";
-      card.style.color = "";
-      card.style.borderColor = "";
-    });
-
-    document.querySelectorAll(".btn-ver-mas").forEach((btn) => {
-      btn.classList.remove("btn-outline-light");
-      // Restaurar colores originales según el contexto
-      if (btn.textContent.includes("Buzo")) {
-        btn.classList.add("btn-outline-primary");
-      } else if (btn.textContent.includes("Remera")) {
-        btn.classList.add("btn-outline-success");
-      } else if (btn.textContent.includes("Taza")) {
-        btn.classList.add("btn-outline-warning");
-      } else {
-        btn.classList.add("btn-outline-info");
-      }
-    });
-
-    const header = document.querySelector("header");
-    const footer = document.querySelector("footer");
-    const navbar = document.querySelector(".navbar");
-    
-    if (header) header.style.backgroundColor = "";
-    if (footer) {
-      footer.style.backgroundColor = "";
-      footer.style.color = "";
-    }
-    if (navbar) {
-      navbar.classList.remove("bg-dark");
-      navbar.classList.add("bg-primary");
-    }
-  }
-  
-  // Guardar en localStorage
-  localStorage.setItem('theme', isBlack ? 'dark' : 'light');
+function getStoredTheme() {
+  return localStorage.getItem('theme') || 'light';
 }
 
-// Inicializar cuando el DOM esté listo
-document.addEventListener('DOMContentLoaded', function() {
-  button = document.getElementById("myButton");
-  
-  if (button) {
-    // Aplicar modo inicial
-    aplicarModo();
-    
-    // Agregar event listener para cambiar modo
-    button.addEventListener("click", function () {
-      isBlack = !isBlack;
-      aplicarModo();
-    });
+function storeTheme(theme) {
+  localStorage.setItem('theme', theme);
+}
+
+function applyTheme(theme) {
+  const root = document.documentElement; // <html>
+  root.setAttribute('data-bs-theme', theme);
+
+  // Update toggle button icon & style
+  if (themeToggleBtn) {
+    if (theme === 'dark') {
+      themeToggleBtn.innerHTML = '<i class="bi bi-sun-fill"></i>';
+      themeToggleBtn.classList.remove('btn-light');
+      themeToggleBtn.classList.add('btn-dark');
+    } else {
+      themeToggleBtn.innerHTML = '<i class="bi bi-moon-fill"></i>';
+      themeToggleBtn.classList.remove('btn-dark');
+      themeToggleBtn.classList.add('btn-light');
+    }
   }
+}
+
+function toggleTheme() {
+  const current = getStoredTheme();
+  const next = current === 'dark' ? 'light' : 'dark';
+  storeTheme(next);
+  applyTheme(next);
+}
+
+// Initialize
+window.addEventListener('DOMContentLoaded', () => {
+  themeToggleBtn = document.getElementById('myButton');
+  applyTheme(getStoredTheme());
+  themeToggleBtn?.addEventListener('click', toggleTheme);
 });
-
-    document.querySelectorAll(".card").forEach((card) => {
-      card.style.backgroundColor = "white";
-      card.style.color = "black";
-    });
-
-    document.querySelectorAll(".btn-ver-mas").forEach((btn) => {
-      btn.classList.remove("btn-outline-light");
-      btn.classList.add("btn-outline-primary");
-    });
 
 /* =================================== */
 /* FUNCIONES PARA MODAL DE ELIMINACIÓN EN INDEX */

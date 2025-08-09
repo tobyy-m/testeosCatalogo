@@ -67,7 +67,6 @@
         <!-- CSS crítico inline -->
         <style>
         body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; }
-        
         /* Pantalla de carga - Modo Oscuro con Logo MIT */
         #loading-screen {
             position: fixed;
@@ -169,6 +168,11 @@
         body.loading footer {
             visibility: hidden;
         }
+        
+        /* Se eliminaron estilos específicos del filtro aquí; ahora dependen de variables globales en styles-unified.css */
+        @media (max-width: 768px) {
+           /* Ajustes responsive ya manejados globalmente */
+        }
     </style>
 
         <!-- CSS unificado - carga inmediata para evitar FOUC -->
@@ -184,7 +188,7 @@
         </script>
     </head>
 
-    <body class="loading">
+    <body class="loading" data-bs-theme="light">
         <!-- Pantalla de carga -->
         <div id="loading-screen">
             <div class="loading-content">
@@ -248,14 +252,17 @@
 
         <main class="pt-4">
             <section id="diseños" class="container my-5">
-                <div class="text-center mb-4">
-                    <button class="btn btn-outline-secondary btn-filtro me-2"
-                        data-filtro="todos">Todos</button>
-                    <button class="btn btn-outline-secondary btn-filtro me-2"
-                        data-filtro="adultos">Todas Las
-                        Edades</button>
-                    <button class="btn btn-outline-secondary btn-filtro"
-                        data-filtro="niños">Para Los Más Peques</button>
+                <div class="filtro-dropdown-container">
+                    <div class="filtro-dropdown-wrapper">
+                        <label for="filtroSelect" class="filtro-label">
+                            👕 Filtrar por Categoría:
+                        </label>
+                        <select id="filtroSelect" class="filtro-select">
+                            <option value="todos" data-icon="🌟">🌟 Todas las Remeras</option>
+                            <option value="adultos" data-icon="👥">👥 Todas las Edades (S-XXL)</option>
+                            <option value="niños" data-icon="👶">👶 Para Los Más Peques (4-16)</option>
+                        </select>
+                    </div>
                 </div>
                 <h2 class="text-center mb-4">Nuestras Remeras</h2>
                 <section id="remerasGrandes" class="container my-5"
@@ -551,7 +558,6 @@
                                     más</a>
                             </div>
                         </div><!-- Remera Justice -->
-
                         <div class="col-md-4">
                             <div class="card h-200">
                                 <div id="carousel8" class="carousel slide"
@@ -591,7 +597,6 @@
                                     más</a>
                             </div>
                         </div><!-- Remera Snipe -->
-
                         <div class="col-md-4">
                             <div class="card h-200">
                                 <div id="carousel9" class="carousel slide"
@@ -631,7 +636,6 @@
                                     más</a>
                             </div>
                         </div><!--  Marte -->
-
                         <div class="col-md-4">
                             <div class="card h-200">
                                 <div id="carousel10" class="carousel slide"
@@ -671,7 +675,6 @@
                                     más</a>
                             </div>
                         </div><!-- Remera Luna -->
-
                         <div class="col-md-4">
                             <div class="card h-200">
                                 <div id="carousel11" class="carousel slide"
@@ -763,7 +766,46 @@
                                     class="btn btn-outline-primary btn-ver-mas">Ver
                                     más</a>
                             </div>
-                        </div>
+                        </div><!-- Remera Lali -->
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <div id="carousel7" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active"><img
+                                                src="imagenes/remeras/west/west_blanco_front.webp"
+                                                class="d-block w-100"
+                                                alt="Frente del West"
+                                                loading="lazy"></div>
+                                        <div class="carousel-item"><img
+                                                src="imagenes/remeras/west/west_blanco_back.webp"
+                                                class="d-block w-100"
+                                                alt="Dorso del West"
+                                                loading="lazy"></div>
+                                    </div>
+                                    <button class="carousel-control-prev"
+                                        type="button"
+                                        data-bs-target="#carousel7"
+                                        data-bs-slide="prev">
+                                        <span
+                                            class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next"
+                                        type="button"
+                                        data-bs-target="#carousel7"
+                                        data-bs-slide="next">
+                                        <span
+                                            class="carousel-control-next-icon"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">West</h5>
+                                <a href="productos/remeras/west.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div><!-- Remera West Coast Choppers -->
                     </div>
                 </section>
 

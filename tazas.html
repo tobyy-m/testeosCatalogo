@@ -115,6 +115,9 @@
         body.loading footer {
             visibility: hidden;
         }
+        
+        /* Estilos para el dropdown de filtros - ahora usando variables CSS */
+        /* Los estilos específicos están definidos en styles-unified.css con variables */
     </style>
 
         <!-- CSS unificado - carga inmediata para evitar FOUC -->
@@ -130,7 +133,7 @@
         </script>
     </head>
 
-    <body class="loading">
+    <body class="loading" data-bs-theme="light">
         <!-- Pantalla de carga -->
         <div id="loading-screen">
             <div class="loading-content">
@@ -194,1397 +197,1533 @@
 
         <main class="pt-4">
             <h2 id="diseños" class="text-center mb-4">Nuestras Tazas</h2>
-            <section id="diseños" class="container my-5">
-                <section id="personajes" class="container my-5">
-                    <div class="row g-4">
-                        <h3 class="text-center mb-4">Colección
-                            Personajes</h3>
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel5" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div
-                                            class="carousel-item active"><img
-                                                src="imagenes/tazas/stitch/stitch_modelo1.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 1 de Stitch"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/tazas/stitch/stitch_modelo2.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 2 de Stitch"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel5"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel5"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Stitch</h5>
-                                <a href="productos/tazas/stitch.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!--stitch-->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel6" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/tazas/elsa/elsa_modelo1.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 1 de Elsa"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/tazas/elsa/elsa_modelo2.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 2 de Elsa"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel6"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel6"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Elsa</h5>
-                                <a href="productos/tazas/elsa.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza  Elsa -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel7" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/tazas/ana/ana_modelo1.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 1 de Ana"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/tazas/ana/ana_modelo2.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 2 de Ana"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel7"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel7"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Ana</h5>
-                                <a href="productos/tazas/ana.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza  Ana -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel8" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/tazas/sven/sven_modelo1.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 1 de Sven"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/tazas/sven/sven_modelo2.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 2 de Sven"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel8"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel8"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Sven</h5>
-                                <a href="productos/tazas/sven.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza  Sven -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel18" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/tazas/olaf/olaf_modelo1.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 1 de Olaf"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/tazas/olaf/olaf_modelo2.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 2 de Olaf"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel18"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel18"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Olaf</h5>
-                                <a href="productos/tazas/olaf.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza Olaf -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel9" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/tazas/escandaloso/escandaloso_modelo1.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 1 de Escandaloso"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/tazas/escandaloso/escandaloso_modelo2.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 2 de Escandaloso"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel9"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel9"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Escandalosos</h5>
-                                <a href="productos/tazas/escandaloso.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza  Escandalosos -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel10" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/tazas/buzz/buzz_modelo1.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 1 de Buzz"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/tazas/buzz/buzz_modelo2.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 2 de Buzz"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel10"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel10"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Buzz Lightyear</h5>
-                                <a href="productos/tazas/buzz.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza Buzz Lightyear -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img src="imagenes/tazas/woody/woody.webp"
-                                    class="card-img-top" alt="Imagen de Woody"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Woody</h5>
-                                <a href="productos/tazas/woody.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza Woody -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img src="imagenes/tazas/lotso/lotso.webp"
-                                    class="card-img-top" alt="Imagen de Lotso"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Lotso</h5>
-                                <a href="productos/tazas/lotso.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza Lotso -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img src="imagenes/tazas/pluto/pluto.webp"
-                                    class="card-img-top" alt="Imagen de Pluto"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Pluto</h5>
-                                <a href="productos/tazas/pluto.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza Pluto -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel11" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/tazas/garfield/garfield_modelo1.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 1 de Garfield"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/tazas/garfield/garfield_modelo2.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 2 de Garfield"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel11"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel11"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Garfield</h5>
-                                <a href="productos/tazas/garfield.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza Garfield -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel13" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/tazas/looney/looney_modelo1.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 1 de Looney"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/tazas/looney/looney_modelo2.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 2 de Looney"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel13"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel13"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Looney Toons</h5>
-                                <a href="productos/tazas/looney.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza Looney Toons -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel15" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/tazas/mickey/mickey_modelo1.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 1 de Mickey"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/tazas/mickey/mickey_modelo2.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 2 de Mickey"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel15"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel15"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Mickey Mouse</h5>
-                                <a href="productos/tazas/mickey.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza Mickey Mouse -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel16" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/tazas/monsterinc/monsterinc_modelo1.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 1 de Monsterinc"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/tazas/monsterinc/monsterinc_modelo2.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 2 de Monsterinc"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel16"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel16"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Monsters, Inc</h5>
-                                <a href="productos/tazas/monsterinc.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza Monsters, Inc -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel19" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/tazas/pinocho/pinocho_modelo1.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 1 de Pinocho"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/tazas/pinocho/pinocho_modelo2.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 2 de Pinocho"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel19"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel19"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Pinocho</h5>
-                                <a href="productos/tazas/pinocho.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza Pinocho -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel20" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/tazas/pooh/pooh_modelo1.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 1 de Pooh"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/tazas/pooh/pooh_modelo2.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 2 de Pooh"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel20"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel20"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Winnie Pooh</h5>
-                                <a href="productos/tazas/pooh.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza Winnie Pooh -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img src="imagenes/tazas/peterPan/peterPan.webp"
-                                    class="card-img-top"
-                                    alt="Imagen de Peterpan" loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Peter Pan</h5>
-                                <a href="productos/tazas/peterPan.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza Peter Pan -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel21" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/tazas/rapunzel/rapunzel_modelo1.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 1 de Rapunzel"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/tazas/rapunzel/rapunzel_modelo2.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 2 de Rapunzel"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel21"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel21"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Rapunzel</h5>
-                                <a href="productos/tazas/rapunzel.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza Rapunzel -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel22" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/tazas/simba/simba_modelo1.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 1 de Simba"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/tazas/simba/simba_modelo2.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 2 de Simba"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel22"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel22"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Simba</h5>
-                                <a href="productos/tazas/simba.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza Simba -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel23" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/tazas/spiderman/spiderman_modelo1.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 1 de Spiderman"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/tazas/spiderman/spiderman_modelo2.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 2 de Spiderman"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel23"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel23"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Spider-Man</h5>
-                                <a href="productos/tazas/spiderman.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza Spider-Man -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel24" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/tazas/tomJerry/tomJerry_modelo1.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 1 de Tomjerry"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/tazas/tomJerry/tomJerry_modelo2.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 2 de Tomjerry"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel24"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel24"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Tom & Jerry</h5>
-                                <a href="productos/tazas/tomJerry.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza Tom & Jerry -->
+            <div class="container my-5">
+                <div class="filtro-dropdown-container">
+                    <div class="filtro-dropdown-wrapper">
+                        <label for="filtroSelect" class="filtro-label">
+                            🎨 Filtrar por Categoría:
+                        </label>
+                        <select id="filtroSelect" class="filtro-select">
+                            <option value="todos" data-icon="✨">✨ Todas las
+                                Tazas</option>
+                            <option value="personajes" data-icon="🎭">🎭
+                                Personajes</option>
+                            <option value="intensaMente" data-icon="😊">😊
+                                Intensa Mente</option>
+                            <option value="animales" data-icon="🐾">🐾
+                                Animales</option>
+                            <option value="geek" data-icon="🎮">🎮 Geek &
+                                Gaming</option>
+                            <option value="signos" data-icon="♋">♋ Signos
+                                Zodiacales</option>
+                            <option value="memes" data-icon="⭐">⭐ Memes</option>
+                        </select>
                     </div>
-                </section>
-                <section id="intensaMente" class="container my-5">
-                    <div class="row g-4">
-                        <h3 class="text-center mb-4">Colección Intensa
-                            Mente</h3>
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img src="imagenes/tazas/alegria/alegria.webp"
-                                    class="card-img-top" alt="Imagen de Alegria"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Alegria</h5>
-                                <a href="productos/tazas/alegria.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza  Alegria -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img src="imagenes/tazas/ansiedad/ansiedad.webp"
-                                    class="card-img-top"
-                                    alt="Imagen de Ansiedad"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Ansiedad</h5>
-                                <a href="productos/tazas/ansiedad.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza  Ansiedad -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img src="imagenes/tazas/ennui/ennui.webp"
-                                    class="card-img-top" alt="Imagen de Ennui"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Ennui</h5>
-                                <a href="productos/tazas/ennui.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza  Ennui -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img src="imagenes/tazas/envidia/envidia.webp"
-                                    class="card-img-top" alt="Imagen de Envidia"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Envidia</h5>
-                                <a href="productos/tazas/envidia.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza  Envidia -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img src="imagenes/tazas/furia/furia.webp"
-                                    class="card-img-top" alt="Imagen de Furia"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Furia</h5>
-                                <a href="productos/tazas/furia.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza  Furia -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img
-                                    src="imagenes/tazas/desagrado/desagrado.webp"
-                                    class="card-img-top"
-                                    alt="Imagen de Desagrado"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Desagrado</h5>
-                                <a href="productos/tazas/desagrado.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza  Desagrado -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img src="imagenes/tazas/temor/temor.webp"
-                                    class="card-img-top" alt="Imagen de Temor"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Temor</h5>
-                                <a href="productos/tazas/temor.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div>
-                        <!-- /Taza  Temor -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img src="imagenes/tazas/tristeza/tristeza.webp"
-                                    class="card-img-top"
-                                    alt="Imagen de Tristeza"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Tristeza</h5>
-                                <a href="productos/tazas/tristeza.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div>
-                        <!-- /Taza  Tristeza -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img
-                                    src="imagenes/tazas/verguenza/verguenza.webp"
-                                    class="card-img-top"
-                                    alt="Imagen de Verguenza"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Verguenza</h5>
-                                <a href="productos/tazas/verguenza.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza  Vergüenza -->
-                    </div>
-                </section>
-                <section id="animales" class="container my-5">
-                    <div class="row g-4">
-                        <h3 class="text-center mb-4">Colección Animales</h3>
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel1" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/tazas/gatos/tazaGato_modelo1.webp"
-                                                class="d-block w-100"
-                                                alt="Frente del Buzo Justice"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/tazas/gatos/tazaGato_modelo2.webp"
-                                                class="d-block w-100"
-                                                alt="Dorso del Buzo Justice"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel1"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel1"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Tazas Gatitos</h5>
-                                <a href="productos/tazas/tazaGato.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel2" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/tazas/carpincho/tazaCarpincho_modelo1.webp"
-                                                class="d-block w-100"
-                                                alt="Frente del Buzo Justice"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/tazas/carpincho/tazaCarpincho_modelo2.webp"
-                                                class="d-block w-100"
-                                                alt="Dorso del Buzo Justice"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel2"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel2"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Tazas
-                                    Carpinchos</h5>
-                                <a href="productos/tazas/tazaCarpincho.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel3" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/tazas/pinguinoMagallanes/tazaPinguinoMagallanes_modelo1.webp"
-                                                class="d-block w-100"
-                                                alt="Frente del Buzo Justice"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/tazas/pinguinoMagallanes/tazaPinguinoMagallanes_modelo2.webp"
-                                                class="d-block w-100"
-                                                alt="Dorso del Buzo Justice"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel3"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel3"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Pingüino
-                                    Magallanes</h5>
-                                <a
-                                    href="productos/tazas/tazaPinguinoMagallanes.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel4" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/tazas/perritos/tazaPerrito_modelo1.webp"
-                                                class="d-block w-100"
-                                                alt="Frente del Buzo Justice"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/tazas/perritos/tazaPerrito_modelo2.webp"
-                                                class="d-block w-100"
-                                                alt="Dorso del Buzo Justice"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel4"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel4"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Perritos</h5>
-                                <a href="productos/tazas/tazaPerritos.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card h-200">
+                </div>
+            </div>
+            <section id="personajes" class="container my-5"
+                data-categoria="personajes">
+                <div class="row g-4">
+                    <h3 class="text-center mb-4">Colección
+                        Personajes</h3>
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div id="carousel5" class="carousel slide"
+                                data-bs-ride="carousel">
                                 <div class="carousel-inner">
-                                    <img
-                                        src="imagenes/tazas/animales/tazaKoala.webp"
-                                        class="d-block w-100" alt="Taza Koala"
-                                        loading="lazy">
+                                    <div
+                                        class="carousel-item active"><img
+                                            src="imagenes/tazas/stitch/stitch_modelo1.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 1 de Stitch"
+                                            loading="lazy"></div>
+                                    <div class="carousel-item"><img
+                                            src="imagenes/tazas/stitch/stitch_modelo2.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 2 de Stitch"
+                                            loading="lazy"></div>
                                 </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Koala</h5>
-                                <a href="productos/tazas/tazaKoala.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
+                                <button class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carousel5"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carousel5"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon"></span>
+                                </button>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="card h-200">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Stitch</h5>
+                            <a href="productos/tazas/stitch.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!--stitch-->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div id="carousel6" class="carousel slide"
+                                data-bs-ride="carousel">
                                 <div class="carousel-inner">
-                                    <img
-                                        src="imagenes/tazas/animales/tazaPanda.webp"
-                                        class="d-block w-100" alt="Taza Panda"
-                                        loading="lazy">
+                                    <div class="carousel-item active"><img
+                                            src="imagenes/tazas/elsa/elsa_modelo1.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 1 de Elsa"
+                                            loading="lazy"></div>
+                                    <div class="carousel-item"><img
+                                            src="imagenes/tazas/elsa/elsa_modelo2.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 2 de Elsa"
+                                            loading="lazy"></div>
                                 </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Panda</h5>
-                                <a href="productos/tazas/tazaPanda.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
+                                <button class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carousel6"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carousel6"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon"></span>
+                                </button>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="card h-200">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Elsa</h5>
+                            <a href="productos/tazas/elsa.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza  Elsa -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div id="carousel7" class="carousel slide"
+                                data-bs-ride="carousel">
                                 <div class="carousel-inner">
-                                    <img
-                                        src="imagenes/tazas/animales/tazaTigre.webp"
-                                        class="d-block w-100" alt="Taza Tigre"
-                                        loading="lazy">
+                                    <div class="carousel-item active"><img
+                                            src="imagenes/tazas/ana/ana_modelo1.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 1 de Ana"
+                                            loading="lazy"></div>
+                                    <div class="carousel-item"><img
+                                            src="imagenes/tazas/ana/ana_modelo2.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 2 de Ana"
+                                            loading="lazy"></div>
                                 </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Tigre</h5>
-                                <a href="productos/tazas/tazaTigre.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
+                                <button class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carousel7"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carousel7"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon"></span>
+                                </button>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="card h-200">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Ana</h5>
+                            <a href="productos/tazas/ana.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza  Ana -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div id="carousel8" class="carousel slide"
+                                data-bs-ride="carousel">
                                 <div class="carousel-inner">
-                                    <img
-                                        src="imagenes/tazas/animales/tazaLechuza.webp"
-                                        class="d-block w-100" alt="Taza Lechuza"
-                                        loading="lazy">
+                                    <div class="carousel-item active"><img
+                                            src="imagenes/tazas/sven/sven_modelo1.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 1 de Sven"
+                                            loading="lazy"></div>
+                                    <div class="carousel-item"><img
+                                            src="imagenes/tazas/sven/sven_modelo2.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 2 de Sven"
+                                            loading="lazy"></div>
                                 </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Lechuza</h5>
-                                <a href="productos/tazas/tazaLechuza.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
+                                <button class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carousel8"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carousel8"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon"></span>
+                                </button>
                             </div>
                         </div>
-                        <div class="col-md-4">
-                            <div class="card h-200">
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Sven</h5>
+                            <a href="productos/tazas/sven.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza  Sven -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div id="carousel18" class="carousel slide"
+                                data-bs-ride="carousel">
                                 <div class="carousel-inner">
-                                    <img
-                                        src="imagenes/tazas/animales/tazaLeon.webp"
-                                        class="d-block w-100" alt="Taza León"
-                                        loading="lazy">
+                                    <div class="carousel-item active"><img
+                                            src="imagenes/tazas/olaf/olaf_modelo1.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 1 de Olaf"
+                                            loading="lazy"></div>
+                                    <div class="carousel-item"><img
+                                            src="imagenes/tazas/olaf/olaf_modelo2.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 2 de Olaf"
+                                            loading="lazy"></div>
                                 </div>
+                                <button class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carousel18"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carousel18"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon"></span>
+                                </button>
                             </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza León</h5>
-                                <a href="productos/tazas/tazaLeon.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Olaf</h5>
+                            <a href="productos/tazas/olaf.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza Olaf -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div id="carousel9" class="carousel slide"
+                                data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img
+                                            src="imagenes/tazas/escandaloso/escandaloso_modelo1.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 1 de Escandaloso"
+                                            loading="lazy"></div>
+                                    <div class="carousel-item"><img
+                                            src="imagenes/tazas/escandaloso/escandaloso_modelo2.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 2 de Escandaloso"
+                                            loading="lazy"></div>
+                                </div>
+                                <button class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carousel9"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carousel9"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon"></span>
+                                </button>
                             </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Escandalosos</h5>
+                            <a href="productos/tazas/escandaloso.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza  Escandalosos -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div id="carousel10" class="carousel slide"
+                                data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img
+                                            src="imagenes/tazas/buzz/buzz_modelo1.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 1 de Buzz"
+                                            loading="lazy"></div>
+                                    <div class="carousel-item"><img
+                                            src="imagenes/tazas/buzz/buzz_modelo2.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 2 de Buzz"
+                                            loading="lazy"></div>
+                                </div>
+                                <button class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carousel10"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carousel10"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Buzz Lightyear</h5>
+                            <a href="productos/tazas/buzz.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza Buzz Lightyear -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/woody/woody.webp"
+                                class="card-img-top" alt="Imagen de Woody"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Woody</h5>
+                            <a href="productos/tazas/woody.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza Woody -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/lotso/lotso.webp"
+                                class="card-img-top" alt="Imagen de Lotso"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Lotso</h5>
+                            <a href="productos/tazas/lotso.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza Lotso -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div id="carousel11" class="carousel slide"
+                                data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img
+                                            src="imagenes/tazas/garfield/garfield_modelo1.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 1 de Garfield"
+                                            loading="lazy"></div>
+                                    <div class="carousel-item"><img
+                                            src="imagenes/tazas/garfield/garfield_modelo2.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 2 de Garfield"
+                                            loading="lazy"></div>
+                                </div>
+                                <button class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carousel11"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carousel11"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Garfield</h5>
+                            <a href="productos/tazas/garfield.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza Garfield -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div id="carousel13" class="carousel slide"
+                                data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img
+                                            src="imagenes/tazas/looney/looney_modelo1.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 1 de Looney"
+                                            loading="lazy"></div>
+                                    <div class="carousel-item"><img
+                                            src="imagenes/tazas/looney/looney_modelo2.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 2 de Looney"
+                                            loading="lazy"></div>
+                                </div>
+                                <button class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carousel13"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carousel13"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Looney Toons</h5>
+                            <a href="productos/tazas/looney.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza Looney Toons -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div id="carousel15" class="carousel slide"
+                                data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img
+                                            src="imagenes/tazas/mickey/mickey_modelo1.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 1 de Mickey"
+                                            loading="lazy"></div>
+                                    <div class="carousel-item"><img
+                                            src="imagenes/tazas/mickey/mickey_modelo2.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 2 de Mickey"
+                                            loading="lazy"></div>
+                                </div>
+                                <button class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carousel15"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carousel15"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Mickey Mouse</h5>
+                            <a href="productos/tazas/mickey.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza Mickey Mouse -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div id="carousel16" class="carousel slide"
+                                data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img
+                                            src="imagenes/tazas/monsterinc/monsterinc_modelo1.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 1 de Monsterinc"
+                                            loading="lazy"></div>
+                                    <div class="carousel-item"><img
+                                            src="imagenes/tazas/monsterinc/monsterinc_modelo2.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 2 de Monsterinc"
+                                            loading="lazy"></div>
+                                </div>
+                                <button class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carousel16"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carousel16"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Monsters, Inc</h5>
+                            <a href="productos/tazas/monsterinc.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza Monsters, Inc -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div id="carousel19" class="carousel slide"
+                                data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img
+                                            src="imagenes/tazas/pinocho/pinocho_modelo1.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 1 de Pinocho"
+                                            loading="lazy"></div>
+                                    <div class="carousel-item"><img
+                                            src="imagenes/tazas/pinocho/pinocho_modelo2.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 2 de Pinocho"
+                                            loading="lazy"></div>
+                                </div>
+                                <button class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carousel19"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carousel19"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Pinocho</h5>
+                            <a href="productos/tazas/pinocho.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza Pinocho -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div id="carousel20" class="carousel slide"
+                                data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img
+                                            src="imagenes/tazas/pooh/pooh_modelo1.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 1 de Pooh"
+                                            loading="lazy"></div>
+                                    <div class="carousel-item"><img
+                                            src="imagenes/tazas/pooh/pooh_modelo2.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 2 de Pooh"
+                                            loading="lazy"></div>
+                                </div>
+                                <button class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carousel20"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carousel20"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Winnie Pooh</h5>
+                            <a href="productos/tazas/pooh.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza Winnie Pooh -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/peterPan/peterPan.webp"
+                                class="card-img-top"
+                                alt="Imagen de Peterpan" loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Peter Pan</h5>
+                            <a href="productos/tazas/peterPan.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza Peter Pan -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div id="carousel21" class="carousel slide"
+                                data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img
+                                            src="imagenes/tazas/rapunzel/rapunzel_modelo1.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 1 de Rapunzel"
+                                            loading="lazy"></div>
+                                    <div class="carousel-item"><img
+                                            src="imagenes/tazas/rapunzel/rapunzel_modelo2.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 2 de Rapunzel"
+                                            loading="lazy"></div>
+                                </div>
+                                <button class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carousel21"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carousel21"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Rapunzel</h5>
+                            <a href="productos/tazas/rapunzel.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza Rapunzel -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div id="carousel22" class="carousel slide"
+                                data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img
+                                            src="imagenes/tazas/simba/simba_modelo1.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 1 de Simba"
+                                            loading="lazy"></div>
+                                    <div class="carousel-item"><img
+                                            src="imagenes/tazas/simba/simba_modelo2.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 2 de Simba"
+                                            loading="lazy"></div>
+                                </div>
+                                <button class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carousel22"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carousel22"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Simba</h5>
+                            <a href="productos/tazas/simba.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza Simba -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div id="carousel23" class="carousel slide"
+                                data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img
+                                            src="imagenes/tazas/spiderman/spiderman_modelo1.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 1 de Spiderman"
+                                            loading="lazy"></div>
+                                    <div class="carousel-item"><img
+                                            src="imagenes/tazas/spiderman/spiderman_modelo2.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 2 de Spiderman"
+                                            loading="lazy"></div>
+                                </div>
+                                <button class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carousel23"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carousel23"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Spider-Man</h5>
+                            <a href="productos/tazas/spiderman.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza Spider-Man -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div id="carousel24" class="carousel slide"
+                                data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img
+                                            src="imagenes/tazas/tomJerry/tomJerry_modelo1.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 1 de Tomjerry"
+                                            loading="lazy"></div>
+                                    <div class="carousel-item"><img
+                                            src="imagenes/tazas/tomJerry/tomJerry_modelo2.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 2 de Tomjerry"
+                                            loading="lazy"></div>
+                                </div>
+                                <button class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carousel24"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carousel24"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Tom & Jerry</h5>
+                            <a href="productos/tazas/tomJerry.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza Tom & Jerry -->
+                </div>
+            </section>
+            <section id="intensaMente" class="container my-5"
+                data-categoria="intensaMente">
+                <div class="row g-4">
+                    <h3 class="text-center mb-4">Colección Intensa
+                        Mente</h3>
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/alegria/alegria.webp"
+                                class="card-img-top" alt="Imagen de Alegria"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Alegria</h5>
+                            <a href="productos/tazas/alegria.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza  Alegria -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/ansiedad/ansiedad.webp"
+                                class="card-img-top"
+                                alt="Imagen de Ansiedad"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Ansiedad</h5>
+                            <a href="productos/tazas/ansiedad.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza  Ansiedad -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/ennui/ennui.webp"
+                                class="card-img-top" alt="Imagen de Ennui"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Ennui</h5>
+                            <a href="productos/tazas/ennui.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza  Ennui -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/envidia/envidia.webp"
+                                class="card-img-top" alt="Imagen de Envidia"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Envidia</h5>
+                            <a href="productos/tazas/envidia.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza  Envidia -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/furia/furia.webp"
+                                class="card-img-top" alt="Imagen de Furia"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Furia</h5>
+                            <a href="productos/tazas/furia.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza  Furia -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img
+                                src="imagenes/tazas/desagrado/desagrado.webp"
+                                class="card-img-top"
+                                alt="Imagen de Desagrado"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Desagrado</h5>
+                            <a href="productos/tazas/desagrado.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza  Desagrado -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/temor/temor.webp"
+                                class="card-img-top" alt="Imagen de Temor"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Temor</h5>
+                            <a href="productos/tazas/temor.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
                         </div>
                     </div>
-                </section>
-                <section id="geek" class="container my-5">
-                    <div class="row g-4">
-                        <h3 class="text-center mb-4">Colección Geek</h3>
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img
-                                    src="imagenes/tazas/volverAlFuturo/volverAlFuturo.webp"
-                                    class="card-img-top"
-                                    alt="Imagen de Volveralfuturo"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Volver Al
-                                    Futuro</h5>
-                                <a href="productos/tazas/volverAlFuturo.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza Volver Al Futuro -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img
-                                    src="imagenes/tazas/theOffice/theOffice.webp"
-                                    class="card-img-top"
-                                    alt="Imagen de Taza World's Best Boss de The Office"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza The Office</h5>
-                                <a href="productos/tazas/theOffice.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza The Office -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel14" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/tazas/mario/mario_modelo1.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 1 de Mario"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/tazas/mario/mario_modelo2.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 2 de Mario"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel14"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel14"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Mario</h5>
-                                <a href="productos/tazas/mario.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza Mario -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel12" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/tazas/hp/hp_modelo1.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 1 de Hp"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/tazas/hp/hp_modelo2.webp"
-                                                class="d-block w-100"
-                                                alt="Modelo 2 de Hp"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel12"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel12"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Harry Potter</h5>
-                                <a href="productos/tazas/hp.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza Harry Potter -->
+                    <!-- /Taza  Temor -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/tristeza/tristeza.webp"
+                                class="card-img-top"
+                                alt="Imagen de Tristeza"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Tristeza</h5>
+                            <a href="productos/tazas/tristeza.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
                     </div>
-                </section>
-                <section id="signos" class="container my-5">
-                    <div class="row g-4">
-                        <h3 class="text-center mb-4">Colección Signos
-                            Zodiacales</h3>
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img src="imagenes/tazas/acuario/acuario.webp"
-                                    class="card-img-top" alt="Imagen de Acuario"
-                                    loading="lazy">
+                    <!-- /Taza  Tristeza -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img
+                                src="imagenes/tazas/verguenza/verguenza.webp"
+                                class="card-img-top"
+                                alt="Imagen de Verguenza"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Verguenza</h5>
+                            <a href="productos/tazas/verguenza.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza  Vergüenza -->
+                </div>
+            </section>
+            <section id="animales" class="container my-5"
+                data-categoria="animales">
+                <div class="row g-4">
+                    <h3 class="text-center mb-4">Colección Animales</h3>
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div id="carousel1" class="carousel slide"
+                                data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img
+                                            src="imagenes/tazas/gatos/tazaGato_modelo1.webp"
+                                            class="d-block w-100"
+                                            alt="Frente del Buzo Justice"
+                                            loading="lazy"></div>
+                                    <div class="carousel-item"><img
+                                            src="imagenes/tazas/gatos/tazaGato_modelo2.webp"
+                                            class="d-block w-100"
+                                            alt="Dorso del Buzo Justice"
+                                            loading="lazy"></div>
+                                </div>
+                                <button class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carousel1"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carousel1"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon"></span>
+                                </button>
                             </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Acuario</h5>
-                                <a href="productos/tazas/acuario.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza  Acuario -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img src="imagenes/tazas/aries/aries.webp"
-                                    class="card-img-top" alt="Imagen de Aries"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Aries</h5>
-                                <a href="productos/tazas/aries.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza  Aries -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img src="imagenes/tazas/cancer/cancer.webp"
-                                    class="card-img-top" alt="Imagen de Cancer"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Cancer</h5>
-                                <a href="productos/tazas/cancer.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza  Cancer -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img
-                                    src="imagenes/tazas/capricornio/capricornio.webp"
-                                    class="card-img-top"
-                                    alt="Imagen de Capricornio" loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Capricornio</h5>
-                                <a href="productos/tazas/capricornio.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza  Capricornio -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img src="imagenes/tazas/escorpio/escorpio.webp"
-                                    class="card-img-top"
-                                    alt="Imagen de Escorpio" loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Escorpio</h5>
-                                <a href="productos/tazas/escorpio.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza  Escorpio -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img src="imagenes/tazas/geminis/geminis.webp"
-                                    class="card-img-top" alt="Imagen de Geminis"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Geminis</h5>
-                                <a href="productos/tazas/geminis.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza  Géminis -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img src="imagenes/tazas/leo/leo.webp"
-                                    class="card-img-top" alt="Imagen de Leo"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Leo</h5>
-                                <a href="productos/tazas/leo.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza  Leo -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img src="imagenes/tazas/libra/libra.webp"
-                                    class="card-img-top" alt="Imagen de Libra"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Libra</h5>
-                                <a href="productos/tazas/libra.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza  Libra -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img src="imagenes/tazas/piscis/piscis.webp"
-                                    class="card-img-top" alt="Imagen de Piscis"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Piscis</h5>
-                                <a href="productos/tazas/piscis.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza  Piscis -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img
-                                    src="imagenes/tazas/sagitario/sagitario.webp"
-                                    class="card-img-top"
-                                    alt="Imagen de Sagitario" loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Sagitario</h5>
-                                <a href="productos/tazas/sagitario.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza  Sagitario -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img src="imagenes/tazas/tauro/tauro.webp"
-                                    class="card-img-top" alt="Imagen de Tauro"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Tauro</h5>
-                                <a href="productos/tazas/tauro.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza  Tauro -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <img src="imagenes/tazas/virgo/virgo.webp"
-                                    class="card-img-top" alt="Imagen de Virgo"
-                                    loading="lazy">
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Taza Virgo</h5>
-                                <a href="productos/tazas/virgo.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- /Taza  Virgo -->
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Tazas Gatitos</h5>
+                            <a href="productos/tazas/tazaGato.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
                     </div>
-                </section>
-                <div class="col-12 text-center">
-                    <div class="card p-5" id="proximamente-card">
-                        <div class="card-body">
-                            <i
-                                class="bi bi-t-shirt display-1 text-success mb-3"></i>
-                            <h3>Próximamente</h3>
-                            <p class="lead">Estamos trabajando para traer más
-                                diseños únicos y originales.
-                            </p>
-                            <p style="font-weight: bold;">¡Mantenete atento a
-                                nuestras redes!</p>
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div id="carousel2" class="carousel slide"
+                                data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img
+                                            src="imagenes/tazas/carpincho/tazaCarpincho_modelo1.webp"
+                                            class="d-block w-100"
+                                            alt="Frente del Buzo Justice"
+                                            loading="lazy"></div>
+                                    <div class="carousel-item"><img
+                                            src="imagenes/tazas/carpincho/tazaCarpincho_modelo2.webp"
+                                            class="d-block w-100"
+                                            alt="Dorso del Buzo Justice"
+                                            loading="lazy"></div>
+                                </div>
+                                <button class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carousel2"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carousel2"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Tazas
+                                Carpinchos</h5>
+                            <a href="productos/tazas/tazaCarpincho.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div id="carousel3" class="carousel slide"
+                                data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img
+                                            src="imagenes/tazas/pinguinoMagallanes/tazaPinguinoMagallanes_modelo1.webp"
+                                            class="d-block w-100"
+                                            alt="Frente del Buzo Justice"
+                                            loading="lazy"></div>
+                                    <div class="carousel-item"><img
+                                            src="imagenes/tazas/pinguinoMagallanes/tazaPinguinoMagallanes_modelo2.webp"
+                                            class="d-block w-100"
+                                            alt="Dorso del Buzo Justice"
+                                            loading="lazy"></div>
+                                </div>
+                                <button class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carousel3"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carousel3"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Pingüino
+                                Magallanes</h5>
+                            <a
+                                href="productos/tazas/tazaPinguinoMagallanes.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div id="carousel4" class="carousel slide"
+                                data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img
+                                            src="imagenes/tazas/perritos/tazaPerrito_modelo1.webp"
+                                            class="d-block w-100"
+                                            alt="Frente del Buzo Justice"
+                                            loading="lazy"></div>
+                                    <div class="carousel-item"><img
+                                            src="imagenes/tazas/perritos/tazaPerrito_modelo2.webp"
+                                            class="d-block w-100"
+                                            alt="Dorso del Buzo Justice"
+                                            loading="lazy"></div>
+                                </div>
+                                <button class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carousel4"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carousel4"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Perritos</h5>
+                            <a href="productos/tazas/tazaPerritos.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div class="carousel-inner">
+                                <img
+                                    src="imagenes/tazas/animales/tazaKoala.webp"
+                                    class="d-block w-100" alt="Taza Koala"
+                                    loading="lazy">
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Koala</h5>
+                            <a href="productos/tazas/tazaKoala.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div class="carousel-inner">
+                                <img
+                                    src="imagenes/tazas/animales/tazaPanda.webp"
+                                    class="d-block w-100" alt="Taza Panda"
+                                    loading="lazy">
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Panda</h5>
+                            <a href="productos/tazas/tazaPanda.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div class="carousel-inner">
+                                <img
+                                    src="imagenes/tazas/animales/tazaTigre.webp"
+                                    class="d-block w-100" alt="Taza Tigre"
+                                    loading="lazy">
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Tigre</h5>
+                            <a href="productos/tazas/tazaTigre.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div class="carousel-inner">
+                                <img
+                                    src="imagenes/tazas/animales/tazaLechuza.webp"
+                                    class="d-block w-100" alt="Taza Lechuza"
+                                    loading="lazy">
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Lechuza</h5>
+                            <a href="productos/tazas/tazaLechuza.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div class="carousel-inner">
+                                <img
+                                    src="imagenes/tazas/animales/tazaLeon.webp"
+                                    class="d-block w-100" alt="Taza León"
+                                    loading="lazy">
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  León</h5>
+                            <a href="productos/tazas/tazaLeon.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
                         </div>
                     </div>
                 </div>
             </section>
+            <section id="geek" class="container my-5" data-categoria="geek">
+                <div class="row g-4">
+                    <h3 class="text-center mb-4">Colección Geek</h3>
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img
+                                src="imagenes/tazas/volverAlFuturo/volverAlFuturo.webp"
+                                class="card-img-top"
+                                alt="Imagen de Volveralfuturo"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Volver Al
+                                Futuro</h5>
+                            <a href="productos/tazas/volverAlFuturo.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza Volver Al Futuro -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img
+                                src="imagenes/tazas/theOffice/theOffice.webp"
+                                class="card-img-top"
+                                alt="Imagen de Taza World's Best Boss de The Office"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  The Office</h5>
+                            <a href="productos/tazas/theOffice.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza The Office -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div id="carousel14" class="carousel slide"
+                                data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img
+                                            src="imagenes/tazas/mario/mario_modelo1.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 1 de Mario"
+                                            loading="lazy"></div>
+                                    <div class="carousel-item"><img
+                                            src="imagenes/tazas/mario/mario_modelo2.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 2 de Mario"
+                                            loading="lazy"></div>
+                                </div>
+                                <button class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carousel14"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carousel14"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Mario</h5>
+                            <a href="productos/tazas/mario.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza Mario -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <div id="carousel12" class="carousel slide"
+                                data-bs-ride="carousel">
+                                <div class="carousel-inner">
+                                    <div class="carousel-item active"><img
+                                            src="imagenes/tazas/hp/hp_modelo1.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 1 de Hp"
+                                            loading="lazy"></div>
+                                    <div class="carousel-item"><img
+                                            src="imagenes/tazas/hp/hp_modelo2.webp"
+                                            class="d-block w-100"
+                                            alt="Modelo 2 de Hp"
+                                            loading="lazy"></div>
+                                </div>
+                                <button class="carousel-control-prev"
+                                    type="button"
+                                    data-bs-target="#carousel12"
+                                    data-bs-slide="prev">
+                                    <span
+                                        class="carousel-control-prev-icon"></span>
+                                </button>
+                                <button class="carousel-control-next"
+                                    type="button"
+                                    data-bs-target="#carousel12"
+                                    data-bs-slide="next">
+                                    <span
+                                        class="carousel-control-next-icon"></span>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Harry Potter</h5>
+                            <a href="productos/tazas/hp.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza Harry Potter -->
+                </div>
+            </section>
+            <section id="signos" class="container my-5" data-categoria="signos">
+                <div class="row g-4">
+                    <h3 class="text-center mb-4">Colección Signos
+                        Zodiacales</h3>
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/acuario/acuario.webp"
+                                class="card-img-top" alt="Imagen de Acuario"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Acuario</h5>
+                            <a href="productos/tazas/acuario.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza  Acuario -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/aries/aries.webp"
+                                class="card-img-top" alt="Imagen de Aries"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Aries</h5>
+                            <a href="productos/tazas/aries.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza  Aries -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/cancer/cancer.webp"
+                                class="card-img-top" alt="Imagen de Cancer"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Cancer</h5>
+                            <a href="productos/tazas/cancer.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza  Cancer -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img
+                                src="imagenes/tazas/capricornio/capricornio.webp"
+                                class="card-img-top"
+                                alt="Imagen de Capricornio" loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Capricornio</h5>
+                            <a href="productos/tazas/capricornio.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza  Capricornio -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/escorpio/escorpio.webp"
+                                class="card-img-top"
+                                alt="Imagen de Escorpio" loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Escorpio</h5>
+                            <a href="productos/tazas/escorpio.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza  Escorpio -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/geminis/geminis.webp"
+                                class="card-img-top" alt="Imagen de Geminis"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Geminis</h5>
+                            <a href="productos/tazas/geminis.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza  Géminis -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/leo/leo.webp"
+                                class="card-img-top" alt="Imagen de Leo"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Leo</h5>
+                            <a href="productos/tazas/leo.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza  Leo -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/libra/libra.webp"
+                                class="card-img-top" alt="Imagen de Libra"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Libra</h5>
+                            <a href="productos/tazas/libra.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza  Libra -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/piscis/piscis.webp"
+                                class="card-img-top" alt="Imagen de Piscis"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Piscis</h5>
+                            <a href="productos/tazas/piscis.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza  Piscis -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img
+                                src="imagenes/tazas/sagitario/sagitario.webp"
+                                class="card-img-top"
+                                alt="Imagen de Sagitario" loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Sagitario</h5>
+                            <a href="productos/tazas/sagitario.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza  Sagitario -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/tauro/tauro.webp"
+                                class="card-img-top" alt="Imagen de Tauro"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Tauro</h5>
+                            <a href="productos/tazas/tauro.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza  Tauro -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/virgo/virgo.webp"
+                                class="card-img-top" alt="Imagen de Virgo"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza  Virgo</h5>
+                            <a href="productos/tazas/virgo.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- /Taza  Virgo -->
+                </div>
+            </section>
+            <section id="memes" class="container my-5" data-categoria="memes">
+                <div class="row g-4">
+                    <h3 class="text-center mb-4">Colección Memes</h3>
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/crocodrilo/crocodrilo.webp"
+                                class="card-img-top" alt="Imagen de Crocodrilo"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza Bombardiro Crocodrilo</h5>
+                            <a href="productos/tazas/crocodrilo.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!--  Bombardiro Crocodrilo -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/cappuccino/cappuccino.webp"
+                                class="card-img-top" alt="Imagen de Cappuccino"
+                                loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza Cappuccino Assassino</h5>
+                            <a href="productos/tazas/cappuccino.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!--  Cappuccino Assassino -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/cappuccina/cappuccina.webp"
+                                class="card-img-top"
+                                alt="Imagen de Cappucina" loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza Ballerina Cappuccina</h5>
+                            <a href="productos/tazas/cappucina.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!--  Ballerina Cappuccina -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/gusini/gusini.webp"
+                                class="card-img-top"
+                                alt="Imagen de Gusini" loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza Bombardini Gusini</h5>
+                            <a href="productos/tazas/gusini.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!--  Bombardini Gusini -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/larila/larila.webp"
+                                class="card-img-top"
+                                alt="Imagen de Larila" loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza Lirilí Larilá</h5>
+                            <a href="productos/tazas/larila.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div>
+
+                    <!--  Lirili Larilá -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/patapin/patapin.webp"
+                                class="card-img-top"
+                                alt="Imagen de Patapin" loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza Brr Brr Patapin</h5>
+                            <a href="productos/tazas/patapin.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!-- Brr Brr Patapin -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/sahur/sahur.webp"
+                                class="card-img-top"
+                                alt="Imagen de Sahur" loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza Tung Tung Tung Sahur</h5>
+                            <a href="productos/tazas/sahur.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!--  Tung Tung Tung Sahur -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/saturnita/saturnita.webp"
+                                class="card-img-top"
+                                alt="Imagen de Saturnita" loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza La Vacca Saturno Saturnita</h5>
+                            <a href="productos/tazas/saturnita.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!--  Vacca Saturno Saturnita -->
+                    <div class="col-md-4">
+                        <div class="card h-200">
+                            <img src="imagenes/tazas/tralalero/tralalero.webp"
+                                class="card-img-top"
+                                alt="Imagen de Tralalero" loading="lazy">
+                        </div>
+                        <div class="card-body text-center">
+                            <h5 class="card-title">Taza Tralalero Tralala </h5>
+                            <a href="productos/tazas/tralalero.html"
+                                class="btn btn-outline-primary btn-ver-mas">Ver
+                                más</a>
+                        </div>
+                    </div><!--  Tralalero Tralala -->
+                </div>
+            </section>
+            <div class="col-12 text-center">
+                <div class="card p-5" id="proximamente-card">
+                    <div class="card-body">
+                        <i
+                            class="bi bi-t-shirt display-1 text-success mb-3"></i>
+                        <h3>Próximamente</h3>
+                        <p class="lead">Estamos trabajando para traer más
+                            diseños únicos y originales.
+                        </p>
+                        <p style="font-weight: bold;">¡Mantenete atento a
+                            nuestras redes!</p>
+                    </div>
+                </div>
+            </div>
         </main>
 
         <footer class="bg-dark text-white text-center py-4">
@@ -1632,6 +1771,7 @@
         </footer>
 
         <!-- Script para controlar la pantalla de carga -->
+        <script src="script/funciones/filtroProducto.js"></script>
         <script src="script/funciones/pantallaCarga.js"></script>
         <script src="script/funciones/index.js"></script>
         <script src="script/funciones/componentes.js"></script>
