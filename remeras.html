@@ -32,7 +32,7 @@
         }
 
         .navbar {
-            background-color: #0d6efd !important
+            background-color: #0d6efd;
         }
 
         main {
@@ -258,9 +258,14 @@
                             👕 Filtrar por Categoría:
                         </label>
                         <select id="filtroSelect" class="filtro-select">
-                            <option value="todos" data-icon="🌟">🌟 Todas las Remeras</option>
-                            <option value="adultos" data-icon="👥">👥 Todas las Edades (S-XXL)</option>
-                            <option value="niños" data-icon="👶">👶 Para Los Más Peques (4-16)</option>
+                            <option value="todos" data-icon="🌟">🌟 Todas las
+                                Remeras</option>
+                            <option value="adultos" data-icon="👥">👥 Todas las
+                                Edades (S-XXL)</option>
+                            <option value="artistas" data-icon="🎤">🎤 Bandas y
+                                Artistas</option>
+                            <option value="niños" data-icon="👶">👶 Para Los Más
+                                Peques (4-16)</option>
                         </select>
                     </div>
                 </div>
@@ -441,45 +446,6 @@
                                     más</a>
                             </div>
                         </div><!-- Pirata -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel5" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/remeras/pinkFloyd/pinkFloyd_negro_front.webp"
-                                                class="d-block w-100"
-                                                alt="Frente del Pinkfloyd"
-                                                loading="lazy"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/remeras/pinkFloyd/pinkFloyd_negro_back.webp"
-                                                class="d-block w-100"
-                                                alt="Dorso del Pinkfloyd"
-                                                loading="lazy"></div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel5"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel5"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title"> Pink Floyd</h5>
-                                <a href="productos/remeras/pinkFloyd.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- Pinkfloyd -->
                         <div class="col-md-4">
                             <div class="card h-200">
                                 <div id="carousel6" class="carousel slide"
@@ -731,45 +697,7 @@
                         </div> <!-- Remera Drew -->
                         <div class="col-md-4">
                             <div class="card h-200">
-                                <div id="carousel6" class="carousel slide"
-                                    data-bs-ride="carousel">
-                                    <div class="carousel-inner">
-                                        <div class="carousel-item active"><img
-                                                src="imagenes/remeras/lali/lali_blanco_modelo1_back.webp"
-                                                class="d-block w-100"
-                                                alt="Remera con estamapa de Lali"></div>
-                                        <div class="carousel-item"><img
-                                                src="imagenes/remeras/lali/lali_negro_modelo2_back.webp"
-                                                class="d-block w-100"
-                                                alt="Remera con estampa de Lali">
-                                        </div>
-                                    </div>
-                                    <button class="carousel-control-prev"
-                                        type="button"
-                                        data-bs-target="#carousel6"
-                                        data-bs-slide="prev">
-                                        <span
-                                            class="carousel-control-prev-icon"></span>
-                                    </button>
-                                    <button class="carousel-control-next"
-                                        type="button"
-                                        data-bs-target="#carousel6"
-                                        data-bs-slide="next">
-                                        <span
-                                            class="carousel-control-next-icon"></span>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="card-body text-center">
-                                <h5 class="card-title">Remera Lali</h5>
-                                <a href="productos/remeras/remeraLali.html"
-                                    class="btn btn-outline-primary btn-ver-mas">Ver
-                                    más</a>
-                            </div>
-                        </div><!-- Remera Lali -->
-                        <div class="col-md-4">
-                            <div class="card h-200">
-                                <div id="carousel7" class="carousel slide"
+                                <div id="carousel12" class="carousel slide"
                                     data-bs-ride="carousel">
                                     <div class="carousel-inner">
                                         <div class="carousel-item active"><img
@@ -785,14 +713,14 @@
                                     </div>
                                     <button class="carousel-control-prev"
                                         type="button"
-                                        data-bs-target="#carousel7"
+                                        data-bs-target="#carousel12"
                                         data-bs-slide="prev">
                                         <span
                                             class="carousel-control-prev-icon"></span>
                                     </button>
                                     <button class="carousel-control-next"
                                         type="button"
-                                        data-bs-target="#carousel7"
+                                        data-bs-target="#carousel12"
                                         data-bs-slide="next">
                                         <span
                                             class="carousel-control-next-icon"></span>
@@ -808,9 +736,327 @@
                         </div><!-- Remera West Coast Choppers -->
                     </div>
                 </section>
-
+                <section id="artistas-bandas" class="container my-5"
+                    data-categoria="artistas">
+                    <h3 class="text-center mb-4">Bandas y Artistas
+                        <p class="text-center mb-4">(Talles S a XXL)</p>
+                    </h3>
+                    <div class="row g-4">
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <div id="carousel5" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active"><img
+                                                src="imagenes/remeras/pinkFloyd/pinkFloyd_negro_front.webp"
+                                                class="d-block w-100"
+                                                alt="Frente del Pinkfloyd"
+                                                loading="lazy"></div>
+                                        <div class="carousel-item"><img
+                                                src="imagenes/remeras/pinkFloyd/pinkFloyd_negro_back.webp"
+                                                class="d-block w-100"
+                                                alt="Dorso del Pinkfloyd"
+                                                loading="lazy"></div>
+                                    </div>
+                                    <button class="carousel-control-prev"
+                                        type="button"
+                                        data-bs-target="#carousel5"
+                                        data-bs-slide="prev">
+                                        <span
+                                            class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next"
+                                        type="button"
+                                        data-bs-target="#carousel5"
+                                        data-bs-slide="next">
+                                        <span
+                                            class="carousel-control-next-icon"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title"> Pink Floyd</h5>
+                                <a href="productos/remeras/pinkFloyd.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div><!-- Pinkfloyd -->
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <div id="carousel13" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active"><img
+                                                src="imagenes/remeras/lali/lali_blanco_modelo1_back.webp"
+                                                class="d-block w-100"
+                                                alt="Remera con estamapa de Lali"></div>
+                                        <div class="carousel-item"><img
+                                                src="imagenes/remeras/lali/lali_negro_modelo2_back.webp"
+                                                class="d-block w-100"
+                                                alt="Remera con estampa de Lali">
+                                        </div>
+                                    </div>
+                                    <button class="carousel-control-prev"
+                                        type="button"
+                                        data-bs-target="#carousel13"
+                                        data-bs-slide="prev">
+                                        <span
+                                            class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next"
+                                        type="button"
+                                        data-bs-target="#carousel13"
+                                        data-bs-slide="next">
+                                        <span
+                                            class="carousel-control-next-icon"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Lali</h5>
+                                <a href="productos/remeras/remeraLali.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div><!-- Remera Lali -->
+                        <div class="col-md-4">
+                            <div class="card h-200 nuevo">
+                                <div id="carousel14" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active"><img
+                                                src="imagenes/remeras/milo/milo_negro_front.webp"
+                                                class="d-block w-100"
+                                                alt="Frente del Remera Milo j"
+                                                loading="lazy"></div>
+                                        <div class="carousel-item"><img
+                                                src="imagenes/remeras/milo/milo_negro_back.webp"
+                                                class="d-block w-100"
+                                                alt="Dorso del Remera Milo j"
+                                                loading="lazy"></div>
+                                    </div>
+                                    <button class="carousel-control-prev"
+                                        type="button"
+                                        data-bs-target="#carousel14"
+                                        data-bs-slide="prev">
+                                        <span
+                                            class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next"
+                                        type="button"
+                                        data-bs-target="#carousel14"
+                                        data-bs-slide="next">
+                                        <span
+                                            class="carousel-control-next-icon"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Remera Milo j</h5>
+                                <a href="productos/remeras/milo.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div><!--Remera Milo J -->
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <div id="carousel17" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active"><img
+                                                src="imagenes/remeras/milo166/milo166_blanco_front.webp"
+                                                class="d-block w-100"
+                                                alt="Frente del Milo J - 166 Deluxe"
+                                                loading="lazy"></div>
+                                        <div class="carousel-item"><img
+                                                src="imagenes/remeras/milo166/milo166_blanco_back.webp"
+                                                class="d-block w-100"
+                                                alt="Dorso del Milo J - 166 Deluxe"
+                                                loading="lazy"></div>
+                                    </div>
+                                    <button class="carousel-control-prev"
+                                        type="button"
+                                        data-bs-target="#carousel17"
+                                        data-bs-slide="prev">
+                                        <span
+                                            class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next"
+                                        type="button"
+                                        data-bs-target="#carousel17"
+                                        data-bs-slide="next">
+                                        <span
+                                            class="carousel-control-next-icon"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Milo J - 166 Deluxe</h5>
+                                <a href="productos/remeras/milo166.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div><!-- Milo J - 166 Deluxe -->
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <div id="carousel15" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active"><img
+                                                src="imagenes/remeras/tini/tini_negro_front.webp"
+                                                class="d-block w-100"
+                                                alt="Frente del Remera Tini"
+                                                loading="lazy"></div>
+                                        <div class="carousel-item"><img
+                                                src="imagenes/remeras/tini/tini_negro_back.webp"
+                                                class="d-block w-100"
+                                                alt="Dorso del Remera Tini"
+                                                loading="lazy"></div>
+                                    </div>
+                                    <button class="carousel-control-prev"
+                                        type="button"
+                                        data-bs-target="#carousel15"
+                                        data-bs-slide="prev">
+                                        <span
+                                            class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next"
+                                        type="button"
+                                        data-bs-target="#carousel15"
+                                        data-bs-slide="next">
+                                        <span
+                                            class="carousel-control-next-icon"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Remera Tini</h5>
+                                <a href="productos/remeras/tini.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div><!--Remera Tini -->
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <div id="carousel16" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active"><img
+                                                src="imagenes/remeras/pzk/pzk_negro_front.webp"
+                                                class="d-block w-100"
+                                                alt="Frente del Remera Tiago PZK"
+                                                loading="lazy"></div>
+                                        <div class="carousel-item"><img
+                                                src="imagenes/remeras/pzk/pzk_negro_back.webp"
+                                                class="d-block w-100"
+                                                alt="Dorso del Remera Tiago PZK"
+                                                loading="lazy"></div>
+                                    </div>
+                                    <button class="carousel-control-prev"
+                                        type="button"
+                                        data-bs-target="#carousel16"
+                                        data-bs-slide="prev">
+                                        <span
+                                            class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next"
+                                        type="button"
+                                        data-bs-target="#carousel16"
+                                        data-bs-slide="next">
+                                        <span
+                                            class="carousel-control-next-icon"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Remera Tiago PZK</h5>
+                                <a href="productos/remeras/pzk.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div><!--Remera Tiago Pzk -->
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <div id="carousel18" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active"><img
+                                                src="imagenes/remeras/mariaAnimal/mariaAnimal_negro_front.webp"
+                                                class="d-block w-100"
+                                                alt="Frente del Maria Becerra - Animal"
+                                                loading="lazy"></div>
+                                        <div class="carousel-item"><img
+                                                src="imagenes/remeras/mariaAnimal/mariaAnimal_negro_back.webp"
+                                                class="d-block w-100"
+                                                alt="Dorso del Maria Becerra - Animal"
+                                                loading="lazy"></div>
+                                    </div>
+                                    <button class="carousel-control-prev"
+                                        type="button"
+                                        data-bs-target="#carousel18"
+                                        data-bs-slide="prev">
+                                        <span
+                                            class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next"
+                                        type="button"
+                                        data-bs-target="#carousel18"
+                                        data-bs-slide="next">
+                                        <span
+                                            class="carousel-control-next-icon"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Maria Becerra -
+                                    Animal</h5>
+                                <a href="productos/remeras/mariaAnimal.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div><!--Maria Becerra - Animal -->
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <div id="carousel19" class="carousel slide"
+                                    data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <div class="carousel-item active"><img
+                                                src="imagenes/remeras/maria/maria_negro_front.webp"
+                                                class="d-block w-100"
+                                                alt="Frente del Maria Becerra"
+                                                loading="lazy"></div>
+                                        <div class="carousel-item"><img
+                                                src="imagenes/remeras/maria/maria_negro_back.webp"
+                                                class="d-block w-100"
+                                                alt="Dorso del Maria Becerra"
+                                                loading="lazy"></div>
+                                    </div>
+                                    <button class="carousel-control-prev"
+                                        type="button"
+                                        data-bs-target="#carousel19"
+                                        data-bs-slide="prev">
+                                        <span
+                                            class="carousel-control-prev-icon"></span>
+                                    </button>
+                                    <button class="carousel-control-next"
+                                        type="button"
+                                        data-bs-target="#carousel19"
+                                        data-bs-slide="next">
+                                        <span
+                                            class="carousel-control-next-icon"></span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Maria Becerra</h5>
+                                <a href="productos/remeras/maria.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div><!--  Maria Becerra -->
+                    </div>
+                </section>
                 <!--PEQUES-->
-
                 <section id="peques" class="container my-5"
                     data-categoria="niños">
                     <h3 class="text-center mb-4">Para los más Peques
@@ -951,6 +1197,21 @@
                                     más</a>
                             </div>
                         </div>
+                        <div class="col-md-4">
+                            <div class="card h-200">
+                                <img
+                                    src="imagenes/remeras/batwheels/batwheels_negro_front.webp"
+                                    class="card-img-top"
+                                    alt="Imagen de Remera Batwheels"
+                                    loading="lazy">
+                            </div>
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Remera Batwheels</h5>
+                                <a href="productos/remeras/batwheels.html"
+                                    class="btn btn-outline-primary btn-ver-mas">Ver
+                                    más</a>
+                            </div>
+                        </div><!--Remera Batwheels -->
                     </div>
                 </section>
                 <div class="col-12 text-center">
@@ -975,7 +1236,7 @@
                 <div class="row align-items-center justify-content-center">
                     <div class="col-12 mb-3">
                         <div
-                            class="d-flex justify-content-center align-items-center gap-4 flex-wrap">
+                            class="w-flex justify-content-center align-items-center gap-4 flex-wrap">
                             <!-- Instagram -->
                             <a href="https://www.instagram.com/mit.estampados/"
                                 target="_blank" rel="noopener noreferrer"
