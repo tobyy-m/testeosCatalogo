@@ -77,6 +77,24 @@ body {
   border: 1px solid var(--color-card-border);
 }
 
+/* Cartel "Nuevo Ingreso" para tarjetas con clase `nuevo`
+   - Soporta:
+     1) .card > .card-body (anidado)
+     2) .card + .card-body (hermano, como en tu HTML) */
+.card.nuevo .card-body::before,
+.card.nuevo + .card-body::before {
+  content: "NUEVO INGRESO";
+  display: inline-block;
+  padding: 4px 10px;
+  margin-bottom: 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #fff;
+  background: linear-gradient(135deg, #dc3545 0%, #ff6b6b 100%);
+}
+
 .navbar {
   background-color: var(--color-navbar-bg) !important;
 }
