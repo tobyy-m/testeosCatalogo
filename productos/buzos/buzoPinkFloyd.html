@@ -17,9 +17,10 @@
     </head>
 
     <body class="bg-dark text-light">
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mitNav">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+            id="mitNav">
             <div class="container">
-                <a class="navbar-brand d-flex align-items-center" id="mitNav"
+                <a class="navbar-brand d-flex align-items-center"
                     href="../../index.html">
                     <img src="../../imagenes/logo mit.png" alt="MIT ESTAMPADOS"
                         height="35" class="me-2">
@@ -89,12 +90,14 @@
                     <p>Buzo Pink Floyd - The Dark Side Of The Moon. Ideal para
                         los amantes de la música y el arte. Tipo de
                         tela: Algodón peinado Frisa invisible.</p>
-                        <div class="color-disclaimer">
-                            <small style="color:rgb(233, 81, 81)">(Imagenes ilustrativas, el tono de los colores puede variar)</small>
-                        </div><br>              
+                    <div class="color-disclaimer">
+                        <small style="color:rgb(233, 81, 81)">(Imagenes
+                            ilustrativas, el tono de los colores puede
+                            variar)</small>
+                    </div><br>
 
                 </div>
-                
+
                 <div class="col-md-6">
                     <form id="formProducto"
                         class="p-4 rounded shadow bg-dark text-light">
@@ -130,86 +133,95 @@
                             </div>
                             <input type="hidden" id="colorBuzo"
                                 class="color-input-hidden" value="negro">
-                        </select>
-                    </div>
-                    <div class="mb-3">
+                        </div>
                         <div class="mb-3">
-                            <label
-                                class="form-label d-flex justify-content-between align-items-center">
-                                Talle
-                                <button type="button"
-                                    class="btn btn-outline-info btn-sm"
-                                    data-bs-toggle="modal"
-                                    data-bs-target="#modalTalles">
-                                    <i class="bi bi-ruler"></i> Ver Tabla de
-                                    Talles
-                                </button>
-                            </label>
-                            <div class="talle-selector" id="talleSelector">
-                                <div class="talle-option selected"
-                                    data-talle="S" data-info="Talle S">S</div>
-                                <div class="talle-option" data-talle="M"
-                                    data-info="Talle M">M</div>
-                                <div class="talle-option" data-talle="L"
-                                    data-info="Talle L">L</div>
-                                <div class="talle-option" data-talle="XL"
-                                    data-info="Talle XL">XL</div>
-                                <div class="talle-option" data-talle="XXL"
-                                    data-info="Talle XXL">XXL</div>
-                            </div>
-                            <input type="hidden" id="talle"
-                                class="talle-input-hidden" value="S">
-
                             <div class="mb-3">
-                                <label class="form-label">Cantidad</label>
-                                <div class="cantidad-controls">
-                                    <button type="button" class="cantidad-btn"
-                                        id="disminuir-cantidad">−</button>
-                                    <input type="number" id="cantidad"
-                                        class="cantidad-input" min="1" value="1"
-                                        readonly>
-                                    <button type="button" class="cantidad-btn"
-                                        id="aumentar-cantidad">+</button>
+                                <label
+                                    class="form-label d-flex justify-content-between align-items-center">
+                                    Talle
+                                    <button type="button"
+                                        class="btn btn-outline-info btn-sm"
+                                        data-bs-toggle="modal"
+                                        data-bs-target="#modalTalles">
+                                        <i class="bi bi-ruler"></i> Ver Tabla de
+                                        Talles
+                                    </button>
+                                </label>
+                                <div class="talle-selector" id="talleSelector">
+                                    <div class="talle-option selected"
+                                        data-talle="S"
+                                        data-info="Talle S">S</div>
+                                    <div class="talle-option" data-talle="M"
+                                        data-info="Talle M">M</div>
+                                    <div class="talle-option" data-talle="L"
+                                        data-info="Talle L">L</div>
+                                    <div class="talle-option" data-talle="XL"
+                                        data-info="Talle XL">XL</div>
+                                    <div class="talle-option" data-talle="XXL"
+                                        data-info="Talle XXL">XXL</div>
                                 </div>
+                                <input type="hidden" id="talle"
+                                    class="talle-input-hidden" value="S">
+
+                                <div class="mb-3">
+                                    <label class="form-label">Cantidad</label>
+                                    <div class="cantidad-controls">
+                                        <button type="button"
+                                            class="cantidad-btn"
+                                            id="disminuir-cantidad">−</button>
+                                        <input type="number" id="cantidad"
+                                            class="cantidad-input" min="1"
+                                            value="1"
+                                            readonly>
+                                        <button type="button"
+                                            class="cantidad-btn"
+                                            id="aumentar-cantidad">+</button>
+                                    </div>
+                                </div>
+                                <input type="hidden" id="precio-producto"
+                                    value="35000" />
                             </div>
-                            <input type="hidden" id="precio-producto"
-                                value="35000" />
-                        </form>
+                        </div>
                         <button type="button" id="btn-agregar-carrito"
                             class="btn btn-success w-100 mt-3">Agregar al
                             carrito</button>
+                    </form>
 
-                        <div class="precio-producto text-center mt-4">
-                            <h2 class="precio-numero">$35.000</h2>
-                            <div class="precio-etiqueta">Precio por unidad</div>
-                            <div class="precio-envio">
-                                <i class="bi bi-truck"></i>
-                                <span>Envíos por Andreani</span>
-                            </div>
-                            <div class="precio-disclaimer">
-                                <small class="text-muted">(Los precios pueden
-                                    variar sin previo aviso. El costo de envio
-                                    no está
-                                    incluido)</small>
-                            </div>
+                    <div class="precio-producto text-center mt-4">
+                        <h2 class="precio-numero">$35.000</h2>
+                        <div class="precio-etiqueta">Precio por
+                            unidad</div>
+                        <div class="precio-envio">
+                            <i class="bi bi-truck"></i>
+                            <span>Envíos por Andreani</span>
                         </div>
-
+                        <div class="precio-disclaimer">
+                            <small class="text-muted">(Los precios
+                                pueden
+                                variar sin previo aviso. El costo de
+                                envio
+                                no está
+                                incluido)</small>
+                        </div>
                     </div>
+
                 </div>
-            </main>
-            <footer class="bg-dark text-light text-center py-3 mt-5">
-                <p>&copy; 2025 MIT ESTAMPADOS</p>
-            </footer>
+            </div>
+        </main>
+        <footer class="bg-dark text-light text-center py-3 mt-5">
+            <p>&copy; 2025 MIT ESTAMPADOS</p>
+        </footer>
 
-            <script src="../../script/buzos/pinkFloyd.js"></script>
-            <script src="../../script/funciones/cantidadControls.js"></script>
-            <script src="../../script/funciones/componentes.js"></script>
-            <script src="../../script/funciones/carrito.js"></script>
-            <script src="../../script/funciones/ampliarImagen.js"></script>
-            <script src="../../script/funciones/agregarCarrito.js"></script>
-            <!-- último -->
-            <div id="modal-container"></div>
-            <div id="modal-talles-container"></div>
-        </body>
+        <script src="../../script/buzos/pinkFloyd.js"></script>
+        <script
+            src="../../script/funciones/cantidadControls.js"></script>
+        <script src="../../script/funciones/componentes.js"></script>
+        <script src="../../script/funciones/carrito.js"></script>
+        <script src="../../script/funciones/ampliarImagen.js"></script>
+        <script src="../../script/funciones/agregarCarrito.js"></script>
+        <!-- último -->
+        <div id="modal-container"></div>
+        <div id="modal-talles-container"></div>
+    </body>
 
-    </html>
+</html>
