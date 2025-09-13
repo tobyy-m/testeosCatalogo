@@ -36,6 +36,7 @@ function actualizarImagen() {
 }
 
 const opcionesPorColorGorra = {
+  "negro": [],
   "blanco": []
 };
 

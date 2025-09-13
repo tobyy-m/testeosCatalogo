@@ -105,9 +105,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const esRemeraLali = nombreProducto.toLowerCase().includes('remera lali');
     
     // Especial para gorra Lali: tiene color de gorra + color de estampa
-    const esGorraLali = nombreProducto.toLowerCase().includes('gorra lali');
+    const esGorraLali = nombreProducto.toLowerCase().includes('gorra lali') && 
+                        !nombreProducto.toLowerCase().includes('payaso') && 
+                        !nombreProducto.toLowerCase().includes('corona') && 
+                        !nombreProducto.toLowerCase().includes('smile');
     
-    // Gorras simples: solo color de gorra (Smile, Payaso, Corona)
+    // Gorras simples: solo color de gorra (Smile, Payaso, Corona, etc.)
     const esGorraSimple = nombreProducto.toLowerCase().includes('gorra') && !esGorraLali;
     
     // Para productos con solo modelo, agregar el modelo al nombre (si existe)
