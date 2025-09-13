@@ -21,6 +21,14 @@ function agregarAlCarrito(producto) {
       p.colorEstampa === producto.colorEstampa &&
       p.talle === producto.talle
     );
+  } else if (producto.colorGorra) {
+    // Es una gorra
+    existente = carrito.find(p =>
+      p.nombre === producto.nombre &&
+      p.colorGorra === producto.colorGorra &&
+      p.colorEstampa === producto.colorEstampa &&
+      p.talle === producto.talle
+    );
   } else if (producto.nombre.toLowerCase().includes('buzo lali')) {
     // Es buzo Lali (color de buzo + modelo + talle)
     existente = carrito.find(p =>
@@ -135,7 +143,7 @@ function mostrarCarritoEnModal() {
     let nombreProducto = p.nombre;
 
     // Determinar los detalles del producto
-    const colorPrenda = p.colorRemera || p.colorBuzo || "";
+    const colorPrenda = p.colorRemera || p.colorBuzo || p.colorGorra || "";
     let detalles = `${p.talle} - ${colorPrenda}`;
     // Solo mostrar estampa si no es un modelo (para evitar duplicar la información)
     if (p.colorEstampa && p.colorEstampa !== 'Sin estampa' && !p.colorEstampa.includes('modelo')) {
@@ -194,7 +202,7 @@ function mostrarResumenCheckout() {
         </div>
         <div class="item-info">
           <div class="item-name">${p.nombre}</div>
-          <div class="item-details">${p.talle} - ${p.colorRemera || p.colorBuzo || ""}${p.colorEstampa ? ' - ' + p.colorEstampa : ''}</div>
+          <div class="item-details">${p.talle} - ${p.colorRemera || p.colorBuzo || p.colorGorra || ""}${p.colorEstampa ? ' - ' + p.colorEstampa : ''}</div>
         </div>
         <span class="price">$${subtotal}</span>
       </div>`;
@@ -205,7 +213,7 @@ function mostrarResumenCheckout() {
   // Preparar datos para el formulario
   if (productosInput) {
     const resumenProductos = carrito.map(p =>
-      `${p.nombre} (${p.talle}, ${p.colorRemera || p.colorBuzo || ""}${p.colorEstampa ? ', ' + p.colorEstampa : ''}) x${p.cantidad} - $${parseInt(p.precio || 0) * parseInt(p.cantidad)}`
+      `${p.nombre} (${p.talle}, ${p.colorRemera || p.colorBuzo || p.colorGorra || ""}${p.colorEstampa ? ', ' + p.colorEstampa : ''}) x${p.cantidad} - $${parseInt(p.precio || 0) * parseInt(p.cantidad)}`
     ).join('; ');
     productosInput.value = `${resumenProductos}. TOTAL: $${total}`;
   }

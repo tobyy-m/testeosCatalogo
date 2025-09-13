@@ -573,29 +573,68 @@ body[style*="background-color: black"] .section-description {
 /* ============================= */
 
 /* Estilos para tema oscuro en checkout */
+[data-bs-theme="dark"] .checkout-main,
 body.dark .checkout-main {
   background: #212529 !important;
 }
 
+[data-bs-theme="dark"] .checkout-section,
 body.dark .checkout-section {
   background: #212529 !important;
   color: #ffffff !important;
   border-color: #495057 !important;
 }
 
+[data-bs-theme="dark"] .section-title,
 body.dark .section-title {
   color: #ffffff !important;
   border-bottom-color: #007bff !important;
 }
 
+[data-bs-theme="dark"] .order-summary,
 body.dark .order-summary {
   background: #212529 !important;
   color: #ffffff !important;
 }
 
+[data-bs-theme="dark"] .checkout-header,
+[data-bs-theme="dark"] .checkout-footer,
 body.dark .checkout-header,
 body.dark .checkout-footer {
   background: #343a40 !important;
+  color: #ffffff !important;
+}
+
+/* Estilos adicionales para elementos del checkout en modo oscuro */
+[data-bs-theme="dark"] .order-item,
+body.dark .order-item {
+  background: #2c3135 !important;
+  border-color: #495057 !important;
+  color: #ffffff !important;
+}
+
+[data-bs-theme="dark"] .form-control,
+[data-bs-theme="dark"] .form-select,
+body.dark .form-control,
+body.dark .form-select {
+  background: #2c3135 !important;
+  border-color: #495057 !important;
+  color: #ffffff !important;
+}
+
+[data-bs-theme="dark"] .form-control:focus,
+[data-bs-theme="dark"] .form-select:focus,
+body.dark .form-control:focus,
+body.dark .form-select:focus {
+  background: #2c3135 !important;
+  border-color: #007bff !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+}
+
+[data-bs-theme="dark"] .total,
+body.dark .total {
+  background: #198754 !important;
   color: #ffffff !important;
 }
 

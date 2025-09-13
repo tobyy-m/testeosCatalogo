@@ -37,12 +37,20 @@ function agregarAlCarrito(producto) {
       p.talle === producto.talle
     );
   } else {
-    // Para otros productos: distinguir entre remeras y buzos
+    // Para otros productos: distinguir entre remeras, buzos y gorras
     if (producto.colorRemera) {
       // Es una remera: comparar nombre, colorRemera, colorEstampa y talle
       existente = carrito.find(p =>
         p.nombre === producto.nombre &&
         p.colorRemera === producto.colorRemera &&
+        p.colorEstampa === producto.colorEstampa &&
+        p.talle === producto.talle
+      );
+    } else if (producto.colorGorra) {
+      // Es una gorra: comparar nombre, colorGorra, colorEstampa y talle
+      existente = carrito.find(p =>
+        p.nombre === producto.nombre &&
+        p.colorGorra === producto.colorGorra &&
         p.colorEstampa === producto.colorEstampa &&
         p.talle === producto.talle
       );
@@ -130,16 +138,25 @@ document.addEventListener("DOMContentLoaded", () => {
       return primeraImg?.src || "";
     }
     
-    // Detectar si es remera o buzo para usar el campo correcto de color
+    // Detectar el tipo de producto para usar los campos correctos
     const esRemera = nombreProducto.toLowerCase().includes("remera");
-    const colorPrenda = esRemera 
-      ? document.getElementById("colorRemera")?.value || ""
-      : document.getElementById("colorBuzo")?.value || "";
+    const esBuzo = nombreProducto.toLowerCase().includes("buzo");
+    const esGorra = nombreProducto.toLowerCase().includes("gorra");
+    
+    let colorPrenda = "";
+    if (esRemera) {
+      colorPrenda = document.getElementById("colorRemera")?.value || "";
+    } else if (esBuzo) {
+      colorPrenda = document.getElementById("colorBuzo")?.value || "";
+    } else if (esGorra) {
+      colorPrenda = document.getElementById("colorGorra")?.value || "";
+    }
 
     const producto = {
       nombre: nombreCompleto,
-      colorBuzo: esRemera ? "" : colorPrenda, // Solo para buzos
+      colorBuzo: esBuzo ? colorPrenda : "", // Solo para buzos
       colorRemera: esRemera ? colorPrenda : "", // Solo para remeras
+      colorGorra: esGorra ? colorPrenda : "", // Solo para gorras
       colorEstampa: modelo || "Sin estampa",
       talle: document.getElementById("talle")?.value || document.getElementById("selector-talle")?.value || "",
       cantidad: parseInt(document.getElementById("cantidad")?.value) || 1,
@@ -167,6 +184,12 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     } else if (nombreProducto.toLowerCase().includes("remera lali")) {
       // Para remera Lali: necesita color de remera, modelo, talle, cantidad y precio
+      if (!colorPrenda || !modelo || !producto.talle || !producto.cantidad || !producto.precio) {
+        alert("Por favor completá todos los campos antes de agregar al carrito.");
+        return;
+      }
+    } else if (nombreProducto.toLowerCase().includes("gorra")) {
+      // Para gorras: necesita color de gorra, color de estampa, talle, cantidad y precio
       if (!colorPrenda || !modelo || !producto.talle || !producto.cantidad || !producto.precio) {
         alert("Por favor completá todos los campos antes de agregar al carrito.");
         return;

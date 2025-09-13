@@ -36,7 +36,7 @@ function actualizarResumenCheckout() {
         }
 
         // Determinar los detalles del producto
-        const colorPrenda = p.colorRemera || p.colorBuzo || "";
+        const colorPrenda = p.colorRemera || p.colorBuzo || p.colorGorra || "";
         let detalles = `${p.talle} - ${colorPrenda}`;
         // Solo mostrar estampa si no es un modelo (para evitar duplicar la información)
         if (p.colorEstampa && p.colorEstampa !== 'Sin estampa' && !p.colorEstampa.includes('modelo')) {
@@ -64,7 +64,7 @@ function actualizarResumenCheckout() {
 
     if (productosInput) {
         const resumenProductos = carrito.map(p =>
-            `${p.nombre} (${p.talle}, ${p.colorRemera || p.colorBuzo || ""}${p.colorEstampa ? ', ' + p.colorEstampa : ''}) x${p.cantidad} - $${parseInt(p.precio || 0) * parseInt(p.cantidad)}`
+            `${p.nombre} (${p.talle}, ${p.colorRemera || p.colorBuzo || p.colorGorra || ""}${p.colorEstampa ? ', ' + p.colorEstampa : ''}) x${p.cantidad} - $${parseInt(p.precio || 0) * parseInt(p.cantidad)}`
         ).join('; ');
         productosInput.value = `${resumenProductos}. TOTAL: $${total}`;
     }
@@ -107,7 +107,7 @@ function mostrarModalEliminar(index) {
         <div class="text-start">
             <div class="fw-bold">${producto.nombre}</div>
             <div class="text-muted small">
-                ${producto.talle} - ${producto.colorRemera || producto.colorBuzo || ""}${producto.colorEstampa ? ' - ' + producto.colorEstampa : ''}
+                ${producto.talle} - ${producto.colorRemera || producto.colorBuzo || producto.colorGorra || ""}${producto.colorEstampa ? ' - ' + producto.colorEstampa : ''}
             </div>
             <div class="text-warning">
                 Cantidad: ${producto.cantidad} | Total: $${subtotal}
@@ -429,6 +429,7 @@ function generarPDF(numeroPedido, carrito) {
         const esTaza = producto.nombre.toLowerCase().includes('taza');
         const esBuzoLali = producto.nombre.toLowerCase().includes('buzo lali');
         const esRemeraLali = producto.nombre.toLowerCase().includes('remera lali');
+        const esGorra = producto.nombre.toLowerCase().includes('gorra');
         const esSoloModelo = esTaza || esBuzoLali;
         
         // Nombre del producto (ampliar límite de caracteres)
@@ -459,12 +460,17 @@ function generarPDF(numeroPedido, carrito) {
             doc.text(producto.talle || '-', 95, yPos);  // Talle
             doc.text(producto.colorRemera || '-', 115, yPos); // Color Remera
             doc.text('-', 145, yPos); // Color Estampa (ya está en el nombre)
+        } else if (esGorra) {
+            // Gorras: mostrar talle, color de gorra y color de estampa
+            doc.text(producto.talle || '-', 95, yPos);  // Talle
+            doc.text(producto.colorGorra || '-', 115, yPos); // Color Gorra
+            doc.text(producto.colorEstampa || '-', 145, yPos); // Color Estampa
         } else {
             // Otros productos: mostrar todo normalmente
             doc.text(producto.talle || '-', 95, yPos);
             
-            // Mostrar color de prenda (remera o buzo)
-            const colorPrenda = producto.colorRemera || producto.colorBuzo || '-';
+            // Mostrar color de prenda (remera, buzo o gorra)
+            const colorPrenda = producto.colorRemera || producto.colorBuzo || producto.colorGorra || '-';
             doc.text(colorPrenda, 115, yPos);
             // Mostrar color de estampa solo si el producto lo requiere y no es remera Lali
             const nombreProducto = producto.nombre.toLowerCase().replace(/\s+/g, '');
