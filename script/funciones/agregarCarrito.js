@@ -104,6 +104,12 @@ document.addEventListener("DOMContentLoaded", () => {
     // Especial para remera Lali: tiene color de remera + modelo
     const esRemeraLali = nombreProducto.toLowerCase().includes('remera lali');
     
+    // Especial para gorra Lali: tiene color de gorra + color de estampa
+    const esGorraLali = nombreProducto.toLowerCase().includes('gorra lali');
+    
+    // Gorras simples: solo color de gorra (Smile, Payaso, Corona)
+    const esGorraSimple = nombreProducto.toLowerCase().includes('gorra') && !esGorraLali;
+    
     // Para productos con solo modelo, agregar el modelo al nombre (si existe)
     let nombreCompleto = nombreProducto;
     if (esSoloModelo && modelo) {
@@ -123,7 +129,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Función para obtener la imagen principal del producto
     function obtenerImagenPrincipal() {
       // Lista de IDs comunes para imágenes principales
-      const posiblesIds = ['imgFront', 'buzoLali', 'remeraLali', 'tazaGato', 'tazaCarpincho'];
+      const posiblesIds = ['imgFront', 'buzoLali', 'remeraLali', 'tazaGato', 'tazaCarpincho', 'imgGorra'];
       
       for (const id of posiblesIds) {
         const img = document.getElementById(id);
@@ -157,7 +163,7 @@ document.addEventListener("DOMContentLoaded", () => {
       colorBuzo: esBuzo ? colorPrenda : "", // Solo para buzos
       colorRemera: esRemera ? colorPrenda : "", // Solo para remeras
       colorGorra: esGorra ? colorPrenda : "", // Solo para gorras
-      colorEstampa: modelo || "Sin estampa",
+      colorEstampa: esGorraSimple ? "" : (modelo || "Sin estampa"), // Gorras simples no tienen estampa
       talle: document.getElementById("talle")?.value || document.getElementById("selector-talle")?.value || "",
       cantidad: parseInt(document.getElementById("cantidad")?.value) || 1,
       precio: parseInt(document.getElementById("precio-producto")?.value) || 0,
@@ -189,10 +195,19 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
     } else if (nombreProducto.toLowerCase().includes("gorra")) {
-      // Para gorras: necesita color de gorra, color de estampa, talle, cantidad y precio
-      if (!colorPrenda || !modelo || !producto.talle || !producto.cantidad || !producto.precio) {
-        alert("Por favor completá todos los campos antes de agregar al carrito.");
-        return;
+      // Para gorras: validación dependiendo del tipo
+      if (esGorraLali) {
+        // Gorra Lali necesita color de gorra, color de estampa, talle, cantidad y precio
+        if (!colorPrenda || !modelo || !producto.talle || !producto.cantidad || !producto.precio) {
+          alert("Por favor completá todos los campos antes de agregar al carrito.");
+          return;
+        }
+      } else {
+        // Gorras simples (Smile, Payaso, Corona) solo necesitan color de gorra, talle, cantidad y precio
+        if (!colorPrenda || !producto.talle || !producto.cantidad || !producto.precio) {
+          alert("Por favor completá todos los campos antes de agregar al carrito.");
+          return;
+        }
       }
     } else {
       // Para otros productos (buzos normales): validar todos los campos
