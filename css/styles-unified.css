@@ -109,6 +109,19 @@ body {
   background: linear-gradient(135deg, #dc3545 0%, #ff6b6b 100%);
 }
 
+.card.nuevo-modelo .card-body::before,
+.card.nuevo-modelo + .card-body::before {
+  content: "NUEVOS MODELOS";
+  display: inline-block;
+  padding: 4px 10px;
+  margin-bottom: 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #fff;
+  background: linear-gradient(135deg, #dc3545 0%, #ff6b6b 100%);
+}
 .navbar {
   background-color: var(--color-navbar-bg) !important;
 }
