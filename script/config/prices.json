@@ -1,0 +1,25 @@
+{
+  "defaults": {
+    "tazas": 9000,
+    "remeras_adulto": 18000,
+    "remeras_nino": 12000,
+    "buzos": 35000,
+    "gorras": 10000
+  },
+  "tazas": {
+    "default": 9000,
+    "products": {
+    }
+  },
+  "remeras": {
+    "default_adulto": 18000,
+    "default_nino": 12000,
+    "products": {}
+  },
+  "gorras": {
+    "default": 10000,
+    "products": {
+      "gorraTAirbag": 8000
+    }
+  }
+}

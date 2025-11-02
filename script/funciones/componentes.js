@@ -107,6 +107,104 @@ function setupNavigation(links) {
 // Inicializar cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', loadOptimizedComponents);
 
+// =====================
+// Price loader from central config
+// =====================
+async function applyPricesFromConfig() {
+  const possiblePaths = [
+    '/script/config/prices.json',
+    '/tienda/script/config/prices.json',
+    'script/config/prices.json',
+    '../config/prices.json',
+    '../../script/config/prices.json'
+  ];
+
+  let data = null;
+  for (const p of possiblePaths) {
+    try {
+      const resp = await fetch(p);
+      if (!resp.ok) continue;
+      data = await resp.json();
+      break;
+    } catch (e) {
+      // try next
+    }
+  }
+  if (!data) return; // no config found
+
+  // Determine category and product key from URL
+  const path = window.location.pathname.toLowerCase();
+  const parts = path.split('/');
+  const file = parts.pop() || parts.pop();
+  const productKey = (file || '').replace(/\.html$/i, '');
+  const productKeyLower = (productKey || '').toLowerCase();
+
+  let category = null;
+  if (path.includes('/productos/tazas/')) category = 'tazas';
+  else if (path.includes('/productos/remeras/')) category = 'remeras';
+  else if (path.includes('/productos/buzos/')) category = 'buzos';
+  else if (path.includes('/productos/gorras/')) category = 'gorras';
+
+  if (!category) return;
+
+  let price = null;
+  // per-product override (case-insensitive lookup)
+  if (data[category] && data[category].products) {
+    // Try direct key first
+    if (data[category].products[productKey] !== undefined) {
+      price = data[category].products[productKey];
+    } else {
+      // Case-insensitive scan of product keys (handles camelCase in JSON)
+      const entries = Object.entries(data[category].products);
+      for (const [k, v] of entries) {
+        if ((k || '').toLowerCase() === productKeyLower) {
+          price = v;
+          break;
+        }
+      }
+    }
+  }
+
+  // category defaults and special cases
+  if (!price) {
+    if (category === 'tazas') {
+      price = (data.tazas && data.tazas.default) || data.defaults.tazas;
+    } else if (category === 'remeras') {
+      // detect niño vs adulto: if any talle-option with numeric <=16 assume niño
+      const talleOptions = Array.from(document.querySelectorAll('#talleSelector .talle-option'));
+      const isNino = talleOptions.some(opt => {
+        const v = opt.dataset.talle;
+        const n = parseInt(v, 10);
+        return !isNaN(n) && n <= 16;
+      });
+      price = isNino ? (data.remeras.default_nino || data.defaults.remeras_nino) : (data.remeras.default_adulto || data.defaults.remeras_adulto);
+    } else if (category === 'buzos') {
+      price = (data.buzos && data.buzos.default) || data.defaults.buzos;
+    } else if (category === 'gorras') {
+      // For gorras: overrides already attempted above (case-insensitive),
+      // otherwise use the single default for all gorras.
+      price = price || ((data.gorras && data.gorras.default) || data.defaults.gorras);
+    }
+  }
+
+  if (!price) return;
+
+  // Update DOM: hidden input and display
+  const input = document.getElementById('precio-producto');
+  if (input) input.value = price;
+
+  const precioElems = document.getElementsByClassName('precio-numero');
+  const fmt = n => n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+  for (const el of precioElems) {
+    el.textContent = `$${fmt(price)}`;
+  }
+}
+
+// Run after DOMContentLoaded to ensure nodes exist
+document.addEventListener('DOMContentLoaded', () => {
+  applyPricesFromConfig();
+});
+
 /* ============================================ */
 /* FUNCIONES EXISTENTES OPTIMIZADAS */
 /* ============================================ */
