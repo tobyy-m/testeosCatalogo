@@ -577,10 +577,13 @@ body.dark-theme .precio-producto:hover {
   background-color: #d2b48c;
 }
 .color-celeste {
-  background-color: #87ceeb;
+  background-color: #35b7eb;
 }
 .color-morado {
   background-color: #6f42c1;
+}
+.color-fucsia{
+  background-color: #f114a2;
 }
 
 /* Tooltip para mostrar el nombre del color */
