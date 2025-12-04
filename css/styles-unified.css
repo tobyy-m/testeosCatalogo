@@ -500,6 +500,7 @@ body.dark-theme .precio-producto:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
+  row-gap: 50px;
   margin-top: 8px;
 }
 
@@ -584,6 +585,12 @@ body.dark-theme .precio-producto:hover {
 }
 .color-fucsia{
   background-color: #f114a2;
+}
+.color-gris {
+  background-color: #8d8c8c;
+}
+.color-grisTopo {
+  background-color: #52534f;
 }
 
 /* Tooltip para mostrar el nombre del color */
