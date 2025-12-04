@@ -75,6 +75,62 @@ document.addEventListener("DOMContentLoaded", () => {
         return; // Importante: cortar aquí
       }
 
+      // --- PAREJAS: mostrar solo productos con data-coleccion="parejas" ---
+      if (filtro === "parejas") {
+        // Mostrar todas las secciones
+        secciones.forEach((sec) => {
+          sec.style.display = "";
+        });
+
+        // Ocultar/mostrar columnas según tengan data-coleccion="parejas"
+        columnas.forEach((col) => {
+          if (col.dataset.coleccion === "parejas") {
+            col.style.display = "";
+          } else {
+            col.style.display = "none";
+          }
+        });
+
+        // Ocultar secciones que quedaron sin columnas visibles
+        secciones.forEach((sec) => {
+          const tieneVisible = sec.querySelector(
+            '.col-md-4:not([style*="display: none"])'
+          );
+          sec.style.display = tieneVisible ? "" : "none";
+        });
+
+        if (updateURL) setURLParameter("filtro", filtro);
+        return;
+      }
+
+      // --- PAREJAS: mostrar solo productos con data-coleccion="parejas" ---
+      if (filtro === "parejas") {
+        // Mostrar todas las secciones
+        secciones.forEach((sec) => {
+          sec.style.display = "";
+        });
+
+        // Ocultar/mostrar columnas según tengan data-coleccion="parejas"
+        columnas.forEach((col) => {
+          if (col.dataset.coleccion === "parejas") {
+            col.style.display = "";
+          } else {
+            col.style.display = "none";
+          }
+        });
+
+        // Ocultar secciones que quedaron sin columnas visibles
+        secciones.forEach((sec) => {
+          const tieneVisible = sec.querySelector(
+            '.col-md-4:not([style*="display: none"])'
+          );
+          sec.style.display = tieneVisible ? "" : "none";
+        });
+
+        if (updateURL) setURLParameter("filtro", filtro);
+        return;
+      }
+
       // --- Resto de filtros existentes (por categoría / todos) ---
       columnas.forEach((col) => {
         // Restaurar todas las columnas al cambiar de "nuevoIngreso" a otro filtro
